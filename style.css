@@ -31,13 +31,6 @@ body {
     width: 100%;
 }
 
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-}
-
 .logo img {
     height: 50px;
     width: auto;
@@ -46,14 +39,7 @@ body {
     transition: 0.3s ease;
 }
 
-.logo img:hover {
-    filter: drop-shadow(0 0 20px rgba(62, 198, 184, 0.9));
-    transform: scale(1.05);
-}
-
 .hero {
-  margin: 0;
-  padding: 30px 15px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -73,20 +59,16 @@ body {
   width: 200%;
   height: 200%;
   background: radial-gradient(circle, rgba(62,198,184,0.1) 0%, transparent 70%);
-  z-index: 0;
 }
 
 .hero-text {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .hero h1 {
   font-family: 'LemonMilk', sans-serif;
-  font-size: 2.1rem; /* Reduzi de 2.5rem para 2.1rem */
+  font-size: 2.1rem;
   text-transform: uppercase;
   margin-bottom: 10px;
   letter-spacing: 2px;
@@ -95,7 +77,6 @@ body {
 
 .hero p {
   color: #888;
-  font-weight: 300;
   margin-bottom: 25px;
 }
 
@@ -107,30 +88,27 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.2s; /* Um pouco mais rápido para parecer instantâneo */
+  transition: all 0.2s ease;
   border-radius: 8px;
-  outline: none;
+  position: relative;
+  z-index: 10;
 }
 
 .primary:hover, 
-.primary:active,
-.primary:focus {
+.primary:active {
   background: #3ec6b8 !important;
   color: #000 !important;
-  box-shadow: 0 0 25px rgba(62, 198, 184, 0.9) !important;
-  transform: scale(0.98); /* Dá uma sensação de botão sendo apertado */
+  box-shadow: 0 0 30px rgba(62, 198, 184, 1) !important;
+  transform: scale(0.95);
 }
 
 .divisor {
     width: 100%;
     height: 100px;
-    background-image: url('img/divisor-icon.png');
+    background: url('img/divisor-icon.png') no-repeat center;
     background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     margin: 40px 0;
     filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.5));
-    position: relative;
 }
 
 .grid {
@@ -138,7 +116,6 @@ body {
   grid-template-columns: 1fr;
   gap: 15px;
   padding: 20px;
-  margin-top: 20px;
 }
 
 .card {
@@ -146,20 +123,15 @@ body {
   padding: 20px;
   border-radius: 15px; 
   transition: 0.4s;
-  cursor: pointer;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
+  border: 1px solid rgba(62, 198, 184, 0.5);
+  box-shadow: 0 0 10px rgba(62, 198, 184, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(62, 198, 184, 0.5);
-  box-shadow: 0 0 10px rgba(62, 198, 184, 0.3);
 }
 
 .card:hover {
-  border-color: rgba(62, 198, 184, 1);
+  border-color: #3ec6b8;
   transform: translateY(-5px);
   box-shadow: 0 0 25px rgba(62, 198, 184, 0.8);
 }
@@ -169,24 +141,13 @@ body {
   height: 60px;
   object-fit: contain;
   margin-bottom: 15px;
-  filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.6));
 }
 
-.card h3 {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-}
-
-.card p {
-  font-size: 0.85rem;
-  color: #666;
-}
-
-@media (min-width: 768px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-  main { max-width: 800px; margin: auto; }
+.proibido {
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+    -webkit-touch-callout: none !important;
+    pointer-events: none !important;
 }
 
 @keyframes entradaBlur {
@@ -198,28 +159,13 @@ body {
   animation: entradaBlur 1s ease-out forwards;
 }
 
-.card-icon-placeholder {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed rgba(62, 198, 184, 0.5);
-    border-radius: 12px;
-    margin-bottom: 15px;
-    color: #3ec6b8;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(62, 198, 184, 0.8);
-}
-
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(10px);
     display: none;
     justify-content: center;
@@ -237,7 +183,6 @@ body {
     padding: 25px;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 0 30px rgba(62, 198, 184, 0.2);
 }
 
 .btn-download {
@@ -249,30 +194,13 @@ body {
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
-    margin: 10px 0 20px 0;
-    transition: 0.3s;
-}
-
-.btn-download:hover {
-    box-shadow: 0 0 15px rgba(62, 198, 184, 0.6);
-}
-
-.btn-fechar {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    color: #3ec6b8;
-    font-size: 2rem;
-    cursor: pointer;
+    margin: 20px 0;
 }
 
 .step-video {
     width: 100%;
     border-radius: 12px;
     border: 1px solid rgba(62, 198, 184, 0.4);
-    margin: 15px 0;
     background: #000;
 }
 
