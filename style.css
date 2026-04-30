@@ -250,3 +250,22 @@ body {
     -webkit-user-select: none !important;
     pointer-events: none !important;
 }
+
+.card-icon-placeholder {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(62, 198, 184, 0.5); /* Borda tracejada ciano */
+    border-radius: 12px;
+    margin-bottom: 15px;
+    color: #3ec6b8;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(62, 198, 184, 0.8);
+    /* Bloqueio de download também para o placeholder */
+    user-select: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
+}
