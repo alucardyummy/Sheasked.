@@ -25,6 +25,15 @@
 
   <div class="divisor" id="meu-divisor" style="display: none;"></div>
 
+  <section id="device-info" style="display: none; padding: 0 20px;">
+    <div class="config-box" style="border-color: rgba(62, 198, 184, 0.5); max-width: 600px; margin: 0 auto 20px auto;">
+        <h3 style="font-size: 0.9rem; margin-bottom: 10px;">Informações do meu celular</h3>
+        <p><b>Modelo:</b> Redmi Note 13 Pro 5G</p>
+        <p><b>Processador:</b> MediaTek Dimensity 7200 Ultra</p>
+        <p><b>RAM:</b> 12,0+6,0 GB</p>
+    </div>
+  </section>
+
   <section class="grid" id="guia-cards" style="display: none;">
     <div class="card efeito-entrada" onclick="abrirModal('modal-download')">
       <img src="img/download-icon.png" class="card-icon proibido" alt="Download">
@@ -59,7 +68,7 @@
     <div class="card efeito-entrada" onclick="abrirModal('modal-contêiner')">
       <div class="card-icon-placeholder">🖥️</div>
       <h3>Contêiner & Arquivos</h3>
-      <p>Como abrir a interface do Windows e gerenciar os arquivos</p>
+      <p style="text-align: center;">Como abrir a interface do Windows e gerenciar os arquivos</p>
     </div>
   </section>
 </main>
@@ -160,22 +169,35 @@
     <button onclick="fecharModal('modal-mods')" class="btn-fechar">×</button>
     <h2>Mods & WickedWhims</h2>
     
-    <p style="color: #3ec6b8; font-weight: bold;">1. Ativação Interna:</p>
+    <p style="color: #3ec6b8; font-weight: bold;">1. Onde encontrar Roupas e Cabelos (CC):</p>
+    <p style="font-size: 0.9rem; margin-bottom: 15px;">Pra mods de roupas/cabelos/detalhes de skin, pesquise no Pinterest ou no Patreon, recomendo o Pinterest pra ter uma gama melhor dos conteúdos desejados, normalmente os links linkados em imagens/videos no Pinterest, levam ao Tumblr/Patreon e la irá ter os aquivos pra download. O processo de "instalação" para o ts4 reconhecer é; extrair o arquivo caso venha zipado (.zip) e pegar os arquivos .packages e levar até a pasta Mods em Documents/Eletronic Arts/The Sims 4/Mods.</p>
+
+    <div class="divisor"></div>
+
+    <p style="color: #3ec6b8; font-weight: bold;">2. Ativação Interna:</p>
     <p>Vá em <b>Opções de Jogo > Outros</b> e ative:</p>
     <ul style="margin: 10px 20px; font-size: 0.9rem; color: #ccc;">
       <li>Habilitar Conteúdo Personalizado e Modificações</li>
       <li>Modificações de Script Permitidas</li>
     </ul>
+
+    <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="return false;" style="margin-top: 10px;">
+      <source src="video/optionsTS4-ativar.mp4" type="video/mp4">
+    </video>
+
     <p><i>Você deve reiniciar o jogo para os mods aparecerem.</i></p>
 
     <div class="divisor"></div>
 
-    <p style="color: #3ec6b8; font-weight: bold;">2. Instalando o WickedWhims:</p>
+    <p style="color: #3ec6b8; font-weight: bold;">3. Instalando o WickedWhims:</p>
     <p>Mova os arquivos <b>.package</b> e <b>.ts4script</b> (sem subpastas) para:</p>
     <code style="display: block; background: #111; padding: 10px; margin: 10px 0; font-size: 0.8rem; border-radius: 8px;">
       C:/Users/Container/Documents/Electronic Arts/The Sims 4/Mods
     </code>
     
+    <p><b>Tradução WickedWhims (Opcional):</b></p>
+    <a href="https://wicked.cc/translations/mutsvki/traducao-pt-br-wickedwhims-v180a-e-v182/" target="_blank" class="btn-download" style="margin-top: 10px;">Baixar Tradução Wicked</a>
+
     <p><b>Dica do Aten:</b> Organize seus mods no Android em uma pasta chamada <b>'SIMS 4 MODS'</b> usando o Cx Explorador. No contêiner, fica muito mais fácil de mover tudo de uma vez do Drive D: para a pasta Mods.</p>
 
     <p style="background: rgba(255, 82, 82, 0.1); padding: 10px; border-radius: 8px; font-size: 0.9rem; border: 1px solid #ff5252; color: #ff5252; margin-top: 15px;">
@@ -192,13 +214,14 @@
     <p>Mova o language-changer para o Drive D: (onde está o exe). Caso dê erro de permissão, tente rodar ele a partir do Drive C:.</p>
     <a href="https://www.mediafire.com/file/m7pd9cqpn199m2s/language-changer.exe/file" target="_blank" class="btn-download">Baixar Language Changer</a>
     
-    <p><b>WickedWhims (Opcional):</b></p>
-    <a href="https://wicked.cc/translations/mutsvki/traducao-pt-br-wickedwhims-v180a-e-v182/" target="_blank" class="btn-download">Baixar Tradução Wicked</a>
-
-    <h3>Como mover o .exe da tradução padrão para onde está o executável do TS4:</h3>
     <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="return false;">
       <source src="video/TraducaoPomposa.mp4" type="video/mp4">
     </video>
+
+    <p style="color: #888; font-style: italic; font-size: 0.85rem; margin-top: 20px;">
+      <b>Importante:</b><br>
+      Alguns mods do WickedWhims precisam de tradução própria além da 'padrão' do mutsvki. Por isso, se ao entrar dentro do TS4 e algum mod que você baixar estiver mostrando as letras em inglês para você, você pode consertar isso buscando a tradução no google. Normalmente, a tradução vem no formato .zip é só extrair através do ZArchiver e, dentro do contêiner do TS4, copiar o .packages da tradução e colar a tradução na pasta Mods em Documents/Eletronic Arts/The Sims 4/Mods
+    </p>
   </div>
 </div>
 
@@ -232,14 +255,17 @@
   const divisor = document.getElementById('meu-divisor');
   const topbar = document.getElementById('minha-topbar');
   const hero = document.querySelector('.hero');
+  const deviceInfo = document.getElementById('device-info');
 
   function mostrarConteudo() {
     hero.style.display = 'none';
     topbar.style.display = 'flex';
     divisor.style.display = 'block';
+    deviceInfo.style.display = 'block';
     cards.style.display = 'grid';
     topbar.classList.add('efeito-entrada');
     divisor.classList.add('efeito-entrada');
+    deviceInfo.classList.add('efeito-entrada');
     cards.classList.add('efeito-entrada');
   }
 
