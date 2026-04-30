@@ -39,7 +39,7 @@
     </div>
     
     <div class="card efeito-entrada" onclick="abrirModal('modal-configuracao')">
-      <div class="card-icon-placeholder">⚙️</div>
+      <img src="img/problemas-icon.png" class="card-icon proibido" alt="Configuração">
       <h3>Configuração</h3>
       <p>Ajustes de Wine e GPU para mais FPS</p>
     </div>
@@ -85,10 +85,12 @@
     <p>Instale o 1DM para gerenciar o download do jogo base sem erros.</p>
     <a href="https://play.google.com/store/apps/details?id=idm.internet.download.manager" target="_blank" class="btn-download">Baixar 1DM</a>
    
-    <h4>Tutorial do 1DM:</h3>
+    <h3>Tutorial do 1DM:</h3>
     <video class="step-video" controls playsinline>
       <source src="video/1DM-demonstrativo.mp4" type="video/mp4">
     </video>
+
+    <div class="divisor"></div>
     
     <p>O <b>Cx Explorador</b> é ótimo para organizar seus mods na memória do Android antes de movê-los.</p>
     <a href="https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer" target="_blank" class="btn-download">Baixar Cx Explorador</a>
@@ -179,7 +181,7 @@
     <p><b>WickedWhims:</b></p>
     <a href="https://wicked.cc/translations/mutsvki/traducao-pt-br-wickedwhims-v180a-e-v182/" target="_blank" class="btn-download">Baixar Tradução Wicked</a>
 
-    <h3>Como mover o .exe da tradução padrão para onde está o executável do TS4:</h2>
+    <h3>Como mover o .exe da tradução padrão para onde está o executável do TS4:</h3>
     <video class="step-video" controls playsinline>
       <source src="video/TraducaoPomposa.mp4" type="video/mp4">
     </video>
@@ -190,7 +192,18 @@
   <div class="modal-content efeito-entrada">
     <button onclick="fecharModal('modal-contêiner')" class="btn-fechar">×</button>
     <h2>🖥️ Abrir o Contêiner</h2>
-    <p>Para gerenciar arquivos, clique com dois dedos para abrir o menu de contexto (botão direito) e use <b>Cortar/Colar</b>.</p>
+    <p>Para gerenciar arquivos e mods, você precisa entrar no ambiente desktop do Wine.</p>
+    
+    <div class="config-box">
+      <p>1. Clique nos <b>três pontinhos (...)</b> do jogo.</p>
+      <p>2. Selecione <b>"Config. jogos PC"</b>.</p>
+      <p>3. Clique em <b>"Abrir desktop do contêiner"</b>.</p>
+    </div>
+    <img src="img/como-entrar-no-conteiner.png" class="step-img" alt="Tutorial Contêiner">
+
+    <div class="divisor" style="height: 40px; margin: 20px 0;"></div>
+
+    <p>Já dentro da interface, clique com dois dedos para abrir o menu de contexto (botão direito) e use <b>Cortar/Colar</b>.</p>
     <video class="step-video" controls playsinline>
       <source src="video/SELECIONAR-ARQUIVOS-demonstrativo.mp4" type="video/mp4">
     </video>
