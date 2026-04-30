@@ -44,7 +44,7 @@
       <p>Ajustes de Wine e GPU para mais FPS</p>
     </div>
     
-    <div class="card efeito-entrada">
+    <div class="card efeito-entrada" onclick="abrirModal('modal-mods')">
       <img src="img/mods-icon.png" class="card-icon proibido">
       <h3>Mods</h3>
       <p>Como instalar WickedWhims e CC</p>
@@ -75,11 +75,13 @@
 
     <p>Primeiro, instale o 1DM. Ele é essencial para baixar o jogo base sem erros e com velocidade máxima.</p>
     <a href="https://play.google.com/store/apps/details?id=idm.internet.download.manager" target="_blank" class="btn-download">Baixar 1DM</a>
+    
+    <p>Também recomendo o <b>Cx Explorador de Arquivos</b> para organizar seus mods no Android antes de mover para o emulador.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer" target="_blank" class="btn-download">Baixar Cx Explorador</a>
+
     <h3>Como configurar o 1DM:</h3>
-    <p>Assista ao vídeo abaixo para saber exatamente onde clicar após a instalação:</p>
     <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="return false;">
       <source src="video/1DM-demonstrativo.mp4" type="video/mp4">
-      Seu navegador não suporta o vídeo.
     </video>
   </div>
 </div>
@@ -88,25 +90,26 @@
   <div class="modal-content efeito-entrada">
     <button onclick="fecharModal('modal-instalacao')" class="btn-fechar">×</button>
     <h2>Instalação do Jogo</h2>
-    <p>1. Primeiro, instale o <b>ZArchiver</b> e use-o para extrair o arquivo .zip na sua pasta de Downloads.</p>
-    <a href="https://play.google.com/store/apps/details?id=ru.zdevs.zarchiver" target="_blank" class="btn-download">Baixar ZArchiver na Play Store</a>
-    <p><b>Tutorial de Extração:</b></p>
-    <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="false">
-      <source src="video/ExtracaoTutorial-demonstrativo.mp4" type="video/mp4">
-    </video>
+    <p>1. Primeiro, instale o <b>ZArchiver</b> e extraia o .zip na sua pasta de Downloads.</p>
+    <a href="https://play.google.com/store/apps/details?id=ru.zdevs.zarchiver" target="_blank" class="btn-download">Baixar ZArchiver</a>
+    
     <div class="divisor"></div>
-    <p>2. Baixe e instale o emulador <b>GameHub</b> pelo site oficial:</p>
+    <p>2. Baixe o emulador <b>GameHub</b> oficial:</p>
     <a href="https://gamehub.xiaoji.com/" target="_blank" class="btn-download">Baixar GameHub Oficial</a>
-    <p>3. No app, vá em <b>"Meu"</b> > <b>"Import Games"</b> e selecione <b>"Jogo PC"</b>.</p>
-    <p>4. Selecione o executável (.exe) neste caminho:</p>
+    
+    <p>3. No app, vá em <b>"Meu"</b> > <b>"Import Games"</b> > <b>"Jogo PC"</b> e selecione o executável:</p>
     <code style="color: #3ec6b8; font-size: 0.75rem; display: block; margin: 15px 0; background: #111; padding: 10px; border-radius: 8px; border: 1px solid rgba(62, 198, 184, 0.2);">
-      The Sims 4 Base Deluxe / The Sims 4 / Game / Bin / TS4_DX9_x64.exe
+      D:/The Sims 4 Base Deluxe / The Sims 4 / Game / Bin / TS4_DX9_x64.exe
     </code>
+
+    <p style="background: rgba(255, 193, 7, 0.1); padding: 10px; border-radius: 8px; font-size: 0.9rem; border: 1px solid #ffc107; color: #ffc107; margin: 15px 0;">
+      <b>PASSO VITAL:</b> Abra o jogo pela primeira vez até chegar no menu principal. Isso criará a pasta "Documents" no Drive C: do emulador. Sem isso, você não achará a pasta Mods!
+    </p>
+
     <p><b>Tutorial GameHub:</b></p>
     <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="return false;">
       <source src="video/GAMEHUB-demonstrativo.mp4" type="video/mp4">
     </video>
-    <p><i>Dica: Se não encontrar a pasta, verifique se a extração terminou corretamente.</i></p>
   </div>
 </div>
 
@@ -114,19 +117,50 @@
   <div class="modal-content efeito-entrada">
     <button onclick="fecharModal('modal-configuracao')" class="btn-fechar">×</button>
     <h2>⚙️ Ajustes de FPS</h2>
-    <p>Siga estas configs para o jogo rodar liso no seu Android:</p>
-    
-    <div class="config-box" style="background: #111; padding: 15px; border-radius: 12px; border: 1px solid #333; margin: 15px 0;">
-        <p><b>Geral:</b> Resolução em <span style="color: #3ec6b8;">960x544</span></p>
+    <div class="config-box">
+        <p><b>Resolução:</b> <span style="color: #3ec6b8;">960x544</span></p>
         <p><b>Wine:</b> <span style="color: #3ec6b8;">wine9.5-x64-2</span></p>
         <p><b>DXVK:</b> <span style="color: #3ec6b8;">dxvk-1.7.2</span></p>
         <p><b>CPU:</b> <span style="color: #3ec6b8;">box64-0.39</span></p>
     </div>
-
-    <p><b>Tutorial de Configuração:</b></p>
-    <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="return false;">
+    <p><b>Dica de Performance:</b> No menu interno (deslize o dedo), ative a <b>Super Resolução</b> e coloque o <b>Limite de FPS em 65</b>.</p>
+    <video class="step-video" controls playsinline>
       <source src="video/ConfigsInternasGamehub-demonstrativo.mp4" type="video/mp4">
     </video>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-mods">
+  <div class="modal-content efeito-entrada">
+    <button onclick="fecharModal('modal-mods')" class="btn-fechar">×</button>
+    <h2>Mods & WickedWhims</h2>
+    
+    <p style="color: #3ec6b8; font-weight: bold;">1. Ativar no Jogo (OBRIGATÓRIO):</p>
+    <p>No menu do TS4, vá em <b>Opções de Jogo > Outros</b> e marque:</p>
+    <ul style="margin: 10px 20px; font-size: 0.9rem; color: #ccc;">
+      <li>Habilitar Conteúdo Personalizado e Modificações</li>
+      <li>Modificações de Script Permitidas</li>
+    </ul>
+    <p><i>Reinicie o jogo após marcar essas caixas!</i></p>
+
+    <div class="divisor"></div>
+
+    <p style="color: #3ec6b8; font-weight: bold;">2. Como instalar o WickedWhims:</p>
+    <p>Extraia o download e mova os arquivos <b>.package</b> e <b>.ts4script</b> para:</p>
+    <code style="display: block; background: #111; padding: 10px; margin: 10px 0; font-size: 0.8rem; border-radius: 8px;">
+      C:/Users/Container/Documents/Electronic Arts/The Sims 4/Mods
+    </code>
+    
+    <p><b>Sobre o WickedWhims:</b> Este mod adiciona mecânicas realistas e adultas ao jogo. Ele funciona através de animações que você também precisa baixar e colocar na pasta Mods.</p>
+
+    <div class="divisor"></div>
+
+    <p style="color: #3ec6b8; font-weight: bold;">Dica de Organização:</p>
+    <p>Crie uma pasta <b>'SIMS 4 MODS'</b> no seu Android e organize tudo lá pelo Cx Explorador. No Contêiner, basta ir em <b>D:</b> e mover tudo de uma vez.</p>
+
+    <p style="background: rgba(255, 82, 82, 0.1); padding: 10px; border-radius: 8px; font-size: 0.9rem; border: 1px solid #ff5252; color: #ff5252; margin-top: 15px;">
+      <b>Fix de Bugs:</b> Se o jogo bugar, apague o arquivo <b>localthumbcache.package</b> na pasta The Sims 4 em Documents.
+    </p>
   </div>
 </div>
 
@@ -135,15 +169,13 @@
     <button onclick="fecharModal('modal-traducoes')" class="btn-fechar">×</button>
     <h2>PT-BR • Tradução</h2>
     <p><b>1. Traduzir o Jogo Base:</b></p>
-    <p>Baixe o Language Changer e coloque na pasta Bin do jogo (onde fica o .exe).</p>
+    <p>Mova o <b>language-changer.exe</b> para a pasta Bin do jogo (Drive D:). Se ele não abrir, tente copiar para o <b>Drive C:</b> antes de executar.</p>
     <a href="https://www.mediafire.com/file/m7pd9cqpn199m2s/language-changer.exe/file" target="_blank" class="btn-download">Baixar Language Changer</a>
     
     <p><b>2. Traduzir o WickedWhims:</b></p>
-    <p>Baixe o arquivo .package e jogue direto na pasta Mods.</p>
     <a href="https://wicked.cc/translations/mutsvki/traducao-pt-br-wickedwhims-v180a-e-v182/" target="_blank" class="btn-download">Baixar Tradução Wicked</a>
 
-    <p><b>Tutorial de Tradução Padrão do TS4:</b></p>
-    <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="return false;">
+    <video class="step-video" controls playsinline>
       <source src="video/TraducaoPomposa.mp4" type="video/mp4">
     </video>
   </div>
@@ -152,30 +184,11 @@
 <div class="modal-overlay" id="modal-contêiner">
   <div class="modal-content efeito-entrada">
     <button onclick="fecharModal('modal-contêiner')" class="btn-fechar">×</button>
-    <h2>🖥️ Abrir o Contêiner</h2>
-    <p>O contêiner é onde a mágica acontece! Siga os passos na imagem abaixo para abrir a interface do Windows no emulador:</p>
-    
-    <img src="img/passo-a-passo-contêiner.png" class="step-img" style="width: 100%; border-radius: 12px; margin: 15px 0; border: 1px solid #333;" alt="Passo a passo para abrir o contêiner">
-
-    <ol style="margin-left: 20px; color: #ccc;">
-      <li>Clique nos <span style="color: #3ec6b8;">três pontinhos (1)</span> ao lado de "Ver detalhes".</li>
-      <li>Selecione <span style="color: #3ec6b8;">"Config. jogos PC" (2)</span>.</li>
-      <li>Clique em <span style="color: #3ec6b8;">"Abrir desktop do contêiner" (3)</span>.</li>
-    </ol>
-
-    <div class="divisor" style="height: 50px; margin: 25px 0;"></div>
-
-    <h3>Como Selecionar Vários Arquivos</h3>
-    <p>Para agilizar a movimentação de mods (.packages), use este truque no gerenciador de arquivos do contêiner:</p>
-    
-    <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="return false;">
+    <h2>🖥️ Gerenciar Arquivos</h2>
+    <p>No gerenciador do contêiner, use o truque de arrastar para selecionar vários arquivos e clique com dois dedos para <b>"Cortar"</b> e mover os mods para a pasta oficial.</p>
+    <video class="step-video" controls playsinline>
       <source src="video/SELECIONAR-ARQUIVOS-demonstrativo.mp4" type="video/mp4">
-      Seu navegador não suporta o vídeo.
     </video>
-
-    <p style="background: rgba(62, 198, 184, 0.1); padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.9rem;">
-      <b>Dica:</b> No gerenciador, pressione com o dedo e arraste a seta sobre os arquivos para selecioná-los. Depois, clique com dois dedos e use "Cortar" para mover tudo de uma vez para a pasta Mods.
-    </p>
   </div>
 </div>
 
