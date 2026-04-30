@@ -56,10 +56,10 @@
       <p>Jogo e Mods totalmente em Português</p>
     </div>
     
-    <div class="card efeito-entrada">
-      <img src="img/problemas-icon.png" class="card-icon proibido">
-      <h3>Problemas</h3>
-      <p>Corrigir bugs comuns</p>
+    <div class="card efeito-entrada" onclick="abrirModal('modal-contêiner')">
+      <div class="card-icon-placeholder">🖥️</div>
+      <h3>Contêiner & Arquivos</h3>
+      <p>Como abrir a interface do Windows e gerenciar os arquivos</p>
     </div>
   </section>
 </main>
@@ -144,8 +144,38 @@
 
     <p><b>Tutorial de Tradução:</b></p>
     <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="return false;">
-      <source src="video/TRADUCAO-demonstrativo.mp4" type="video/mp4">
+      <source src="video/TraducaoPomposa.mp4" type="video/mp4">
     </video>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-contêiner">
+  <div class="modal-content efeito-entrada">
+    <button onclick="fecharModal('modal-contêiner')" class="btn-fechar">×</button>
+    <h2>🖥️ Abrir o Contêiner</h2>
+    <p>O contêiner é onde a mágica acontece! Siga os passos na imagem abaixo para abrir a interface do Windows no emulador:</p>
+    
+    <img src="img/passo-a-passo-contêiner.png" class="step-img" style="width: 100%; border-radius: 12px; margin: 15px 0; border: 1px solid #333;" alt="Passo a passo para abrir o contêiner">
+
+    <ol style="margin-left: 20px; color: #ccc;">
+      <li>Clique nos <span style="color: #3ec6b8;">três pontinhos (1)</span> ao lado de "Ver detalhes".</li>
+      <li>Selecione <span style="color: #3ec6b8;">"Config. jogos PC" (2)</span>.</li>
+      <li>Clique em <span style="color: #3ec6b8;">"Abrir desktop do contêiner" (3)</span>.</li>
+    </ol>
+
+    <div class="divisor" style="height: 50px; margin: 25px 0;"></div>
+
+    <h3>Como Selecionar Vários Arquivos</h3>
+    <p>Para agilizar a movimentação de mods (.packages), use este truque no gerenciador de arquivos do contêiner:</p>
+    
+    <video class="step-video" controls playsinline controlsList="nodownload" oncontextmenu="return false;">
+      <source src="video/SELECIONAR-ARQUIVOS-demonstrativo.mp4" type="video/mp4">
+      Seu navegador não suporta o vídeo.
+    </video>
+
+    <p style="background: rgba(62, 198, 184, 0.1); padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.9rem;">
+      <b>Dica:</b> No gerenciador, pressione com o dedo e arraste a seta sobre os arquivos para selecioná-los. Depois, clique com dois dedos e use "Cortar" para mover tudo de uma vez para a pasta Mods.
+    </p>
   </div>
 </div>
 
