@@ -125,12 +125,14 @@ body {
 }
 
 .card {
-  background: #000;
+  background: rgba(10, 10, 10, 0.5) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 15px; 
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(62, 198, 184, 0.5);
-  box-shadow: 0 0 10px rgba(62, 198, 184, 0.3);
+  border: 1px solid rgba(62, 198, 184, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -218,7 +220,9 @@ body {
 }
 
 .modal-content {
-    background: rgba(10, 10, 10, 0.8); /* Fundo semi-transparente pro blur aparecer */
+    background: rgba(15, 15, 15, 0.7) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     width: 90%;
     max-width: 500px;
     max-height: 80vh;
@@ -227,7 +231,6 @@ body {
     padding: 25px;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
 .btn-download {
@@ -283,8 +286,9 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px); }
 }
 
 .config-box {
-  background: rgba(20, 20, 20, 0.6);
-  backdrop-filter: blur(5px);
+  background: rgba(20, 20, 20, 0.4) !important; 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 15px;
   border-radius: 12px;
   border: 1px solid rgba(62, 198, 184, 0.3);
