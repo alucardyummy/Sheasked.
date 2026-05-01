@@ -25,6 +25,23 @@ body {
   color: #fff;
   line-height: 1.6;
   overflow-x: hidden;
+  cursor: none;
+}
+
+#custom-cursor {
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background: rgba(62, 198, 184, 0.4);
+  border: 1.5px solid #3ec6b8;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .topbar {
@@ -182,23 +199,24 @@ body {
 
 .poeira-cosmica {
   position: fixed;
-  width: 1px;
-  height: 1px;
   background-color: #3ec6b8;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
-  box-shadow: 0 0 4px #3ec6b8, 0 0 8px #3ec6b8;
-  animation: dispersar 1.2s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+  z-index: 99998;
+  box-shadow: 0 0 3px #3ec6b8;
+  animation: cairEsumir 1s cubic-bezier(0.1, 0.5, 0.5, 1) forwards;
 }
 
-@keyframes dispersar {
+@keyframes cairEsumir {
   0% {
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) scale(1.5);
+    opacity: 1;
+  }
+  30% {
     opacity: 1;
   }
   100% {
-    transform: translate(var(--x), var(--y)) scale(0);
+    transform: translate(var(--x), calc(var(--y) + 150px)) scale(0);
     opacity: 0;
   }
 }
