@@ -338,7 +338,7 @@
     videos.forEach(v => v.pause());
   }
 
-  {
+  function criarPoeiraCosmica() {
     const quantidade = 25;
     const cores = ['#3ec6b8', '#ffffff', '#a557ff', '#00ffff'];
 
@@ -370,8 +370,9 @@
       setTimeout(() => { particula.remove(); }, 1200);
     }
   }
-
+  
   muteBtn.addEventListener('click', () => {
+    
     bgMusic.muted = !bgMusic.muted;
     muteBtn.innerHTML = bgMusic.muted ? '🔇' : '🔊';
     
