@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     .fade-out {
       opacity: 0;
       filter: blur(20px);
-      transition: 0.5s ease;
+      transition: opacity 0.5s ease, filter 0.5s ease;
       pointer-events: none;
     }
   </style>
@@ -311,14 +311,23 @@
   });
 
   function abrirModal(id) {
-    document.getElementById(id).style.display = 'flex';
+    const modal = document.getElementById(id);
+    modal.style.display = 'flex';
+    modal.style.opacity = '1';
+    modal.style.filter = 'blur(0px)';
   }
 
   function fecharModal(id) {
     const modal = document.getElementById(id);
-    modal.style.display = 'none';
-    const videos = modal.querySelectorAll('video');
-    videos.forEach(v => v.pause());
+    modal.style.transition = 'opacity 0.4s ease, filter 0.4s ease';
+    modal.style.opacity = '0';
+    modal.style.filter = 'blur(10px)';
+    
+    setTimeout(() => {
+      modal.style.display = 'none';
+      const videos = modal.querySelectorAll('video');
+      videos.forEach(v => v.pause());
+    }, 400);
   }
 
   function criarPoeiraCosmica(posX, posY, explosao = true) {
@@ -362,14 +371,21 @@
     const y = e.touches ? e.touches[0].clientY : e.clientY;
     const mostrarBolinha = Math.random() > 0.5;
 
-    cursor.style.transform = `translate(${x}px, ${y}px)`;
+    cursor.style.left = `${x}px`;
+    cursor.style.top = `${y}px`;
+    cursor.style.transform = `translate(-50%, -50%) scale(0.2)`;
     
-    cursor.style.opacity = "1";
-    setTimeout(() => { cursor.style.opacity = "0"; }, 250);
+    requestAnimationFrame(() => {
+        cursor.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s';
+        cursor.style.transform = `translate(-50%, -50%) scale(1)`;
+        cursor.style.opacity = "1";
+    });
 
     if (mostrarBolinha) {
+      setTimeout(() => { cursor.style.opacity = "0"; }, 250);
       criarPoeiraCosmica(x, y, true);
     } else {
+      setTimeout(() => { cursor.style.opacity = "0"; }, 250);
       criarPoeiraCosmica(x, y, false);
     }
   };
