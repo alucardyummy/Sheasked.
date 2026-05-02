@@ -34,42 +34,54 @@ pointer-events: none;
         <p><b>RAM:</b> 12,0+6,0 GB</p>  
       <img src="nhaw.gif" class="proibido" draggable="false" oncontextmenu="return false;" style="width: 100%; height: auto; margin-top: 15px; border-radius: 8px; border: 1px solid rgba(62, 198, 184, 0.4); box-shadow: 0 0 15px rgba(62, 198, 184, 0.5); display: block; object-fit: cover;">  
     </div>  
-  </section>    <section class="grid" id="guia-cards" style="display: none; opacity: 0;">  
+  </section>    
+
+ <section class="grid" id="guia-cards" style="display: none; opacity: 0;">  
+
     <div class="card" onclick="abrirModal('modal-download', this)">  
+      <div class="card-glass"></div>
       <img src="img/download-icon.png" class="card-icon proibido" alt="Download">  
       <h3>Download</h3>  
       <p>Baixar jogo + apps necessários</p>  
-    </div>  <div class="card" onclick="abrirModal('modal-instalacao', this)">  
-  <img src="img/instalacao-icon.png" class="card-icon proibido" alt="Instalação">  
-  <h3>Instalação</h3>  
-  <p>Configurar GameHub corretamente</p>  
-</div>  
-  
-<div class="card" onclick="abrirModal('modal-configuracao', this)">  
-  <img src="img/problemas-icon.png" class="card-icon proibido" alt="Configuração">  
-  <h3>Configuração</h3>  
-  <p>Ajustes de Wine e GPU para mais FPS</p>  
-</div>  
-  
-<div class="card" onclick="abrirModal('modal-mods', this)">  
-  <img src="img/mods-icon.png" class="card-icon proibido">  
-  <h3>Mods</h3>  
-  <p>Como instalar WickedWhims e CC</p>  
-</div>  
+    </div>
 
- <div class="card" onclick="abrirModal('modal-traducoes', this)">  
-  <img src="img/mimi.gif" class="card-icon proibido" alt="Tradução">  
-  <h3>Tradução TS4</h3>  
-  <p>Jogo e Mods totalmente em Português</p>  
-</div>  
+    <div class="card" onclick="abrirModal('modal-instalacao', this)">  
+      <div class="card-glass"></div>
+      <img src="img/instalacao-icon.png" class="card-icon proibido" alt="Instalação">  
+      <h3>Instalação</h3>  
+      <p>Configurar GameHub corretamente</p>  
+    </div>  
   
-<div class="card" onclick="abrirModal('modal-contêiner', this)">  
-  <img src="img/conteiner-wow.png" class="card-icon proibido" alt="Contêiner">  
-  <h3>Contêiner & Arquivos</h3>  
-  <p style="text-align: center;">Como abrir a interface do Windows e gerenciar os arquivos</p>  
-</div>
+    <div class="card" onclick="abrirModal('modal-configuracao', this)">  
+      <div class="card-glass"></div>
+      <img src="img/problemas-icon.png" class="card-icon proibido" alt="Configuração">  
+      <h3>Configuração</h3>  
+      <p>Ajustes de Wine e GPU para mais FPS</p>  
+    </div>  
+  
+    <div class="card" onclick="abrirModal('modal-mods', this)">  
+      <div class="card-glass"></div>
+      <img src="img/mods-icon.png" class="card-icon proibido">  
+      <h3>Mods</h3>  
+      <p>Como instalar WickedWhims e CC</p>  
+    </div>  
 
-  </section>  
+    <div class="card" onclick="abrirModal('modal-traducoes', this)">  
+      <div class="card-glass"></div>
+      <img src="img/mimi.gif" class="card-icon proibido" alt="Tradução">  
+      <h3>Tradução TS4</h3>  
+      <p>Jogo e Mods totalmente em Português</p>  
+    </div>  
+  
+    <div class="card" onclick="abrirModal('modal-contêiner', this)">  
+      <div class="card-glass"></div>
+      <img src="img/conteiner-wow.png" class="card-icon proibido" alt="Contêiner">  
+      <h3>Contêiner & Arquivos</h3>  
+      <p>Interface do Windows e arquivos</p>  
+    </div>
+
+ </section>
+ 
 </main>  <div class="modal-overlay" id="modal-download">  
   <div class="modal-content efeito-entrada">  
     <button onclick="fecharModal('modal-download')" class="btn-fechar">×</button>  
