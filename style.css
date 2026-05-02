@@ -392,21 +392,19 @@ margin-bottom: 10px;
 filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.5));
 }
 
-.btn-fechar {
-position: absolute;
-top: 15px;
-right: 15px;
-background: none;
-border: none;
-color: #3ec6b8;
-font-size: 1.8rem;
-cursor: pointer;
-line-height: 1;
-z-index: 10;
+.btn-fechar, 
+#mute-control,
+.btn-fechar *, 
+#mute-control * {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
-.btn-fechar:active {
-transform: scale(0.8);
+.btn-fechar:active, 
+#mute-control:active {
+    background-color: transparent !important;
 }
 
 .config-box {
