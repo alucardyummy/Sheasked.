@@ -151,7 +151,7 @@ body {
 }
 
 .card {
-  background: rgba(25, 25, 25, 0.7) !important;
+  background: rgba(25, 25, 25, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   
@@ -166,19 +166,23 @@ body {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  will-change: transform;
+  
+  /* Correção de Glitches e Renderização */
+  will-change: transform, backdrop-filter;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .card:hover {
-  background: rgba(62, 198, 184, 0.15) !important;
+  background: rgba(62, 198, 184, 0.15);
   border-color: rgba(62, 198, 184, 0.6);
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) translateZ(0);
 }
 
 .card:active {
-  transform: scale(0.92) !important;
-  background: rgba(62, 198, 184, 0.1) !important;
-  transition: transform 0.05s ease-in;
+  transform: scale(0.92) translateZ(0);
+  background: rgba(62, 198, 184, 0.1);
 }
 
 .card-icon {
@@ -263,9 +267,9 @@ body {
 }
 
 .modal-content {
-    background: linear-gradient(160deg, rgba(30, 30, 30, 0.8), rgba(10, 10, 10, 0.9)) !important;
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    background: linear-gradient(160deg, rgba(30, 30, 30, 0.8), rgba(10, 10, 10, 0.9));
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
     width: 90%;
     max-width: 500px;
     max-height: 80vh;
@@ -275,6 +279,10 @@ body {
     overflow-y: auto;
     position: relative;
     box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+    
+    /* Prevenção de flicker em modais */
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
 }
 
 .btn-download {
@@ -334,7 +342,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px); }
 }
 
 .config-box {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   
@@ -344,6 +352,7 @@ video::-webkit-media-controls-panel { width: calc(100% + 30px); }
   margin: 15px 0;
   
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transform: translateZ(0);
 }
 
 .config-box p {
