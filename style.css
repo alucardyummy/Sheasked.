@@ -203,7 +203,9 @@ transform: translateY(-8px);
 }
 
 .card:active {
-transform: scale(0.92);
+  transform: scale(0.92) !important;
+  background: rgba(62, 198, 184, 0.1) !important;
+  transition: transform 0.05s ease-in;
 }
 
 .card-icon {
