@@ -215,6 +215,40 @@ object-fit: contain;
 margin-bottom: 15px;
 }
 
+.sua-caixa {
+-webkit-tap-highlight-color: transparent;
+outline: none;
+user-select: none;
+
+transition: transform 0.05s ease-out;   
+cursor: pointer;
+
+}
+
+.sua-caixa:active {
+
+transform: scale(0.92);
+transition: transform 0.02s ease-in;
+
+}
+
+.interface-blur {
+opacity: 0;
+backdrop-filter: blur(0px);
+-webkit-backdrop-filter: blur(0px);
+pointer-events: none;
+
+transition: opacity 0.1s ease-out, backdrop-filter 0.1s ease-out, -webkit-backdrop-filter 0.1s ease-out;
+
+}
+
+.interface-blur.ativa {
+opacity: 1;
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+pointer-events: all;
+}
+
 .proibido {
 user-select: none !important;
 -webkit-user-drag: none !important;
