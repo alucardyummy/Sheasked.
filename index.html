@@ -6,20 +6,15 @@
   <title>Sims4AndroidBR</title>
   <link rel="stylesheet" href="style.css">
   <style>
-   body {
-      background-color: #0a0a0a !important;
+    body {
+      background-color: #0a0a0a;
       overscroll-behavior: none;
-   }
+    }
    
    .fade-out {
       opacity: 0;
       transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
-    }
-
-    body.modal-aberto::before {
-      filter: blur(8px) brightness(0.3);
-      transition: filter 0.4s ease;
     }
   </style>
 </head>
@@ -55,37 +50,37 @@
   </section>
 
   <section class="grid" id="guia-cards" style="display: none; opacity: 0;">
-    <div class="card" onclick="abrirModal('modal-download')" ontouchstart="">
+    <div class="card" onclick="abrirModal('modal-download')">
       <img src="img/download-icon.png" class="card-icon proibido" alt="Download">
       <h3>Download</h3>
       <p>Baixar jogo + apps necessários</p>
     </div>
 
-    <div class="card" onclick="abrirModal('modal-instalacao')" ontouchstart="">
+    <div class="card" onclick="abrirModal('modal-instalacao')">
       <img src="img/instalacao-icon.png" class="card-icon proibido" alt="Instalação">
       <h3>Instalação</h3>
       <p>Configurar GameHub corretamente</p>
     </div>
     
-    <div class="card" onclick="abrirModal('modal-configuracao')" ontouchstart="">
+    <div class="card" onclick="abrirModal('modal-configuracao')">
       <img src="img/problemas-icon.png" class="card-icon proibido" alt="Configuração">
       <h3>Configuração</h3>
       <p>Ajustes de Wine e GPU para mais FPS</p>
     </div>
     
-    <div class="card" onclick="abrirModal('modal-mods')" ontouchstart="">
+    <div class="card" onclick="abrirModal('modal-mods')">
       <img src="img/mods-icon.png" class="card-icon proibido">
       <h3>Mods</h3>
       <p>Como instalar WickedWhims e CC</p>
     </div>
 
-    <div class="card" onclick="abrirModal('modal-traducoes')" ontouchstart="">
+    <div class="card" onclick="abrirModal('modal-traducoes')">
       <div class="card-icon-placeholder">PT</div>
       <h3>Tradução TS4</h3>
       <p>Jogo e Mods totalmente em Português</p>
     </div>
     
-    <div class="card" onclick="abrirModal('modal-contêiner')" ontouchstart="">
+    <div class="card" onclick="abrirModal('modal-contêiner')">
       <div class="card-icon-placeholder">🖥️</div>
       <h3>Contêiner & Arquivos</h3>
       <p style="text-align: center;">Como abrir a interface do Windows e gerenciar os arquivos</p>
@@ -321,13 +316,11 @@
 
   function abrirModal(id) {
     document.getElementById(id).style.display = 'flex';
-    document.body.classList.add('modal-aberto');
   }
 
   function fecharModal(id) {
     const modal = document.getElementById(id);
     modal.style.display = 'none';
-    document.body.classList.remove('modal-aberto');
     const videos = modal.querySelectorAll('video');
     videos.forEach(v => v.pause());
   }
