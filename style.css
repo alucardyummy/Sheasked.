@@ -478,3 +478,16 @@ video {
         max-width: 100% !important;
     }
 }
+
+.blur-in { 
+    animation: blurIn 1.2s forwards; 
+}
+
+@keyframes blurIn {
+    0% { filter: blur(15px); opacity: 0; }
+    100% { filter: blur(0); opacity: 1; }
+}
+
+#custom-cursor {
+    display: block !important;
+}
