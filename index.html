@@ -385,9 +385,31 @@ document.addEventListener('DOMContentLoaded', () => {
 const woohoo = new Audio('audio/woohoo.mp3');
 const nhawGif = document.querySelector('img[src*="nhaw.gif"]');
 
+function criarUmCoracao() {
+    const coracao = document.createElement('div');
+    coracao.classList.add('heart-particle');
+    coracao.innerText = '💖';
+    
+    const randomLeft = Math.random() * 90 + 5;
+    const randomSize = Math.random() * 15 + 15;
+    
+    coracao.style.left = `${randomLeft}vw`;
+    coracao.style.fontSize = `${randomSize}px`;
+    coracao.style.color = 'rgba(255, 105, 180, 0.5)';
+
+    if (Math.random() < 0.25) {
+        coracao.classList.add('heart-explodir');
+        setTimeout(() => { coracao.remove(); }, 3700);
+    } else {
+        setTimeout(() => { coracao.remove(); }, 6000);
+    }
+    
+    document.body.appendChild(coracao);
+}
+
 if (nhawGif) {
     nhawGif.style.cursor = 'pointer';
-    nhawGif.style.transition = 'filter 2s ease, transform 0.1s';
+    nhawGif.style.transition = 'filter 2s ease, transform 0.2s ease';
 
     nhawGif.addEventListener('click', () => {
         gifClicks++;
@@ -403,7 +425,10 @@ if (nhawGif) {
             
             nhawGif.classList.add('woohoo-shake');
 
+            let criarCoracoes = setInterval(criarUmCoracao, 300);
+
             setTimeout(() => {
+                clearInterval(criarCoracoes);
                 nhawGif.classList.remove('woohoo-shake');
                 
                 let fadeout = setInterval(() => {
