@@ -652,38 +652,32 @@ body.modal-aberto {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #0a0a0a;
+    background: transparent;
+    backdrop-filter: blur(5px);
     z-index: 999999;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: opacity 0.8s ease, visibility 0.8s; 
 }
 
-.loader-container {
-    text-align: center;
+#loader-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .loader-gif {
-    width: 120px;
+    width: 80px;
     filter: drop-shadow(0 0 10px rgba(62, 198, 184, 0.8));
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .loader-text {
     font-family: 'Space Grotesk', sans-serif;
     color: #3ec6b8;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
     animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-}
-
-.fade-out-loader {
-    animation: sumirCortina 1.5s ease-in-out forwards !important;
 }
