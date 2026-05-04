@@ -315,23 +315,6 @@ function criarExplosaoFumaca(x, y) {
         setTimeout(() => p.remove(), 800);
     }
 }
-  
-    function criarPoeira(x, y) {
-    for (let i = 0; i < 8; i++) {
-        const p = document.createElement('div');
-        p.className = 'poeira-cosmica';
-        p.style.left = x + 'px';
-        p.style.top = y + 'px';
-        const ax = (Math.random() - 0.5) * 45;
-        const ay = (Math.random() - 0.5) * 45;
-        p.style.setProperty('--x', ax + 'px');
-        p.style.setProperty('--y', ay + 'px');
-        p.style.animation = 'brilharSuave 0.6s forwards';
-        
-        cursor.appendChild(p); 
-        setTimeout(() => p.remove(), 600);
-    }
-    }
 
     const muteBtn = document.createElement('button');
     muteBtn.id = 'mute-control';
@@ -415,16 +398,61 @@ function criarExplosaoFumaca(x, y) {
         if (navigator.share) try { await navigator.share({ title: 'Guia Sims 4 Android', url: window.location.href }); } catch (err) {}
     }
 
-    window.addEventListener('mousedown', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    
-    cursor.classList.remove('expandir-cursor');
-    void cursor.offsetWidth; 
-    cursor.classList.add('expandir-cursor');
+  window.addEventListener('mousedown', (e) => {
+    const sorteioCursor = Math.random(); 
 
-    criarPoeira(25, 25); 
-});
+    if (sorteioCursor < 0.5) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursor.classList.remove('expandir-cursor');
+        void cursor.offsetWidth;
+        cursor.classList.add('expandir-cursor');
+        
+        criarPoeiraNoCursor();
+    } else {
+        criarPoeiraLivre(e.clientX, e.clientY);
+    }
+})
+  
+function criarPoeiraNoCursor() {
+    for (let i = 0; i < 8; i++) {
+        const p = document.createElement('div');
+        p.className = 'poeira-cosmica';
+        p.style.position = 'absolute';
+        p.style.left = '25px'; 
+        p.style.top = '25px';
+        
+        const ax = (Math.random() - 0.5) * 45;
+        const ay = (Math.random() - 0.5) * 45;
+        
+        p.style.setProperty('--x', ax + 'px');
+        p.style.setProperty('--y', ay + 'px');
+        p.style.animation = 'brilharSuave 0.6s forwards';
+        
+        cursor.appendChild(p);
+        setTimeout(() => p.remove(), 600);
+    }
+}
+  
+function criarPoeiraLivre(x, y) {
+    for (let i = 0; i < 10; i++) {
+        const p = document.createElement('div');
+        p.className = 'poeira-cosmica';
+        p.style.position = 'fixed';
+        p.style.left = x + 'px';
+        p.style.top = y + 'px';
+        
+        const ax = (Math.random() - 0.5) * 120;
+        const ay = Math.random() * 150;
+        
+        p.style.setProperty('--x', ax + 'px');
+        p.style.setProperty('--y', ay + 'px');
+        p.style.animation = 'brilharSuave 0.8s ease-out forwards';
+        
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 800);
+    }
+}
   
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) bttElement.classList.add("show"); else bttElement.classList.remove("show"); });
