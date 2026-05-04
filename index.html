@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toast = document.getElementById('toast-notif');
 
     try {
-        if (navigator.share) {
+        if (!navigator.share) {
             await navigator.share({
                 title: 'Guia Sims 4 Android',
                 text: 'Dá uma olhada nesse guia! 😋🎮',
