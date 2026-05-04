@@ -218,234 +218,161 @@
         </div>
     </div>
 
-    <script>
-        const btn = document.getElementById('btn-comecar');
-        const cards = document.getElementById('guia-cards');
-        const divisor = document.getElementById('meu-divisor');
-        const topbar = document.getElementById('minha-topbar');
-        const hero = document.getElementById('hero-section');
-        const deviceInfo = document.getElementById('device-info');
-        const cursor = document.getElementById('custom-cursor');
-
-        const bgMusic = new Audio('audio/Mii Editor - Mii Maker (Wii U) Music.mp3');
-        bgMusic.loop = true;
-        bgMusic.volume = 0.05;
-
-        const muteBtn = document.createElement('button');
-        muteBtn.id = 'mute-control';
-        muteBtn.style.cssText = 'position:fixed; bottom:20px; right:20px; background:rgba(0,0,0,0.6); border:1px solid #3ec6b8; border-radius:50%; width:40px; height:40px; z-index:2000; display:none; justify-content:center; align-items:center; background-image: url("mandiueni.webp"); background-size: 80%; background-repeat: no-repeat; background-position: center; transition: 0.3s;';
-        document.body.appendChild(muteBtn);
-
-        btn.addEventListener('click', () => {
-            hero.classList.add('fade-out');
-            bgMusic.play().catch(() => {});
-            setTimeout(() => {
-                hero.style.display = 'none';
-                topbar.style.display = 'flex';
-                divisor.style.display = 'block';
-                deviceInfo.style.display = 'block';
-                cards.style.display = 'grid';
-                muteBtn.style.display = 'flex';
-                setTimeout(() => {
-                    topbar.style.opacity = "1";
-                    divisor.style.opacity = "1";
-                    deviceInfo.style.opacity = "1";
-                    cards.style.opacity = "1";
-                }, 50);
-            }, 500);
-        });
-
-     document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-            bgMusic.pause();
-        } else {
-            if (hero.style.display === 'none' && !bgMusic.muted) {
-                bgMusic.play().catch(() => {});
-            }
-        }
-    });
-     
-        function abrirModal(id, element) {
-    const modal = document.getElementById(id);
-    modal.style.display = 'flex';
-    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
-    
-    if(element) {
-        element.style.transform = 'scale(0.95)';
-        setTimeout(() => element.style.transform = '', 100);
-    }
-        }
-
-        function fecharModal(id) {
-    const modal = document.getElementById(id);
-    modal.style.display = 'none';
-    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-    
-    modal.querySelectorAll('video').forEach(v => v.pause());
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-});
-
-     async function copiarLink(elemento) {
-    const url = window.location.href;
-    const toast = document.getElementById('toast-notif');
-      
-    await navigator.clipboard.writeText(url);
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2500);
-
-    try {
-        if (navigator.share) {
-            await navigator.share({
-                title: 'Guia Sims 4 Android',
-                text: 'Dá uma olhada nesse guia! 😋🎮',
-                url: url
-            });
-        }
-    } catch (err) {
-        console.log('Compartilhamento cancelado');
-    }
-     }
-     
-     function criarPoeira(x, y) {
-            for (let i = 0; i < 8; i++) {
-                const p = document.createElement('div');
-                p.className = 'poeira-cosmica';
-                p.style.left = x + 'px'; p.style.top = y + 'px';
-                const ax = (Math.random() - 0.5) * 100;
-                const ay = (Math.random() - 0.5) * 100;
-                p.style.setProperty('--x', ax + 'px');
-                p.style.setProperty('--y', ay + 'px');
-                p.style.width = '2px'; p.style.height = '2px';
-                p.style.animation = 'brilharSuave 0.6s forwards';
-                document.body.appendChild(p);
-                setTimeout(() => p.remove(), 600);
-            }
-        }
-
-        window.addEventListener('mousedown', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            cursor.classList.remove('expandir-cursor');
-            void cursor.offsetWidth;
-            cursor.classList.add('expandir-cursor');
-            criarPoeira(e.clientX, e.clientY);
-        });
-
-        muteBtn.addEventListener('click', () => {
-            bgMusic.muted = !bgMusic.muted;
-            muteBtn.style.opacity = bgMusic.muted ? "0.5" : "1";
-        });
-
-     document.querySelectorAll('video').forEach(video => {
-    video.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-    });
-});
-    </script>
-
- <footer class="footer-acido">
+  <footer class="footer-acido">
     <button type="button" onclick="copiarLink(this)" class="share-link">
     🔗 Compartilhar Guia
     </button>
-  
     <p>Feito com ♡ (e muita gambiarra) para quem não tem um PC da NASA.</p>
     <p class="sub-footer">Sims4AndroidBR — 2026. Se travar, é culpa do seu celular.</p>
  </footer>
 
-  <button id="backToTop" class="back-to-top">↑</button>
+ <button id="backToTop" class="back-to-top">↑</button>
 
-<script>
+ <script>
     const bttElement = document.getElementById("backToTop");
     const targetCard = document.getElementById("ultimo-card");
+    const btn = document.getElementById('btn-comecar');
+    const cards = document.getElementById('guia-cards');
+    const divisor = document.getElementById('meu-divisor');
+    const topbar = document.getElementById('minha-topbar');
+    const hero = document.getElementById('hero-section');
+    const deviceInfo = document.getElementById('device-info');
+    const cursor = document.getElementById('custom-cursor');
 
-    const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                bttElement.classList.add("show");
-            } else {
-                bttElement.classList.remove("show");
-            }
-        });
-    }, {
-        threshold: 0.1
+    const bgMusic = new Audio('audio/Mii Editor - Mii Maker (Wii U) Music.mp3');
+    const woohoo = new Audio('audio/woohoo.mp3');
+    bgMusic.loop = true;
+    bgMusic.volume = 0.05;
+
+    let gifClicks = 0;
+    const nhawGif = document.querySelector('img[src*="nhaw.webp"]');
+  
+    function criarUmCoracao() {
+        const coracao = document.createElement('div');
+        coracao.classList.add('heart-particle');
+        coracao.innerText = '💖';
+        const randomLeft = Math.random() * 90 + 5;
+        const randomSize = Math.random() * 15 + 15;
+        coracao.style.left = `${randomLeft}vw`;
+        coracao.style.fontSize = `${randomSize}px`;
+        coracao.style.color = 'rgba(255, 105, 180, 0.5)';
+        if (Math.random() < 0.25) {
+            coracao.classList.add('heart-explodir');
+            setTimeout(() => { coracao.remove(); }, 3700);
+        } else {
+            setTimeout(() => { coracao.remove(); }, 6000);
+        }
+        document.body.appendChild(coracao);
+    }
+
+    function criarPoeira(x, y) {
+        for (let i = 0; i < 8; i++) {
+            const p = document.createElement('div');
+            p.className = 'poeira-cosmica';
+            p.style.left = x + 'px'; p.style.top = y + 'px';
+            const ax = (Math.random() - 0.5) * 100;
+            const ay = (Math.random() - 0.5) * 100;
+            p.style.setProperty('--x', ax + 'px');
+            p.style.setProperty('--y', ay + 'px');
+            p.style.animation = 'brilharSuave 0.6s forwards';
+            document.body.appendChild(p);
+            setTimeout(() => p.remove(), 600);
+        }
+    }
+
+    const muteBtn = document.createElement('button');
+    muteBtn.id = 'mute-control';
+    muteBtn.style.cssText = 'position:fixed; bottom:20px; right:20px; background:rgba(0,0,0,0.6); border:1px solid #3ec6b8; border-radius:50%; width:40px; height:40px; z-index:2000; display:none; justify-content:center; align-items:center; background-image: url("mandiueni.webp"); background-size: 80%; background-repeat: no-repeat; background-position: center; transition: 0.3s;';
+    document.body.appendChild(muteBtn);
+
+    btn.addEventListener('click', () => {
+        hero.classList.add('fade-out');
+        bgMusic.play().catch(() => {});
+        setTimeout(() => {
+            hero.style.display = 'none';
+            topbar.style.display = 'flex';
+            divisor.style.display = 'block';
+            deviceInfo.style.display = 'block';
+            cards.style.display = 'grid';
+            muteBtn.style.display = 'flex';
+            setTimeout(() => {
+                topbar.style.opacity = "1"; divisor.style.opacity = "1";
+                deviceInfo.style.opacity = "1"; cards.style.opacity = "1";
+            }, 50);
+        }, 500);
     });
 
-    if (targetCard) {
-        scrollObserver.observe(targetCard);
-    }
+    muteBtn.addEventListener('click', () => {
+        bgMusic.muted = !bgMusic.muted;
+        muteBtn.style.opacity = bgMusic.muted ? "0.5" : "1";
+    });
 
-    bttElement.onclick = function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
- 
-     let gifClicks = 0;
-const woohoo = new Audio('audio/woohoo.mp3');
-const nhawGif = document.querySelector('img[src*="nhaw.webp"]');
-
-function criarUmCoracao() {
-    const coracao = document.createElement('div');
-    coracao.classList.add('heart-particle');
-    coracao.innerText = '💖';
-    
-    const randomLeft = Math.random() * 90 + 5;
-    const randomSize = Math.random() * 15 + 15;
-    
-    coracao.style.left = `${randomLeft}vw`;
-    coracao.style.fontSize = `${randomSize}px`;
-    coracao.style.color = 'rgba(255, 105, 180, 0.5)';
-
-    if (Math.random() < 0.25) {
-        coracao.classList.add('heart-explodir');
-        setTimeout(() => { coracao.remove(); }, 3700);
-    } else {
-        setTimeout(() => { coracao.remove(); }, 6000);
-    }
-    
-    document.body.appendChild(coracao);
-}
-
-if (nhawGif) {
-    nhawGif.style.cursor = 'pointer';
-    nhawGif.style.transition = 'filter 2s ease, transform 0.2s ease';
-
-    nhawGif.addEventListener('click', () => {
-        gifClicks++;
-        
-        nhawGif.style.transform = 'scale(0.9)';
-        setTimeout(() => { nhawGif.style.transform = 'scale(1)'; }, 100);
-
-        if (gifClicks === 5) {
-    gifClicks = 0;
-    bgMusic.pause();
-    woohoo.currentTime = 0;
-    woohoo.volume = 0.6;
-    woohoo.play();
-    
-    nhawGif.classList.add('woohoo-shake');
-
-    let criarCoracoes = setInterval(criarUmCoracao, 300);
-
-    setTimeout(() => {
-        clearInterval(criarCoracoes);
-        nhawGif.classList.remove('woohoo-shake');
-        
-        let fadeout = setInterval(() => {
-            if (woohoo.volume > 0.02) {
-                woohoo.volume -= 0.02;
-            } else {
-                woohoo.pause();
-                woohoo.currentTime = 0;
-                bgMusic.play();
-                clearInterval(fadeout);
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) bgMusic.pause();
+        else if (hero.style.display === 'none' && !bgMusic.muted) bgMusic.play().catch(() => {});
+    });
+  
+    if (nhawGif) {
+        nhawGif.style.cursor = 'pointer';
+        nhawGif.addEventListener('click', () => {
+            gifClicks++;
+            nhawGif.style.transform = 'scale(0.9)';
+            setTimeout(() => { nhawGif.style.transform = 'scale(1)'; }, 100);
+            if (gifClicks === 5) {
+                gifClicks = 0;
+                bgMusic.pause();
+                woohoo.currentTime = 0; woohoo.volume = 0.6; woohoo.play();
+                nhawGif.classList.add('woohoo-shake');
+                let intervalCora = setInterval(criarUmCoracao, 300);
+                setTimeout(() => {
+                    clearInterval(intervalCora);
+                    nhawGif.classList.remove('woohoo-shake');
+                    let fadeout = setInterval(() => {
+                        if (woohoo.volume > 0.02) woohoo.volume -= 0.02;
+                        else { woohoo.pause(); bgMusic.play(); clearInterval(fadeout); }
+                    }, 300);
+                }, 23000);
             }
-        }, 300);
-    }, 23000);
-}
-</script>
+        });
+    }
+  
+    function abrirModal(id, element) {
+        document.getElementById(id).style.display = 'flex';
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
+        if(element) { element.style.transform = 'scale(0.95)'; setTimeout(() => element.style.transform = '', 100); }
+    }
 
- <div id="toast-notif" class="toast">Link copiado!<3</div>
+    function fecharModal(id) {
+        const m = document.getElementById(id);
+        m.style.display = 'none';
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+        m.querySelectorAll('video').forEach(v => v.pause());
+    }
+
+    async function copiarLink() {
+        const toast = document.getElementById('toast-notif');
+        await navigator.clipboard.writeText(window.location.href);
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+        if (navigator.share) try { await navigator.share({ title: 'Guia Sims 4 Android', url: window.location.href }); } catch (err) {}
+    }
+
+    window.addEventListener('mousedown', (e) => {
+        cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+        cursor.classList.remove('expandir-cursor'); void cursor.offsetWidth;
+        cursor.classList.add('expandir-cursor');
+        criarPoeira(e.clientX, e.clientY);
+    });
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) bttElement.classList.add("show"); else bttElement.classList.remove("show"); });
+    }, { threshold: 0.1 });
+    if (targetCard) scrollObserver.observe(targetCard);
+    bttElement.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    document.querySelectorAll('video').forEach(v => v.addEventListener('contextmenu', e => e.preventDefault()));
+ </script>
+
+ <div id="toast-notif" class="toast">Link copiado! <3</div>
 </body>
-</html> 
+</html>
