@@ -380,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bttElement.onclick = function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-
+ 
      let gifClicks = 0;
 const woohoo = new Audio('audio/woohoo.mp3');
 const nhawGif = document.querySelector('img[src*="nhaw.webp"]');
@@ -418,31 +418,31 @@ if (nhawGif) {
         setTimeout(() => { nhawGif.style.transform = 'scale(1)'; }, 100);
 
         if (gifClicks === 5) {
-            gifClicks = 0;
-            woohoo.currentTime = 0;
-            woohoo.volume = 0.6;
-            woohoo.play();
-            
-            nhawGif.classList.add('woohoo-shake');
+    gifClicks = 0;
+    bgMusic.pause();
+    woohoo.currentTime = 0;
+    woohoo.volume = 0.6;
+    woohoo.play();
+    
+    nhawGif.classList.add('woohoo-shake');
 
-            let criarCoracoes = setInterval(criarUmCoracao, 300);
+    let criarCoracoes = setInterval(criarUmCoracao, 300);
 
-            setTimeout(() => {
-                clearInterval(criarCoracoes);
-                nhawGif.classList.remove('woohoo-shake');
-                
-                let fadeout = setInterval(() => {
-                    if (woohoo.volume > 0.02) {
-                        woohoo.volume -= 0.02;
-                    } else {
-                        woohoo.pause();
-                        woohoo.currentTime = 0;
-                        clearInterval(fadeout);
-                    }
-                }, 300);
-            }, 23000);
-        }
-    });
+    setTimeout(() => {
+        clearInterval(criarCoracoes);
+        nhawGif.classList.remove('woohoo-shake');
+        
+        let fadeout = setInterval(() => {
+            if (woohoo.volume > 0.02) {
+                woohoo.volume -= 0.02;
+            } else {
+                woohoo.pause();
+                woohoo.currentTime = 0;
+                bgMusic.play();
+                clearInterval(fadeout);
+            }
+        }, 300);
+    }, 23000);
 }
 </script>
 
