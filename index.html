@@ -29,13 +29,17 @@
         <div class="divisor" id="meu-divisor" style="display: none; opacity: 0;"></div>
 
         <section id="device-info" style="display: none; opacity: 0; padding: 0 20px;">
-            <div class="config-box" style="max-width: 600px; margin: 0 auto 20px auto; text-align: right;">
-                <h3 style="text-align: center; color: #3ec6b8;">Informações do meu celular</h3>
-                <p><b>Modelo:</b> Redmi Note 13 Pro 5G</p>
-                <p><b>Processador:</b> MediaTek Dimensity 7200 Ultra</p>
-                <p><b>RAM:</b> 12,0+6,0 GB</p>
-                <img src="nhaw.webp" class="pet-interativo" style="width: 100%; margin-top: 15px; border-radius: 8px; border: 1px solid rgba(62, 198, 184, 0.4); box-shadow: 0 0 15px rgba(62, 198, 184, 0.5); cursor: pointer;"> 
-            </div>
+    <div class="config-box" style="max-width: 600px; margin: 40px auto 20px auto; text-align: right; position: relative;">
+        
+        <img src="img/nono.gif" id="hint-cat" style="position: absolute; width: 80px; top: -60px; left: 10px; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; z-index: 10;">
+        
+        <h3 style="text-align: center; color: #3ec6b8;">Informações do meu celular</h3>
+        <p><b>Modelo:</b> Redmi Note 13 Pro 5G</p>
+        <p><b>Processador:</b> MediaTek Dimensity 7200 Ultra</p>
+        <p><b>RAM:</b> 12,0+6,0 GB</p>
+        
+        <img src="nhaw.webp" class="pet-interativo" style="width: 100%; margin-top: 15px; border-radius: 8px; border: 1px solid rgba(62, 198, 184, 0.4); box-shadow: 0 0 15px rgba(62, 198, 184, 0.5); cursor: pointer;"> 
+    </div>
         </section>
 
         <section class="grid" id="guia-cards" style="display: none; opacity: 0;">
@@ -237,6 +241,49 @@
     let gifClicks = 0;
     const nhawGif = document.querySelector('.config-box img');
     
+    const hintCat = document.getElementById('hint-cat');
+  
+if (nhawGif) {
+    nhawGif.addEventListener('click', () => {
+        gifClicks++;
+        
+        nhawGif.style.transform = 'scale(0.9)';
+        setTimeout(() => { nhawGif.style.transform = 'scale(1)'; }, 100);
+     
+        if (gifClicks >= 2 && gifClicks < 5) {
+            hintCat.style.opacity = "1";
+        }
+
+        if (gifClicks === 5) {
+            gifClicks = 0;
+            hintCat.style.opacity = "0"; 
+            
+            bgMusic.pause();
+            document.body.classList.add('vibe-rosa');
+            woohoo.currentTime = 0;
+            woohoo.volume = 0.6;
+            woohoo.play();
+            nhawGif.classList.add('woohoo-shake');
+            
+            let intervalCora = setInterval(criarUmCoracao, 200);
+            
+            setTimeout(() => {
+                clearInterval(intervalCora);
+                nhawGif.classList.remove('woohoo-shake');
+                document.body.classList.remove('vibe-rosa');
+                let fadeout = setInterval(() => {
+                    if (woohoo.volume > 0.02) woohoo.volume -= 0.02;
+                    else { 
+                        woohoo.pause(); 
+                        bgMusic.play(); 
+                        clearInterval(fadeout); 
+                    }
+                }, 300);
+            }, 23000);
+        }
+    });
+}
+  
     const btn = document.getElementById('btn-comecar');
     const hero = document.getElementById('hero-section');
     const topbar = document.getElementById('minha-topbar');
@@ -349,33 +396,6 @@ function criarExplosaoFumaca(x, y) {
         if (document.hidden) bgMusic.pause();
         else if (hero.style.display === 'none' && !bgMusic.muted) bgMusic.play().catch(() => {});
     });
-
-    if (nhawGif) {
-        nhawGif.addEventListener('click', () => {
-            gifClicks++;
-            nhawGif.style.transform = 'scale(0.9)';
-            setTimeout(() => { nhawGif.style.transform = 'scale(1)'; }, 100);
-            if (gifClicks === 5) {
-                gifClicks = 0;
-                bgMusic.pause();
-                document.body.classList.add('vibe-rosa');
-                woohoo.currentTime = 0;
-                woohoo.volume = 0.6;
-                woohoo.play();
-                nhawGif.classList.add('woohoo-shake');
-                let intervalCora = setInterval(criarUmCoracao, 200);
-                setTimeout(() => {
-                    clearInterval(intervalCora);
-                    nhawGif.classList.remove('woohoo-shake');
-                    document.body.classList.remove('vibe-rosa');
-                    let fadeout = setInterval(() => {
-                        if (woohoo.volume > 0.02) woohoo.volume -= 0.02;
-                        else { woohoo.pause(); bgMusic.play(); clearInterval(fadeout); }
-                    }, 300);
-                }, 23000);
-            }
-        });
-    }
 
     function abrirModal(id, element) {
         document.getElementById(id).style.display = 'flex';
