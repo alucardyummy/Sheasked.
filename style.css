@@ -333,6 +333,7 @@ body.vibe-rosa::after {
     z-index: 2000;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    overflow: hidden;
 }
 
 .modal-content {
@@ -346,6 +347,14 @@ body.vibe-rosa::after {
     padding: 25px;
     overflow-y: auto;
     color: #fff;
+    touch-action: pan-x pan-y pinch-zoom !important;
+    -webkit-overflow-scrolling: touch;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
+}
+
+.modal-content * {
+    vector-effect: non-scaling-stroke;
 }
 
 .btn-download {
@@ -387,6 +396,10 @@ body.vibe-rosa::after {
     margin: 15px 0;
     color: #fff;
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8); 
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translateZ(0);
+    will-change: transform, opacity, filter;
 }
 
 .proibido {
@@ -429,6 +442,7 @@ video {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
+    transform: translateZ(0);
 }
 
 @media (min-width: 1024px) {
@@ -480,11 +494,6 @@ video {
     .card {
         width: 100% !important;
         min-height: 250px !important;
-    }
-
-        max-width: 1100px !important;
-        width: 85% !important;
-        padding: 50px !important;
     }
 
     .modal-body {
@@ -664,12 +673,6 @@ body.modal-aberto {
     touch-action: none;
 }
 
-.modal-content {
-    touch-action: auto !important; 
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
 .toast {
     position: fixed;
     bottom: 30px;
@@ -810,26 +813,12 @@ img[src*="nhaw.webp"] {
   animation-iteration-count: 1;
 }
 
-.config-box, 
 .card, 
-.card-glass, 
-.modal-overlay {
+.card-glass {
     backface-visibility: hidden;
     perspective: 1000px;
     transform: translateZ(0);
     will-change: transform, opacity, filter;
-}
-
-video {
-    transform: translateZ(0);
-}
-
-body {
-    touch-action: manipulation; 
-}
-
-.modal-content {
-    touch-action: pan-x pan-y pinch-zoom !important;
 }
 
 #loader-transicao {
@@ -853,4 +842,4 @@ body {
 @keyframes pulsoCarregamento {
     0% { transform: scale(0.9); opacity: 0.7; filter: drop-shadow(0 0 5px rgba(62, 198, 184, 0.4)); }
     100% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 25px rgba(62, 198, 184, 1)); }
-}
+} 
