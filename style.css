@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
 
 @font-face {
     font-family: 'LemonMilk';
@@ -179,8 +179,6 @@ body.vibe-rosa::after {
     overflow: hidden;
     transform: translateZ(0);
     transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: transform, opacity;
-    backface-visibility: hidden;
 }
 
 .card-glass {
@@ -487,7 +485,6 @@ video {
         margin: 0 auto !important;
         gap: 30px !important;
         padding: 40px !important;
-        contain: layout;
     }
 
     .card {
@@ -515,7 +512,7 @@ video {
     background: #0a0a0a;
     z-index: 999999;
     pointer-events: none;
-    animation: sumirCortina 1.9s ease-in-out forwards;
+    animation: sumirCortina 1.5s ease-in-out forwards;
 }
 
 @keyframes sumirCortina {
