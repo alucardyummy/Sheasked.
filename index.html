@@ -458,6 +458,8 @@ function criarExplosaoFumaca(x, y) {
     const modal = document.getElementById(id);
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+     
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
 
     history.pushState({ modalId: id }, ""); 
 
@@ -466,6 +468,17 @@ function criarExplosaoFumaca(x, y) {
         setTimeout(() => element.style.transform = '', 100); 
     }
 }
+
+function fecharModal(id) {
+    const m = document.getElementById(id);
+    m.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    
+    // BLOQUEIA O ZOOM: Volta ao estado original quando sai da caixa
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    
+    m.querySelectorAll('video').forEach(v => v.pause());
+} 
 
 window.addEventListener('popstate', (event) => {
     const modais = document.querySelectorAll('.modal-overlay');
