@@ -240,7 +240,19 @@
  <button id="backToTop" class="back-to-top">↑</button>
 
  <script>
-    const bgMusic = new Audio('audio/Mii Editor - Mii Maker (Wii U) Music.mp3');
+  window.addEventListener('load', () => {
+    const cortina = document.getElementById('loader-overlay');
+    
+    setTimeout(() => {
+        cortina.style.opacity = '0';
+        
+        setTimeout(() => {
+            cortina.style.display = 'none';
+        }, 800);
+    }, 500); 
+});
+  
+  const bgMusic = new Audio('audio/Mii Editor - Mii Maker (Wii U) Music.mp3');
     const woohoo = new Audio('audio/woohoo.mp3');
     bgMusic.loop = true;
     bgMusic.volume = 0.05;
@@ -474,7 +486,6 @@ function fecharModal(id) {
     m.style.display = 'none';
     document.body.style.overflow = 'auto';
     
-    // BLOQUEIA O ZOOM: Volta ao estado original quando sai da caixa
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
     
     m.querySelectorAll('video').forEach(v => v.pause());
