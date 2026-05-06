@@ -249,30 +249,40 @@
 const nhawGif = document.getElementById('pet-clicavel');
 const hintCat = document.getElementById('hint-cat');
 
+
+ let easterEggAtivo = false;
+let jaAconteceu = false;
+
 if (nhawGif) {
     nhawGif.addEventListener('click', () => {
-        gifClicks++;
+        if (jaAconteceu) return;
 
-        if (gifClicks === 1 || gifClicks === 3 || gifClicks === 4) {
-            document.body.classList.remove('tremidinha-ativa'); 
-            void document.body.offsetWidth; 
+        gifClicks++;
+        
+        if ([1, 3, 4].includes(gifClicks)) {
             document.body.classList.add('tremidinha-ativa');
             setTimeout(() => document.body.classList.remove('tremidinha-ativa'), 300);
         }
 
-        nhawGif.style.transform = 'scale(0.9)';
-        setTimeout(() => { nhawGif.style.transform = 'scale(1)'; }, 100);
-     
-        if (gifClicks >= 2 && gifClicks < 5) {
-            hintCat.style.opacity = "1";
-        }
-
         if (gifClicks === 5) {
+            jaAconteceu = true;
+            easterEggAtivo = true;
             gifClicks = 0;
             hintCat.style.opacity = "0"; 
             
             bgMusic.pause();
             document.body.classList.add('vibe-rosa');
+            woohoo.currentTime = 0;
+            woohoo.play();
+            
+            let intervalCora = setInterval(() => {
+                if(easterEggAtivo) criarUmCoracao();
+            }, 200);
+            
+            setTimeout(() => {
+                clearInterval(intervalCora);
+            easterEggAtivo = false;
+            document.body.classList.remove('vibe-rosa');
             woohoo.currentTime = 0;
             woohoo.volume = 0.6;
             woohoo.play();
@@ -296,7 +306,19 @@ if (nhawGif) {
         }
     });
 }
-  
+
+     hintCat.addEventListener('click', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    
+    for(let i=0; i<5; i++) {
+        criarPoeiraLivre(x, y);
+    }
+    
+    hintCat.style.transform = 'translateY(-10px)';
+    setTimeout(() => hintCat.style.transform = 'translateY(0)', 200);
+});
+     
     const btn = document.getElementById('btn-comecar');
     const hero = document.getElementById('hero-section');
     const topbar = document.getElementById('minha-topbar');
@@ -422,23 +444,39 @@ function criarExplosaoFumaca(x, y) {
     });
 
     document.addEventListener("visibilitychange", () => {
-        if (document.hidden) bgMusic.pause();
-        else if (hero.style.display === 'none' && !bgMusic.muted) bgMusic.play().catch(() => {});
-    });
+    if (document.hidden) {
+        bgMusic.pause();
+        woohoo.pause();
+    } else if (hero.style.display === 'none' && !bgMusic.muted) {
+        if (woohoo.paused) {
+            bgMusic.play().catch(() => {});
+        }
+    }
+}); 
 
     function abrirModal(id, element) {
     const modal = document.getElementById(id);
     modal.style.display = 'flex';
-    
     document.body.style.overflow = 'hidden';
-    
-    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=yes');
+
+    history.pushState({ modalId: id }, ""); 
 
     if (element) { 
         element.style.transform = 'scale(0.95)'; 
         setTimeout(() => element.style.transform = '', 100); 
     }
 }
+
+window.addEventListener('popstate', (event) => {
+    const modais = document.querySelectorAll('.modal-overlay');
+    modais.forEach(m => {
+        if (m.style.display === 'flex') {
+            m.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            m.querySelectorAll('video').forEach(v => v.pause());
+        }
+    });
+}); 
 
 function fecharModal(id) {
     const m = document.getElementById(id);
