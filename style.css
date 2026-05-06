@@ -158,6 +158,10 @@ body.vibe-rosa::after {
     background-size: contain;
     margin: 40px 0;
     filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.5));
+    
+    transform: translateZ(0); 
+    backface-visibility: hidden;
+    will-change: opacity, transform;
 }
 
 .grid {
