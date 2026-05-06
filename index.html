@@ -273,6 +273,7 @@ if (nhawGif) {
             bgMusic.pause();
             document.body.classList.add('vibe-rosa');
             woohoo.currentTime = 0;
+            woohoo.volume = 1.0;
             woohoo.play();
             
             let intervalCora = setInterval(() => {
@@ -281,22 +282,13 @@ if (nhawGif) {
             
             setTimeout(() => {
                 clearInterval(intervalCora);
-            easterEggAtivo = false;
-            document.body.classList.remove('vibe-rosa');
-            woohoo.currentTime = 0;
-            woohoo.volume = 0.6;
-            woohoo.play();
-            nhawGif.classList.add('woohoo-shake');
-            
-            let intervalCora = setInterval(criarUmCoracao, 200);
-            
-            setTimeout(() => {
-                clearInterval(intervalCora);
-                nhawGif.classList.remove('woohoo-shake');
+                easterEggAtivo = false;
                 document.body.classList.remove('vibe-rosa');
+                
                 let fadeout = setInterval(() => {
-                    if (woohoo.volume > 0.02) woohoo.volume -= 0.02;
-                    else { 
+                    if (woohoo.volume > 0.05) {
+                        woohoo.volume -= 0.05;
+                    } else { 
                         woohoo.pause(); 
                         bgMusic.play(); 
                         clearInterval(fadeout); 
@@ -306,18 +298,18 @@ if (nhawGif) {
         }
     });
 }
-
-     hintCat.addEventListener('click', (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
-    
-    for(let i=0; i<5; i++) {
-        criarPoeiraLivre(x, y);
-    }
-    
-    hintCat.style.transform = 'translateY(-10px)';
-    setTimeout(() => hintCat.style.transform = 'translateY(0)', 200);
-});
+  
+if (hintCat) {
+    hintCat.addEventListener('click', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        for(let i=0; i<5; i++) {
+            criarPoeiraLivre(x, y);
+        }
+        hintCat.style.transform = 'translateY(-10px)';
+        setTimeout(() => hintCat.style.transform = 'translateY(0)', 200);
+    });
+}
      
     const btn = document.getElementById('btn-comecar');
     const hero = document.getElementById('hero-section');
