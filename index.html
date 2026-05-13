@@ -671,6 +671,7 @@ wrapper.appendChild(previewContainer);
 videoGhost.src = video.src;
 videoGhost.muted = true;
 videoGhost.preload = 'auto';
+videoGhost.playsInline = true;
  
  let arrastandoBarra = false;
 
@@ -692,15 +693,15 @@ function atualizarTempoPorToque(e) {
         
         videoGhost.currentTime = tempoAlvo;
 
-        videoGhost.onseeked = () => {
-            const ctx = previewCanvas.getContext('2d');
-            previewCanvas.width = 160; 
-            previewCanvas.height = 90;
-            ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
-        };
-    }
-}
- 
+videoGhost.onseeked = null; 
+
+videoGhost.onseeked = () => {
+    const ctx = previewCanvas.getContext('2d');
+    previewCanvas.width = 160; 
+    previewCanvas.height = 90;
+    
+    ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
+};
 
 barra.addEventListener('pointerdown', (e) => {
     arrastandoBarra = true;
