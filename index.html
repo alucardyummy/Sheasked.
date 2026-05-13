@@ -687,8 +687,9 @@ document.querySelectorAll('.step-video').forEach(video => {
         }, 2000);
     }
 
-    atualizarBotao();
-    mostrarControles();
+atualizarBotao();
+btnCustom.classList.add('visivel');
+barra.classList.add('visivel');
 
     video.addEventListener('play', () => {
         atualizarBotao();
