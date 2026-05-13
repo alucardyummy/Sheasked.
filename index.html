@@ -719,13 +719,16 @@ document.addEventListener('pointermove', (e) => {
     }
 });
 
-document.addEventListener('pointerup', () => {
+document.addEventListener('pointerup', (e) => {
     if (arrastandoBarra) {
-        const rect = barra.getBoundingClientRect();
-        
         arrastandoBarra = false;
         previewContainer.style.display = 'none';
         mostrarControles();
+
+        const rect = barra.getBoundingClientRect();
+        let proporcao = (e.clientX - rect.left) / rect.width;
+        proporcao = Math.max(0, Math.min(1, proporcao));
+        video.currentTime = proporcao * video.duration;
     }
 });
  
@@ -743,19 +746,22 @@ document.addEventListener('touchmove', (e) => {
     }
 }, { passive: true });
 
-document.addEventListener('touchend', () => {
-if (arrastandoBarra) {
-    const rect = barra.getBoundingClientRect();
-    let proporcao = (ultimoX - rect.left) / rect.width; 
-    proporcao = Math.max(0, Math.min(1, proporcao));
-    
-    video.currentTime = proporcao * video.duration;
-    
-    arrastandoBarra = false;
-    previewContainer.style.display = 'none';
-    mostrarControles();
-}
- 
+document.addEventListener('touchend', (e) => {
+    if (arrastandoBarra) {
+        arrastandoBarra = false;
+        previewContainer.style.display = 'none';
+        mostrarControles();
+
+        const rect = barra.getBoundingClientRect();
+        const clientX = e.changedTouches ? e.changedTouches[0].clientX : 0;
+        let proporcao = (clientX - rect.left) / rect.width;
+        proporcao = Math.max(0, Math.min(1, proporcao));
+        
+        if (!isNaN(video.duration)) {
+            video.currentTime = proporcao * video.duration;
+        }
+    }
+});
 
 barra.addEventListener('click', (e) => {
     e.stopPropagation();
