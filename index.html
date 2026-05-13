@@ -670,11 +670,11 @@ document.querySelectorAll('.step-video').forEach(video => {
     });
 
     function atualizarBotao() {
-        if (video.paused) {
-            btnCustom.style.backgroundImage = "url('img/despause.webp')";
-        } else {
-            btnCustom.style.backgroundImage = "url('img/pause.webp')";
-        }
+    if (video.paused) {
+        btnCustom.style.backgroundImage = "url('img/pause.webp')";
+    } else {
+        btnCustom.style.backgroundImage = "url('img/despause.webp')";
+    }
     }
 
     function mostrarControles() {
@@ -700,29 +700,29 @@ document.querySelectorAll('.step-video').forEach(video => {
         mostrarControles();
     });
 
-    video.addEventListener('click', (e) => {
-        if (!pressionando) {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-            atualizarBotao();
-            mostrarControles();
-        }
-    });
+video.addEventListener('click', (e) => {
+    if (!pressionando) {
+        mostrarControles();
+    }
+});
 
-    wrapper.addEventListener('click', (e) => {
-        if (e.target === wrapper || e.target === barra || e.target === barraPreenchida) {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-            atualizarBotao();
-            mostrarControles();
-        }
-    });
+wrapper.addEventListener('click', (e) => {
+    if (e.target === wrapper || e.target === barra || e.target === barraPreenchida) {
+        mostrarControles();
+    }
+});
+
+btnCustom.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
+    atualizarBotao();
+    mostrarControles();
+});
+btnCustom.style.pointerEvents = 'auto';
 
     video.addEventListener('touchstart', (e) => {
         const rect = video.getBoundingClientRect();
