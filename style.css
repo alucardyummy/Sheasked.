@@ -1022,11 +1022,9 @@ img[src*="nhaw.webp"] {
     top: -60px;
     left: 10px;
     opacity: 0;
-    transition: opacity 0.5s ease, transform 0.2s ease;
-    pointer-events: auto;
-    cursor: pointer;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
     z-index: 100;
-    display: block;
 }
 
 .gato-nono.visivel {
