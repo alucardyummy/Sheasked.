@@ -646,8 +646,8 @@ document.querySelectorAll('.step-video').forEach(video => {
     btnCustom.className = 'video-btn-custom';
     wrapper.appendChild(btnCustom);
 
-    video.removeAttribute('controls');
-    video.controls = false;
+    video.setAttribute('controls', 'controls');
+    video.controls = true;
 
     function atualizarBotao() {
         if (video.paused) {
@@ -660,45 +660,32 @@ document.querySelectorAll('.step-video').forEach(video => {
     function mostrarBotao() {
         btnCustom.classList.add('visivel');
         clearTimeout(timerEsconder);
-        timerEsconder = setTimeout(() => {
-            btnCustom.classList.remove('visivel');
-        }, 1500);
     }
 
-    function esconderBotao() {
+    function esconderBotaoComDelay() {
         clearTimeout(timerEsconder);
         timerEsconder = setTimeout(() => {
             btnCustom.classList.remove('visivel');
-        }, 800);
+        }, 1200);
     }
 
     atualizarBotao();
+    mostrarBotao();
 
     video.addEventListener('play', () => {
         atualizarBotao();
         mostrarBotao();
-        esconderBotao();
+        esconderBotaoComDelay();
     });
-
+ 
     video.addEventListener('pause', () => {
         atualizarBotao();
         mostrarBotao();
-    });
-
-    video.addEventListener('click', (e) => {
-        if (!pressionando) {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-            atualizarBotao();
-            mostrarBotao();
-        }
+        esconderBotaoComDelay();
     });
 
     wrapper.addEventListener('click', (e) => {
-        if (e.target === wrapper) {
+        if (e.target === wrapper || e.target === btnCustom) {
             if (video.paused) {
                 video.play();
             } else {
@@ -706,6 +693,7 @@ document.querySelectorAll('.step-video').forEach(video => {
             }
             atualizarBotao();
             mostrarBotao();
+            esconderBotaoComDelay();
         }
     });
 
