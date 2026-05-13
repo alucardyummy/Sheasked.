@@ -703,21 +703,6 @@ function atualizarTempoPorToque(e) {
         videoGhost.currentTime = tempoAlvo;
     }
 }
-
-const desenharFrame = () => {
-    const ctx = previewCanvas.getContext('2d');
-    previewCanvas.width = 160; 
-    previewCanvas.height = 90;
-    ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
-};
-
-        if (videoGhost.readyState >= 2) {
-            desenharFrame();
-        } else {
-            videoGhost.onseeked = desenharFrame;
-        }
-    }
-}
  
 barra.addEventListener('pointerdown', (e) => {
     arrastandoBarra = true;
