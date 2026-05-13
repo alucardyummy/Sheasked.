@@ -701,8 +701,10 @@ videoGhost.onseeked = () => {
     previewCanvas.height = 90;
     
     ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
-};
-
+      };
+   }
+}
+ 
 barra.addEventListener('pointerdown', (e) => {
     arrastandoBarra = true;
     clearTimeout(timerEsconder);
