@@ -315,14 +315,8 @@ body.vibe-rosa::after {
     align-items: center;
     cursor: pointer;
     background: transparent !important;
-    overflow: hidden;
+    overflow: visible;
     transition: transform 0.2s ease;
-}
-
-.card, .config-box, .divisor {
-    contain: paint;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
 .card-glass {
@@ -1168,16 +1162,6 @@ video::-webkit-media-controls-start-playback-button {
     width: 100%;
     height: 100%;
     display: block;
-}
-
-.grid[style*="display: grid"] .card:last-child,
-.grid[style*="display: block"] .card:last-child,
-#device-info[style*="display: block"] .config-box:last-child,
-.divisor {
-    visibility: visible !important;
-    opacity: 1 !important;
-    transform: translateZ(0) !important;
-    backface-visibility: hidden;
 }
 
 .grid, main, #device-info {
