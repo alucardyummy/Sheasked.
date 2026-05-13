@@ -1014,16 +1014,25 @@ img[src*="nhaw.webp"] {
     100% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 25px rgba(62, 198, 184, 1)); }
 }
 
-#hint-cat {
+.gato-nono {
     position: absolute;
-    width: 80px !important;
-    max-width: 80px !important;
-    height: auto !important;
+    width: 80px;
+    max-width: 80px;
+    height: auto;
     top: -60px;
     left: 10px;
     opacity: 0;
     transition: opacity 0.5s ease, transform 0.2s ease;
     pointer-events: auto;
     cursor: pointer;
-    z-index: 10;
+    z-index: 100;
+    display: block;
+}
+
+.gato-nono.visivel {
+    opacity: 1;
+}
+
+.gato-nono.escondido {
+    opacity: 0;
 }
