@@ -353,15 +353,13 @@ body.vibe-rosa::after {
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.38);
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
     transform: none !important;
 }
 
-.card h3,
-.card p,
-.card-icon {
+.card h3, .card p, .card-icon {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     pointer-events: none;
 }
 
