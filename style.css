@@ -134,18 +134,10 @@ body.vibe-rosa::after {
     font-size: 2.1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    filter: drop-shadow(0 0 10px rgba(62, 198, 184, 0.3));
+    will-change: filter;
     color: #fff;
     position: relative;
-}
-
-.hero h1::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    color: rgba(62, 198, 184, 0.3);
-    z-index: -1;
-    pointer-events: none;
 }
 
 .hero p {
@@ -191,10 +183,6 @@ body.vibe-rosa::after {
 }
 
 @media (min-width: 1024px) {
-    body::before {
-        background-attachment: fixed;
-    }
-
     .divisor {
         width: 100%;
         max-width: 1200px;
@@ -274,15 +262,10 @@ body.vibe-rosa::after {
     transform: translateZ(0);
     overflow: hidden;
     position: relative;
-}
-
-.config-box::after {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    border-radius: 13px;
-    border: 1px solid rgba(0,0,0,0.3);
-    pointer-events: none;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .primary {
@@ -315,11 +298,12 @@ body.vibe-rosa::after {
     background-size: contain;
     margin: 40px 0;
     transform: translateZ(0);
+    filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.5));
     backface-visibility: hidden;
-    will-change: opacity, transform;
     opacity: 0;
     transition: opacity 0.5s ease;
     position: relative;
+    will-change: transform, opacity;
 }
 
 .divisor::after {
@@ -356,7 +340,7 @@ body.vibe-rosa::after {
     -moz-osx-font-smoothing: grayscale;
     transform: translateZ(0);
     will-change: transform;
-    contain: layout style;
+    contain: layout style paint;
 }
 
 .card-glass {
@@ -368,7 +352,6 @@ body.vibe-rosa::after {
     border: 1px solid rgba(255, 255, 255, 0.38);
     pointer-events: none;
     z-index: -1;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .card h3,
