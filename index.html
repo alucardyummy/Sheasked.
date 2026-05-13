@@ -565,7 +565,7 @@ window.addEventListener('popstate', (event) => {
         if (navigator.share) try { await navigator.share({ title: 'Guia Sims 4 Android', url: window.location.href }); } catch (err) {}
     }
 
-  window.addEventListener('mousedown', (e) => {
+  window.addEventListener('pointerdown', (e) => {
     const target = e.target;
     if (target.closest('.card') || 
         target.closest('#pet-clicavel') || 
@@ -576,7 +576,8 @@ window.addEventListener('popstate', (event) => {
         target.closest('.btn-download') ||
         target.closest('.share-link') ||
         target.closest('#backToTop') ||
-        target.closest('#mute-control')) {
+        target.closest('#mute-control') ||
+        target.closest('.modal-content')) {
         return;
     }
 
