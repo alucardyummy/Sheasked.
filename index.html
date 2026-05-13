@@ -553,15 +553,7 @@ async function copiarLink() {
 
 window.addEventListener('pointerdown', (e) => {
     const target = e.target;
-
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    cursor.classList.remove('expandir-cursor');
-    void cursor.offsetWidth;
-    cursor.classList.add('expandir-cursor');
-    criarPoeiraNoCursor();
-
-    if (target.closest('.card') ||
+    const elementoInterativo = target.closest('.card') ||
         target.closest('#pet-clicavel') ||
         target.closest('#hint-cat') ||
         target.closest('button') ||
@@ -571,11 +563,30 @@ window.addEventListener('pointerdown', (e) => {
         target.closest('.share-link') ||
         target.closest('#backToTop') ||
         target.closest('#mute-control') ||
-        target.closest('.modal-content')) {
+        target.closest('.modal-content');
+
+    const sorteioCursor = Math.random();
+
+    if (elementoInterativo) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursor.classList.remove('expandir-cursor');
+        void cursor.offsetWidth;
+        cursor.classList.add('expandir-cursor');
+        criarPoeiraNoCursor();
         return;
     }
 
-    criarPoeiraLivre(e.clientX, e.clientY);
+    if (sorteioCursor < 0.5) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursor.classList.remove('expandir-cursor');
+        void cursor.offsetWidth;
+        cursor.classList.add('expandir-cursor');
+        criarPoeiraNoCursor();
+    } else {
+        criarPoeiraLivre(e.clientX, e.clientY);
+    }
 });
 
 function criarPoeiraNoCursor() {
@@ -647,13 +658,13 @@ document.querySelectorAll('.step-video').forEach(video => {
     video.controls = true;
 
     function atualizarBotao() {
-        if (video.paused) {
-            btnCustom.style.backgroundImage = "url('img/despause.webp')";
-        } else {
-            btnCustom.style.backgroundImage = "url('img/pause.webp')";
-        }
+    if (video.paused) {
+        btnCustom.style.backgroundImage = "url('img/despause.webp')";
+    } else {
+        btnCustom.style.backgroundImage = "url('img/pause.webp')";
     }
-
+  }
+ 
     function mostrarBotao() {
         btnCustom.classList.add('visivel');
         clearTimeout(timerEsconder);
