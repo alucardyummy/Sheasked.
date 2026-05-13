@@ -1121,3 +1121,8 @@ img[src*="nhaw.webp"] {
     width: 100%;
     line-height: 0;
 }
+
+.step-video::-webkit-media-controls-play-button,
+.step-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
