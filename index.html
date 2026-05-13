@@ -633,69 +633,59 @@ bttElement.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 document.querySelectorAll('video').forEach(v => v.addEventListener('contextmenu', e => e.preventDefault()));
 
 document.querySelectorAll('.step-video').forEach(video => {
-    const indicador = document.createElement('div');
-    indicador.className = 'velocidade-indicador';
-    video.parentNode.style.position = 'relative';
-    video.parentNode.appendChild(indicador);
-    
-    let clickTimer = null;
-    let velocidade2x = false;
-    
+    let pressionando = false;
+    let timerPressionar = null;
+
+    video.removeAttribute('controls');
+    video.controls = false;
+
     video.addEventListener('click', (e) => {
+        if (pressionando) return;
+        
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+
+    video.addEventListener('touchstart', (e) => {
         const rect = video.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const width = rect.width;
-        const y = e.clientY - rect.top;
+        const y = e.touches[0].clientY - rect.top;
+        const x = e.touches[0].clientX - rect.left;
         const height = rect.height;
-        
-        if (y > height * 0.7) {
-            if (clickTimer === null) {
-                clickTimer = setTimeout(() => {
-                    clickTimer = null;
-                }, 300);
-            } else {
-                clearTimeout(clickTimer);
-                clickTimer = null;
-                
-                velocidade2x = !velocidade2x;
-                video.playbackRate = velocidade2x ? 2.0 : 1.0;
-                
-                indicador.textContent = velocidade2x ? '2x' : '1x';
-                indicador.classList.add('ativo');
-                setTimeout(() => indicador.classList.remove('ativo'), 800);
-                
-                return;
-            }
-        }
-        
-        if (x > width * 0.6) {
-            video.currentTime = Math.min(video.currentTime + 10, video.duration);
-        }
-        
-        if (x < width * 0.4) {
-            video.currentTime = Math.max(video.currentTime - 10, 0);
+        const width = rect.width;
+
+        if (y > height * 0.7 && x > width * 0.6) {
+            pressionando = true;
+            timerPressionar = setTimeout(() => {
+                if (pressionando) {
+                    video.playbackRate = 2.0;
+                }
+            }, 500);
         }
     });
-    
-    video.addEventListener('play', () => {
-        setTimeout(() => {
-            if (!video.paused) {
-                video.setAttribute('controls', 'controls');
-                video.controls = false;
-                setTimeout(() => { video.controls = true; }, 50);
-            }
-        }, 1500);
+
+    video.addEventListener('touchend', () => {
+        if (pressionando && video.playbackRate === 2.0) {
+            video.playbackRate = 1.0;
+        }
+        pressionando = false;
+        if (timerPressionar) {
+            clearTimeout(timerPressionar);
+            timerPressionar = null;
+        }
     });
-    
-    video.addEventListener('pause', () => {
-        video.controls = true;
-        setTimeout(() => {
-            if (video.paused) {
-                video.setAttribute('controls', 'controls');
-                video.controls = false;
-                setTimeout(() => { video.controls = true; }, 50);
-            }
-        }, 2000);
+
+    video.addEventListener('touchmove', () => {
+        pressionando = false;
+        if (timerPressionar) {
+            clearTimeout(timerPressionar);
+            timerPressionar = null;
+        }
+        if (video.playbackRate === 2.0) {
+            video.playbackRate = 1.0;
+        }
     });
 });
 </script>
