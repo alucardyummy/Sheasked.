@@ -880,6 +880,24 @@ btnCustom.style.pointerEvents = 'auto';
         if (timerPressionar) clearTimeout(timerPressionar);
     });
 });
+  
+const elementosCriticos = document.querySelectorAll('.divisor, .card, .config-box, .card-icon, .card-glass');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.transform = 'translateZ(0)';
+            entry.target.style.backfaceVisibility = 'hidden';
+            entry.target.style.willChange = 'transform, opacity';
+            
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    rootMargin: '300px'
+});
+
+elementosCriticos.forEach(el => observer.observe(el));
 </script> <div id="toast-notif" class="toast">Link copiado! &lt;3</div> 
 </script>
 
