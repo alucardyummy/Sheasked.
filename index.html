@@ -663,44 +663,6 @@ document.querySelectorAll('.step-video').forEach(video => {
 
 let arrastandoBarra = false;
 
-barra.addEventListener('pointerdown', (e) => {
-    arrastandoBarra = true;
-    atualizarTempoPorToque(e);
-    e.preventDefault();
-    e.stopPropagation();
-});
-
-document.addEventListener('pointermove', (e) => {
-    if (arrastandoBarra) {
-        atualizarTempoPorToque(e);
-    }
-});
-
-document.addEventListener('pointerup', () => {
-    arrastandoBarra = false;
-});
-
-barra.addEventListener('touchstart', (e) => {
-    arrastandoBarra = true;
-    atualizarTempoPorToque(e);
-    e.preventDefault();
-    e.stopPropagation();
-});
-
-document.addEventListener('touchmove', (e) => {
-    if (arrastandoBarra) {
-        atualizarTempoPorToque(e);
-    }
-});
-
-document.addEventListener('touchend', () => {
-    arrastandoBarra = false;
-});
-
- barra.addEventListener('click', (e) => {
-    e.stopPropagation();
-});
- 
 function atualizarTempoPorToque(e) {
     const rect = barra.getBoundingClientRect();
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -709,10 +671,57 @@ function atualizarTempoPorToque(e) {
     
     if (!isNaN(video.duration)) {
         video.currentTime = proporcao * video.duration;
-        barraPreenchida.style.width = (proporcao * 100) + '%'; 
+        barraPreenchida.style.width = (proporcao * 100) + '%';
     }
 }
+
+barra.addEventListener('pointerdown', (e) => {
+    arrastandoBarra = true;
+    clearTimeout(timerEsconder);
+    atualizarTempoPorToque(e);
+    e.preventDefault();
+    e.stopPropagation();
+});
+
+document.addEventListener('pointermove', (e) => {
+    if (arrastandoBarra) {
+        clearTimeout(timerEsconder);
+        atualizarTempoPorToque(e);
+    }
+});
+
+document.addEventListener('pointerup', () => {
+    if (arrastandoBarra) {
+        arrastandoBarra = false;
+        mostrarControles();
+    }
+});
  
+barra.addEventListener('touchstart', (e) => {
+    arrastandoBarra = true;
+    clearTimeout(timerEsconder);
+    atualizarTempoPorToque(e);
+    e.stopPropagation();
+});
+
+document.addEventListener('touchmove', (e) => {
+    if (arrastandoBarra) {
+        clearTimeout(timerEsconder);
+        atualizarTempoPorToque(e);
+    }
+}, { passive: true });
+
+document.addEventListener('touchend', () => {
+    if (arrastandoBarra) {
+        arrastandoBarra = false;
+        mostrarControles();
+    }
+});
+
+barra.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
 barra.style.pointerEvents = 'auto';
  
     video.removeAttribute('controls');
@@ -729,7 +738,7 @@ barra.style.pointerEvents = 'auto';
     } else {
         btnCustom.style.backgroundImage = "url('img/despause.webp')";
     }
-    }
+  }
 
     function mostrarControles() {
         btnCustom.classList.add('visivel');
