@@ -178,15 +178,6 @@ body.vibe-rosa::after {
     }
 }
 
-@media (min-width: 1024px) {
-    .divisor {
-        width: 100%;
-        max-width: 1200px;
-        height: 180px;
-        margin: 60px auto;
-        background-size: contain;
-    }
-
     #device-info .config-box {
         display: flex !important;
         flex-direction: row !important;
@@ -243,7 +234,6 @@ body.vibe-rosa::after {
 }
 
 #device-info {
-    display: none;
     opacity: 0;
     transition: opacity 0.5s ease;
     padding: 0 20px;
@@ -330,10 +320,11 @@ body.vibe-rosa::after {
     z-index: 1;
 }
 
-.card h3, .card p, .card-icon {
-    position: relative;
-    z-index: 10; 
-} 
+.card h3,
+.card p,
+.card-icon {
+    transform: translateZ(10px);
+}
 
 .card h3 {
     color: #ffffff !important;
@@ -679,10 +670,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-    body::before {
-        background-attachment: fixed;
-    }
-
     .divisor {
         width: 100%;
         max-width: 1200px;
