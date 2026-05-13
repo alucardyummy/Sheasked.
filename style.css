@@ -650,36 +650,6 @@ body.vibe-rosa::after {
     border-radius: 12px;
     border: 1px solid rgba(62, 198, 184, 0.4);
     margin: 10px 0;
-    position: relative;
-}
-
-.step-video::-webkit-media-controls {
-    display: flex !important;
-}
-
-.step-video::-webkit-media-controls-panel {
-    transition: opacity 0.3s ease;
-}
-
-.velocidade-indicador {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(62, 198, 184, 0.9);
-    color: #000;
-    padding: 4px 12px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-}
-
-.velocidade-indicador.ativo {
-    opacity: 1;
 }
 
 .proibido {
