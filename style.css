@@ -1092,3 +1092,30 @@ img[src*="nhaw.webp"] {
 #device-info .config-box {
     overflow: visible !important;
 }
+
+.video-btn-custom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
+}
+
+.video-btn-custom.visivel {
+    opacity: 1;
+}
+
+.video-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
