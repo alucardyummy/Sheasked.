@@ -135,7 +135,17 @@ body.vibe-rosa::after {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #fff;
-    filter: drop-shadow(0 0 10px rgba(62, 198, 184, 0.3));
+    position: relative;
+}
+
+.hero h1::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    color: rgba(62, 198, 184, 0.3);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .hero p {
@@ -259,12 +269,20 @@ body.vibe-rosa::after {
     background: rgba(255, 255, 255, 0.05);
     padding: 15px;
     border-radius: 15px;
-    border: 1px solid rgba(62, 198, 184, 0.3);
     margin: 15px 0;
     color: #fff;
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
     transform: translateZ(0);
     overflow: hidden;
+    position: relative;
+}
+
+.config-box::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 13px;
+    border: 1px solid rgba(0,0,0,0.3);
+    pointer-events: none;
 }
 
 .primary {
@@ -296,12 +314,20 @@ body.vibe-rosa::after {
     background: url('img/divisor-icon.webp') no-repeat center;
     background-size: contain;
     margin: 40px 0;
-    filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.5));
     transform: translateZ(0);
     backface-visibility: hidden;
     will-change: opacity, transform;
     opacity: 0;
     transition: opacity 0.5s ease;
+    position: relative;
+}
+
+.divisor::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: radial-gradient(ellipse at center, rgba(62,198,184,0.3) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .grid {
@@ -338,7 +364,7 @@ body.vibe-rosa::after {
     inset: 0;
     border-radius: 35px;
     background: rgba(255, 255, 255, 0.05);
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.38);
     pointer-events: none;
     z-index: -1;
