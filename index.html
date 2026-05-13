@@ -669,11 +669,27 @@ function atualizarTempoPorToque(e) {
     let proporcao = (clientX - rect.left) / rect.width;
     proporcao = Math.max(0, Math.min(1, proporcao));
     
+    const tempoAlvo = proporcao * video.duration;
+
     if (!isNaN(video.duration)) {
-        video.currentTime = proporcao * video.duration;
-        barraPreenchida.style.width = (proporcao * 100) + '%';
+        if (arrastandoBarra) {
+            video.currentTime = tempoAlvo;
+        }
+
+        previewContainer.style.display = 'block';
+        previewContainer.style.left = (proporcao * 100) + '%';
+        
+        videoGhost.currentTime = tempoAlvo;
+
+        videoGhost.onseeked = () => {
+            const ctx = previewCanvas.getContext('2d');
+            previewCanvas.width = 160; 
+            previewCanvas.height = 90;
+            ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
+        };
     }
 }
+ 
 
 barra.addEventListener('pointerdown', (e) => {
     arrastandoBarra = true;
@@ -723,6 +739,17 @@ barra.addEventListener('click', (e) => {
 });
 
 barra.style.pointerEvents = 'auto';
+
+ const previewContainer = document.createElement('div');
+previewContainer.className = 'video-preview-container';
+const previewCanvas = document.createElement('canvas');
+previewContainer.appendChild(previewCanvas);
+wrapper.appendChild(previewContainer);
+
+const videoGhost = document.createElement('video');
+videoGhost.src = video.src;
+videoGhost.muted = true;
+videoGhost.preload = 'auto';
  
     video.removeAttribute('controls');
     video.controls = false;
