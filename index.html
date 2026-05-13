@@ -637,29 +637,75 @@ document.querySelectorAll('.step-video').forEach(video => {
     let timerPressionar = null;
     let timerEsconder = null;
 
-    function esconderControles() {
-        clearTimeout(timerEsconder);
-        timerEsconder = setTimeout(() => {
-            video.controls = false;
-        }, 2000);
+    const wrapper = document.createElement('div');
+    wrapper.className = 'video-wrapper';
+    video.parentNode.insertBefore(wrapper, video);
+    wrapper.appendChild(video);
+
+    const btnCustom = document.createElement('div');
+    btnCustom.className = 'video-btn-custom';
+    wrapper.appendChild(btnCustom);
+
+    video.removeAttribute('controls');
+    video.controls = false;
+
+    function atualizarBotao() {
+        if (video.paused) {
+            btnCustom.style.backgroundImage = "url('img/despause.webp')";
+        } else {
+            btnCustom.style.backgroundImage = "url('img/pause.webp')";
+        }
     }
 
-    video.addEventListener('play', () => {
+    function mostrarBotao() {
+        btnCustom.classList.add('visivel');
         clearTimeout(timerEsconder);
         timerEsconder = setTimeout(() => {
-            video.controls = false;
-        }, 1000);
+            btnCustom.classList.remove('visivel');
+        }, 1500);
+    }
+
+    function esconderBotao() {
+        clearTimeout(timerEsconder);
+        timerEsconder = setTimeout(() => {
+            btnCustom.classList.remove('visivel');
+        }, 800);
+    }
+
+    atualizarBotao();
+
+    video.addEventListener('play', () => {
+        atualizarBotao();
+        mostrarBotao();
+        esconderBotao();
     });
 
     video.addEventListener('pause', () => {
-        video.controls = true;
-        esconderControles();
+        atualizarBotao();
+        mostrarBotao();
     });
 
     video.addEventListener('click', (e) => {
         if (!pressionando) {
-            video.controls = true;
-            esconderControles();
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+            atualizarBotao();
+            mostrarBotao();
+        }
+    });
+
+    wrapper.addEventListener('click', (e) => {
+        if (e.target === wrapper) {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+            atualizarBotao();
+            mostrarBotao();
         }
     });
 
