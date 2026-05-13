@@ -673,6 +673,8 @@ videoGhost.muted = true;
 videoGhost.preload = 'auto';
 videoGhost.playsInline = true;
 videoGhost.crossOrigin = "anonymous";
+videoGhost.load();
+ 
 
 const ctx = previewCanvas.getContext('2d', { alpha: false });
 previewCanvas.width = 160; 
@@ -692,15 +694,13 @@ function atualizarTempoPorToque(e) {
     
     const tempoAlvo = proporcao * video.duration;
 
-    if (!isNaN(video.duration)) {
-        if (arrastandoBarra) {
-            video.currentTime = tempoAlvo;
-        }
-
         previewContainer.style.display = 'block';
         previewContainer.style.left = (proporcao * 100) + '%';
         
-        videoGhost.currentTime = tempoAlvo;
+if (!videoGhost.seeking) {
+    videoGhost.currentTime = tempoAlvo;
+}
+     
     }
 }
  
@@ -721,6 +721,8 @@ document.addEventListener('pointermove', (e) => {
 
 document.addEventListener('pointerup', () => {
     if (arrastandoBarra) {
+        const rect = barra.getBoundingClientRect();
+        
         arrastandoBarra = false;
         previewContainer.style.display = 'none';
         mostrarControles();
@@ -742,12 +744,18 @@ document.addEventListener('touchmove', (e) => {
 }, { passive: true });
 
 document.addEventListener('touchend', () => {
-    if (arrastandoBarra) {
-        arrastandoBarra = false;
-        previewContainer.style.display = 'none';
-        mostrarControles();
-    }
-});
+if (arrastandoBarra) {
+    const rect = barra.getBoundingClientRect();
+    let proporcao = (ultimoX - rect.left) / rect.width; 
+    proporcao = Math.max(0, Math.min(1, proporcao));
+    
+    video.currentTime = proporcao * video.duration;
+    
+    arrastandoBarra = false;
+    previewContainer.style.display = 'none';
+    mostrarControles();
+}
+ 
 
 barra.addEventListener('click', (e) => {
     e.stopPropagation();
