@@ -162,6 +162,20 @@ body.vibe-rosa::after {
     overflow: hidden;
 }
 
+#device-info .config-box .pet-interativo {
+    width: 100% !important;
+    max-width: 450px !important;
+    height: auto !important;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(62, 198, 184, 0.4);
+    box-shadow: 0 0 15px rgba(62, 198, 184, 0.5);
+    cursor: pointer;
+    transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 2s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 @media (max-width: 768px) {
     #device-info .config-box {
         flex-direction: column;
@@ -171,8 +185,8 @@ body.vibe-rosa::after {
 }
 
 #device-info .config-box img {
-    width: 100% !important;
-    max-width: 450px !important;
+    width: auto !important;
+    max-width: 100% !important;
     height: auto !important;
 }
 
@@ -419,8 +433,8 @@ body.vibe-rosa::after {
     justify-content: center;
     align-items: center;
     z-index: 2000;
-    overflow: hidden;
-    touch-action: pan-y pinch-zoom;
+    overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -433,9 +447,9 @@ body.vibe-rosa::after {
     border: 1px solid rgba(62, 198, 184, 0.4);
     border-radius: 25px;
     padding: 25px;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     color: #fff;
-    touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
     -webkit-font-smoothing: antialiased;
     margin: 20px 0;
@@ -1008,7 +1022,8 @@ img[src*="nhaw.webp"] {
 
 #hint-cat {
     position: absolute;
-    width: 80px;
+    width: 80px !important;
+    max-width: 80px !important;
     top: -60px;
     left: 10px;
     opacity: 0;
