@@ -742,6 +742,7 @@ document.addEventListener('touchmove', (e) => {
 document.addEventListener('touchend', () => {
     if (arrastandoBarra) {
         arrastandoBarra = false;
+        previewContainer.style.display = 'none';
         mostrarControles();
     }
 });
