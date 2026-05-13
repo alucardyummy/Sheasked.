@@ -636,13 +636,12 @@ document.querySelectorAll('.step-video').forEach(video => {
     let pressionando = false;
     let timerPressionar = null;
     let timerEsconder = null;
- 
-    function mostrarControles() {
-        video.controls = true;
+
+    function esconderControles() {
         clearTimeout(timerEsconder);
         timerEsconder = setTimeout(() => {
             video.controls = false;
-        }, 2500);
+        }, 2000);
     }
 
     video.addEventListener('play', () => {
@@ -654,12 +653,13 @@ document.querySelectorAll('.step-video').forEach(video => {
 
     video.addEventListener('pause', () => {
         video.controls = true;
-        clearTimeout(timerEsconder);
+        esconderControles();
     });
 
     video.addEventListener('click', (e) => {
         if (!pressionando) {
-            mostrarControles();
+            video.controls = true;
+            esconderControles();
         }
     });
 
