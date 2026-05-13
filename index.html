@@ -631,21 +631,35 @@ if (targetCard) scrollObserver.observe(targetCard);
 
 bttElement.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 document.querySelectorAll('video').forEach(v => v.addEventListener('contextmenu', e => e.preventDefault()));
-
+  
 document.querySelectorAll('.step-video').forEach(video => {
     let pressionando = false;
     let timerPressionar = null;
+    let timerEsconder = null;
+ 
+    function mostrarControles() {
+        video.controls = true;
+        clearTimeout(timerEsconder);
+        timerEsconder = setTimeout(() => {
+            video.controls = false;
+        }, 2500);
+    }
 
-    video.removeAttribute('controls');
-    video.controls = false;
+    video.addEventListener('play', () => {
+        clearTimeout(timerEsconder);
+        timerEsconder = setTimeout(() => {
+            video.controls = false;
+        }, 1000);
+    });
+
+    video.addEventListener('pause', () => {
+        video.controls = true;
+        clearTimeout(timerEsconder);
+    });
 
     video.addEventListener('click', (e) => {
-        if (pressionando) return;
-        
-        if (video.paused) {
-            video.play();
-        } else {
-            video.pause();
+        if (!pressionando) {
+            mostrarControles();
         }
     });
 
@@ -662,12 +676,12 @@ document.querySelectorAll('.step-video').forEach(video => {
                 if (pressionando) {
                     video.playbackRate = 2.0;
                 }
-            }, 500);
+            }, 400);
         }
     });
 
     video.addEventListener('touchend', () => {
-        if (pressionando && video.playbackRate === 2.0) {
+        if (pressionando) {
             video.playbackRate = 1.0;
         }
         pressionando = false;
@@ -678,13 +692,13 @@ document.querySelectorAll('.step-video').forEach(video => {
     });
 
     video.addEventListener('touchmove', () => {
+        if (pressionando) {
+            video.playbackRate = 1.0;
+        }
         pressionando = false;
         if (timerPressionar) {
             clearTimeout(timerPressionar);
             timerPressionar = null;
-        }
-        if (video.playbackRate === 2.0) {
-            video.playbackRate = 1.0;
         }
     });
 });
