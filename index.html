@@ -301,7 +301,6 @@
 </footer>
 
 <button id="backToTop" class="back-to-top">↑</button>
-<div id="toast-notif" class="toast">Link copiado! &lt;3</div>
 
  <script>
   const bgMusic = new Audio('audio/Mii Editor - Mii Maker (Wii U) Music.mp3');
@@ -567,7 +566,21 @@ window.addEventListener('popstate', (event) => {
     }
 
   window.addEventListener('mousedown', (e) => {
-    const sorteioCursor = Math.random(); 
+    const target = e.target;
+    if (target.closest('.card') || 
+        target.closest('#pet-clicavel') || 
+        target.closest('#hint-cat') ||
+        target.closest('button') ||
+        target.closest('a') ||
+        target.closest('.btn-fechar') ||
+        target.closest('.btn-download') ||
+        target.closest('.share-link') ||
+        target.closest('#backToTop') ||
+        target.closest('#mute-control')) {
+        return;
+    }
+
+    const sorteioCursor = Math.random();
 
     if (sorteioCursor < 0.5) {
         cursor.style.left = e.clientX + 'px';
@@ -575,12 +588,11 @@ window.addEventListener('popstate', (event) => {
         cursor.classList.remove('expandir-cursor');
         void cursor.offsetWidth;
         cursor.classList.add('expandir-cursor');
-        
         criarPoeiraNoCursor();
     } else {
         criarPoeiraLivre(e.clientX, e.clientY);
     }
-})
+});
   
 function criarPoeiraNoCursor() {
     for (let i = 0; i < 8; i++) {
