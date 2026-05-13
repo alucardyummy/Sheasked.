@@ -234,9 +234,18 @@ body.vibe-rosa::after {
 }
 
 #device-info {
+    display: block;
     opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
     transition: opacity 0.5s ease;
-    padding: 0 20px;
+}
+
+#device-info.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .config-box {
@@ -288,12 +297,18 @@ body.vibe-rosa::after {
 }
 
 .grid {
-    display: none;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 20px;
+    display: grid;
     opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
     transition: opacity 0.5s ease;
+}
+
+.grid.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
  .card {
