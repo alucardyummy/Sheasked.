@@ -934,22 +934,27 @@ img[src*="nhaw.webp"] {
 }
 
 @keyframes efeitoFumacaParticles {
-    0% { transform: translate(0, 0) scale(1); opacity: 1; }
-    100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; filter: blur(6px); }
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--dx), var(--dy)) scale(1.2);
+        opacity: 0;
+    }
 }
 
 .vibe-poeira {
     animation-play-state: paused !important;
-    filter: blur(10px) brightness(1.5);
     opacity: 0 !important;
     transform: scale(1.5);
-    transition: all 1s ease-out;
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .coracao-vira-fumaca {
-    filter: blur(8px); 
     opacity: 0 !important;
-    transform: translateY(-20vh) scale(0.8) rotate(20deg);
+    transform: translateY(-20vh) scale(1.1) rotate(20deg);
     transition: all 1.5s ease-out;
 }
 
