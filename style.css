@@ -9,8 +9,8 @@
 
 html {
     scroll-behavior: smooth;
-    overscroll-behavior: auto;
-    background-color: #0a0a0a;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
 }
 
 * {
@@ -329,6 +329,8 @@ body.vibe-rosa::after {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translateZ(0);
+    will-change: transform;
+    contain: layout style;
 }
 
 .card-glass {
@@ -408,6 +410,8 @@ body.vibe-rosa::after {
     transition: opacity 0.5s ease;
     z-index: 2;
     transform: none !important;
+    backface-visibility: hidden;
+    perspective: 1000;
 }
 
 .card-glow::before {
