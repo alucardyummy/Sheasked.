@@ -306,6 +306,14 @@ body.vibe-rosa::after {
     will-change: opacity, transform;
     opacity: 0;
     transition: opacity 0.5s ease;
+    content-visibility: visible;
+}
+
+.divisor,
+.card,
+.config-box {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 100px;
 }
 
 .grid {
