@@ -654,54 +654,73 @@ document.querySelectorAll('.step-video').forEach(video => {
     btnCustom.className = 'video-btn-custom';
     wrapper.appendChild(btnCustom);
 
-    video.setAttribute('controls', 'controls');
-    video.controls = true;
+    const barra = document.createElement('div');
+    barra.className = 'video-barra';
+    const barraPreenchida = document.createElement('div');
+    barraPreenchida.className = 'video-barra-preenchida';
+    barra.appendChild(barraPreenchida);
+    wrapper.appendChild(barra);
+
+    video.removeAttribute('controls');
+    video.controls = false;
+ 
+    video.addEventListener('timeupdate', () => {
+        const progresso = (video.currentTime / video.duration) * 100;
+        barraPreenchida.style.width = progresso + '%';
+    });
 
     function atualizarBotao() {
-    if (video.paused) {
-        btnCustom.style.backgroundImage = "url('img/despause.webp')";
-    } else {
-        btnCustom.style.backgroundImage = "url('img/pause.webp')";
-    }
-  }
- 
-    function mostrarBotao() {
-        btnCustom.classList.add('visivel');
-        clearTimeout(timerEsconder);
+        if (video.paused) {
+            btnCustom.style.backgroundImage = "url('img/despause.webp')";
+        } else {
+            btnCustom.style.backgroundImage = "url('img/pause.webp')";
+        }
     }
 
-    function esconderBotaoComDelay() {
+    function mostrarControles() {
+        btnCustom.classList.add('visivel');
+        barra.classList.add('visivel');
         clearTimeout(timerEsconder);
         timerEsconder = setTimeout(() => {
             btnCustom.classList.remove('visivel');
-        }, 1200);
+            barra.classList.remove('visivel');
+        }, 2000);
     }
 
     atualizarBotao();
-    mostrarBotao();
+    mostrarControles();
 
     video.addEventListener('play', () => {
         atualizarBotao();
-        mostrarBotao();
-        esconderBotaoComDelay();
-    });
- 
-    video.addEventListener('pause', () => {
-        atualizarBotao();
-        mostrarBotao();
-        esconderBotaoComDelay();
+        mostrarControles();
     });
 
-    wrapper.addEventListener('click', (e) => {
-        if (e.target === wrapper || e.target === btnCustom) {
+    video.addEventListener('pause', () => {
+        atualizarBotao();
+        mostrarControles();
+    });
+
+    video.addEventListener('click', (e) => {
+        if (!pressionando) {
             if (video.paused) {
                 video.play();
             } else {
                 video.pause();
             }
             atualizarBotao();
-            mostrarBotao();
-            esconderBotaoComDelay();
+            mostrarControles();
+        }
+    });
+
+    wrapper.addEventListener('click', (e) => {
+        if (e.target === wrapper || e.target === barra || e.target === barraPreenchida) {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+            atualizarBotao();
+            mostrarControles();
         }
     });
 
@@ -727,10 +746,7 @@ document.querySelectorAll('.step-video').forEach(video => {
             video.playbackRate = 1.0;
         }
         pressionando = false;
-        if (timerPressionar) {
-            clearTimeout(timerPressionar);
-            timerPressionar = null;
-        }
+        if (timerPressionar) clearTimeout(timerPressionar);
     });
 
     video.addEventListener('touchmove', () => {
@@ -738,10 +754,7 @@ document.querySelectorAll('.step-video').forEach(video => {
             video.playbackRate = 1.0;
         }
         pressionando = false;
-        if (timerPressionar) {
-            clearTimeout(timerPressionar);
-            timerPressionar = null;
-        }
+        if (timerPressionar) clearTimeout(timerPressionar);
     });
 });
 </script>
