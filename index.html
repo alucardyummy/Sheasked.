@@ -687,6 +687,12 @@ document.querySelectorAll('.step-video').forEach(video => {
         }, 2000);
     }
 
+ function esconderControlesAgora() {
+    clearTimeout(timerEsconder);
+    btnCustom.classList.remove('visivel');
+    barra.classList.remove('visivel');
+ }
+ 
 atualizarBotao();
 btnCustom.classList.add('visivel');
 barra.classList.add('visivel');
@@ -700,16 +706,24 @@ barra.classList.add('visivel');
         atualizarBotao();
         mostrarControles();
     });
-
+ 
 video.addEventListener('click', (e) => {
     if (!pressionando) {
-        mostrarControles();
+        if (btnCustom.classList.contains('visivel')) {
+            esconderControlesAgora();
+        } else {
+            mostrarControles();
+        }
     }
 });
 
 wrapper.addEventListener('click', (e) => {
     if (e.target === wrapper || e.target === barra || e.target === barraPreenchida) {
-        mostrarControles();
+        if (btnCustom.classList.contains('visivel')) {
+            esconderControlesAgora();
+        } else {
+            mostrarControles();
+        }
     }
 });
 
