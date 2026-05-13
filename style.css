@@ -417,7 +417,7 @@ body.vibe-rosa::after {
     justify-content: center;
     align-items: center;
     z-index: 2000;
-    overflow: hidden;
+    overflow-y: auto;
     touch-action: pinch-zoom;
 }
 
@@ -435,7 +435,6 @@ body.vibe-rosa::after {
     touch-action: pan-x pan-y pinch-zoom;
     -webkit-overflow-scrolling: touch;
     -webkit-font-smoothing: antialiased;
-    transform: translateZ(0);
 }
 
 .modal-content h2 {
@@ -452,10 +451,6 @@ body.vibe-rosa::after {
         grid-template-columns: 1fr 1fr !important;
         gap: 40px !important;
     }
-
-.modal-content * {
-    vector-effect: non-scaling-stroke;
-}
 
 .modal-codigo {
     display: block;
@@ -639,7 +634,6 @@ video {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
-    transform: translateZ(0);
 }
 
 @media (min-width: 1024px) {
