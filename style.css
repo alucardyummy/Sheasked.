@@ -174,22 +174,70 @@ body.vibe-rosa::after {
 
 @media (max-width: 768px) {
     #device-info .config-box {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 50px !important;
-    max-width: 1100px !important;
-    width: 90% !important;
-    margin: 0 auto 50px auto !important;
-    padding: 50px !important;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
 }
 
-#device-info .config-box img {
-    width: 450px !important;
-    height: auto !important;
+@media (min-width: 1024px) {
+    body::before {
+        background-attachment: fixed;
+    }
+
+    .divisor {
+        width: 100%;
+        max-width: 1200px;
+        height: 180px;
+        margin: 60px auto;
+        background-size: contain;
+    }
+
+    #device-info .config-box {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 50px !important;
+        max-width: 1100px !important;
+        width: 90% !important;
+        margin: 0 auto 50px auto !important;
+        padding: 50px !important;
+    }
+
+    #device-info .config-box img {
+        width: 450px !important;
+        height: auto !important;
+    }
+
+    #device-info .config-box .pet-interativo {
+        width: 450px;
+        height: auto;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1300px;
+        margin: 0 auto;
+        gap: 30px;
+        padding: 40px;
+    }
+
+    .card {
+        min-height: 250px;
+    }
+
+    .topbar {
+        padding-top: 40px;
+        padding-bottom: 10px;
+    }
+
+    .logo img {
+        height: 100px;
+    }
 }
- 
+
 #device-info .config-box h3 {
     text-align: center;
     color: #3ec6b8;
@@ -197,7 +245,7 @@ body.vibe-rosa::after {
 
 #device-info .config-box p {
     margin: 4px 0;
-    text-align: center;
+    text-align: right;
 }
 
 #device-info {
@@ -216,7 +264,7 @@ body.vibe-rosa::after {
     color: #fff;
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
     transform: translateZ(0);
-    overflow: visible;
+    overflow: hidden;
 }
 
 .primary {
