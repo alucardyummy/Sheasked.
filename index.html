@@ -668,7 +668,7 @@ previewContainer.appendChild(previewCanvas);
 wrapper.appendChild(previewContainer);
 
     const videoGhost = document.createElement('video');
-videoGhost.src = video.src;
+videoGhost.src = video.querySelector('source').src;
 videoGhost.muted = true;
 videoGhost.preload = 'auto';
 videoGhost.playsInline = true;
@@ -702,12 +702,12 @@ const desenharFrame = () => {
     ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
 };
 
-if (videoGhost.readyState >= 2) {
-    desenharFrame();
-} else {
-    videoGhost.onseeked = desenharFrame;
-      }
-   }
+        if (videoGhost.readyState >= 2) {
+            desenharFrame();
+        } else {
+            videoGhost.onseeked = desenharFrame;
+        }
+    }
 }
  
 barra.addEventListener('pointerdown', (e) => {
