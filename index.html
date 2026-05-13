@@ -553,6 +553,14 @@ async function copiarLink() {
 
 window.addEventListener('pointerdown', (e) => {
     const target = e.target;
+
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    cursor.classList.remove('expandir-cursor');
+    void cursor.offsetWidth;
+    cursor.classList.add('expandir-cursor');
+    criarPoeiraNoCursor();
+
     if (target.closest('.card') ||
         target.closest('#pet-clicavel') ||
         target.closest('#hint-cat') ||
@@ -567,18 +575,7 @@ window.addEventListener('pointerdown', (e) => {
         return;
     }
 
-    const sorteioCursor = Math.random();
-
-    if (sorteioCursor < 0.5) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        cursor.classList.remove('expandir-cursor');
-        void cursor.offsetWidth;
-        cursor.classList.add('expandir-cursor');
-        criarPoeiraNoCursor();
-    } else {
-        criarPoeiraLivre(e.clientX, e.clientY);
-    }
+    criarPoeiraLivre(e.clientX, e.clientY);
 });
 
 function criarPoeiraNoCursor() {
