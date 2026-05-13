@@ -694,13 +694,13 @@ function atualizarTempoPorToque(e) {
     
     const tempoAlvo = proporcao * video.duration;
 
+    if (!isNaN(video.duration)) {
         previewContainer.style.display = 'block';
         previewContainer.style.left = (proporcao * 100) + '%';
         
-if (!videoGhost.seeking) {
-    videoGhost.currentTime = tempoAlvo;
-}
-     
+        if (!videoGhost.seeking) {
+            videoGhost.currentTime = tempoAlvo;
+        }
     }
 }
  
