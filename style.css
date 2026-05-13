@@ -264,8 +264,7 @@ body.vibe-rosa::after {
 }
 
 .config-box,
-#device-info .config-box,
-.card-glass {
+#device-info .config-box {
     transform: translateZ(0);
     backface-visibility: hidden;
 }
@@ -328,9 +327,7 @@ body.vibe-rosa::after {
     cursor: pointer;
     background: transparent !important;
     overflow: hidden;
-    transform: translateZ(0); 
     transition: transform 0.2s ease;
-    will-change: transform;
 }
 
 .card-glass {
@@ -368,8 +365,6 @@ body.vibe-rosa::after {
     object-fit: contain;
     margin-bottom: 15px;
     filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.6));
-    transform: translateZ(0);
-    backface-visibility: hidden;
 }
 
 .card .card-icon[src*="mimi.gif"],
