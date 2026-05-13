@@ -184,16 +184,9 @@ body.vibe-rosa::after {
     }
 }
 
-#device-info .config-box img {
-    width: auto !important;
-    max-width: 100% !important;
-    height: auto !important;
-}
-
 #device-info .config-box h3 {
     text-align: center;
     color: #3ec6b8;
-    order: -1;
 }
 
 #device-info .config-box p {
@@ -202,6 +195,7 @@ body.vibe-rosa::after {
 }
 
 #device-info {
+    display: none;
     opacity: 0;
     transition: opacity 0.5s ease;
     padding: 0 20px;
@@ -1024,6 +1018,7 @@ img[src*="nhaw.webp"] {
     position: absolute;
     width: 80px !important;
     max-width: 80px !important;
+    height: auto !important;
     top: -60px;
     left: 10px;
     opacity: 0;
