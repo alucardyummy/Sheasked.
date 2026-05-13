@@ -309,13 +309,6 @@ body.vibe-rosa::after {
     content-visibility: visible;
 }
 
-.divisor,
-.card,
-.config-box {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 100px;
-}
-
 .grid {
     display: none;
     grid-template-columns: 1fr;
@@ -325,7 +318,7 @@ body.vibe-rosa::after {
     transition: opacity 0.5s ease;
 }
 
-.card {
+ .card {
     position: relative;
     padding: 26px;
     border-radius: 35px;
@@ -334,15 +327,10 @@ body.vibe-rosa::after {
     align-items: center;
     cursor: pointer;
     background: transparent !important;
-    backface-visibility: hidden;
     overflow: hidden;
+    transform: translateZ(0); 
     transition: transform 0.2s ease;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transform: translate3d(0,0,0); 
-    -webkit-backface-visibility: hidden;
     will-change: transform;
-    transform-style: preserve-3d;
 }
 
 .card-glass {
@@ -354,14 +342,12 @@ body.vibe-rosa::after {
     border: 1px solid rgba(255, 255, 255, 0.38);
     pointer-events: none;
     z-index: 1;
-    transform: none !important;
 }
 
 .card h3, .card p, .card-icon {
     position: relative;
-    z-index: 10;
-    pointer-events: none;
-}
+    z-index: 10; 
+} 
 
 .card h3 {
     color: #ffffff !important;
