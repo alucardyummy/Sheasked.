@@ -178,6 +178,15 @@ body.vibe-rosa::after {
     }
 }
 
+@media (min-width: 1024px) {
+    .divisor {
+        width: 100%;
+        max-width: 1200px;
+        height: 180px;
+        margin: 60px auto;
+        background-size: contain;
+    }
+
     #device-info .config-box {
         display: flex !important;
         flex-direction: row !important;
@@ -234,18 +243,10 @@ body.vibe-rosa::after {
 }
 
 #device-info {
-    display: block;
+    display: none;
     opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
     transition: opacity 0.5s ease;
-}
-
-#device-info.show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    padding: 0 20px;
 }
 
 .config-box {
@@ -297,18 +298,12 @@ body.vibe-rosa::after {
 }
 
 .grid {
-    display: grid;
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 20px;
     opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
     transition: opacity 0.5s ease;
-}
-
-.grid.show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
 }
 
  .card {
@@ -320,8 +315,14 @@ body.vibe-rosa::after {
     align-items: center;
     cursor: pointer;
     background: transparent !important;
-    overflow: visible;
+    overflow: hidden;
     transition: transform 0.2s ease;
+}
+
+.card, .config-box, .divisor {
+    contain: paint;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .card-glass {
@@ -335,11 +336,10 @@ body.vibe-rosa::after {
     z-index: 1;
 }
 
-.card h3,
-.card p,
-.card-icon {
-    transform: translateZ(10px);
-}
+.card h3, .card p, .card-icon {
+    position: relative;
+    z-index: 10; 
+} 
 
 .card h3 {
     color: #ffffff !important;
@@ -685,6 +685,10 @@ video {
 }
 
 @media (min-width: 1024px) {
+    body::before {
+        background-attachment: fixed;
+    }
+
     .divisor {
         width: 100%;
         max-width: 1200px;
@@ -1164,15 +1168,4 @@ video::-webkit-media-controls-start-playback-button {
     width: 100%;
     height: 100%;
     display: block;
-}
-
-.grid, main, #device-info {
-    overflow: visible !important;
-    height: auto !important;
-    min-height: min-content;
-}
-
-.divisor:last-of-type {
-    display: block !important;
-    content-visibility: visible !important;
 }
