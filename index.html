@@ -673,10 +673,17 @@ videoGhost.muted = true;
 videoGhost.preload = 'auto';
 videoGhost.playsInline = true;
 videoGhost.crossOrigin = "anonymous";
-videoGhost.load();
- 
- let arrastandoBarra = false;
 
+const ctx = previewCanvas.getContext('2d', { alpha: false });
+previewCanvas.width = 160; 
+previewCanvas.height = 90;
+
+videoGhost.addEventListener('seeked', () => {
+    ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
+});
+
+let arrastandoBarra = false;
+ 
 function atualizarTempoPorToque(e) {
     const rect = barra.getBoundingClientRect();
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -693,7 +700,9 @@ function atualizarTempoPorToque(e) {
         previewContainer.style.display = 'block';
         previewContainer.style.left = (proporcao * 100) + '%';
         
-videoGhost.currentTime = tempoAlvo;
+        videoGhost.currentTime = tempoAlvo;
+    }
+}
 
 const desenharFrame = () => {
     const ctx = previewCanvas.getContext('2d');
