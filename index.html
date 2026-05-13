@@ -661,7 +661,18 @@ document.querySelectorAll('.step-video').forEach(video => {
     barra.appendChild(barraPreenchida);
     wrapper.appendChild(barra);
 
-let arrastandoBarra = false;
+    const previewContainer = document.createElement('div');
+previewContainer.className = 'video-preview-container';
+    const previewCanvas = document.createElement('canvas');
+previewContainer.appendChild(previewCanvas);
+wrapper.appendChild(previewContainer);
+
+    const videoGhost = document.createElement('video');
+videoGhost.src = video.src;
+videoGhost.muted = true;
+videoGhost.preload = 'auto';
+ 
+ let arrastandoBarra = false;
 
 function atualizarTempoPorToque(e) {
     const rect = barra.getBoundingClientRect();
@@ -709,6 +720,7 @@ document.addEventListener('pointermove', (e) => {
 document.addEventListener('pointerup', () => {
     if (arrastandoBarra) {
         arrastandoBarra = false;
+        previewContainer.style.display = 'none';
         mostrarControles();
     }
 });
@@ -739,17 +751,6 @@ barra.addEventListener('click', (e) => {
 });
 
 barra.style.pointerEvents = 'auto';
-
- const previewContainer = document.createElement('div');
-previewContainer.className = 'video-preview-container';
-const previewCanvas = document.createElement('canvas');
-previewContainer.appendChild(previewCanvas);
-wrapper.appendChild(previewContainer);
-
-const videoGhost = document.createElement('video');
-videoGhost.src = video.src;
-videoGhost.muted = true;
-videoGhost.preload = 'auto';
  
     video.removeAttribute('controls');
     video.controls = false;
