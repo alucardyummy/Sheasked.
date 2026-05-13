@@ -316,18 +316,21 @@ const hintCat = document.getElementById('hint-cat');
  let easterEggAtivo = false;
  let jaAconteceu = false;
  let intervalCora;
+  
+if (hintCat) {
+    hintCat.addEventListener('click', (e) => {
 
-  if (nhawGif) {
+     if (nhawGif) {
     nhawGif.addEventListener('click', () => {
         if (jaAconteceu) return;
 
         gifClicks++;
         
-       if (gifClicks === 2 && hintCat) {
-    hintCat.style.opacity = "1";
-       }
+        if (gifClicks === 2 && hintCat) {
+            hintCat.classList.add('visivel');
+        }
      
-       if ([1, 3, 4].includes(gifClicks)) {
+        if ([1, 3, 4].includes(gifClicks)) {
             document.body.classList.add('tremidinha-ativa');
             setTimeout(() => document.body.classList.remove('tremidinha-ativa'), 300);
         }
@@ -336,7 +339,7 @@ const hintCat = document.getElementById('hint-cat');
             jaAconteceu = true;
             easterEggAtivo = true;
             gifClicks = 0;
-        if (hintCat) hintCat.style.opacity = "0";
+            if (hintCat) hintCat.classList.remove('visivel');
             
             bgMusic.pause();
             document.body.classList.add('vibe-rosa');
@@ -365,19 +368,7 @@ const hintCat = document.getElementById('hint-cat');
             }, 23000);
         }
     });
-}
-  
-if (hintCat) {
-    hintCat.addEventListener('click', (e) => {
-        const x = e.clientX;
-        const y = e.clientY;
-        for(let i=0; i<5; i++) {
-            criarPoeiraLivre(x, y);
-        }
-        hintCat.style.transform = 'translateY(-10px)';
-        setTimeout(() => hintCat.style.transform = 'translateY(0)', 200);
-    });
-}
+  }
      
     const btn = document.getElementById('btn-comecar');
     const hero = document.getElementById('hero-section');
