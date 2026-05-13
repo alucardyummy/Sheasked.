@@ -521,20 +521,21 @@ function criarExplosaoFumaca(x, y) {
     }
 }); 
 
-    function abrirModal(id, element) {
+  function abrirModal(id, element) {
     const modal = document.getElementById(id);
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-     
-    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
+    
+    document.querySelector('meta[name="viewport"]')
+        .setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes');
 
-    history.pushState({ modalId: id }, ""); 
+    history.pushState({ modalId: id }, "");
 
-    if (element) { 
-        element.style.transform = 'scale(0.95)'; 
-        setTimeout(() => element.style.transform = '', 100); 
+    if (element) {
+        element.style.transform = 'scale(0.95)';
+        setTimeout(() => element.style.transform = '', 100);
     }
-}
+  }
 
 function fecharModal(id) {
     const m = document.getElementById(id);
@@ -555,18 +556,7 @@ window.addEventListener('popstate', (event) => {
             m.querySelectorAll('video').forEach(v => v.pause());
         }
     });
-}); 
-
-function fecharModal(id) {
-    const m = document.getElementById(id);
-    m.style.display = 'none';
-    
-    document.body.style.overflow = 'auto';
-    
-    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-    
-    m.querySelectorAll('video').forEach(v => v.pause());
-}
+});
 
     async function copiarLink() {
         const toast = document.getElementById('toast-notif');
