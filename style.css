@@ -143,7 +143,7 @@ body.vibe-rosa::after {
     margin-bottom: 25px;
 }
 
-#device-info .config-box {
+ #device-info .config-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,8 +159,8 @@ body.vibe-rosa::after {
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
     transform: translateZ(0);
     position: relative;
-    overflow: hidden;
-}
+    overflow: visible;
+ }
 
 #device-info .config-box .pet-interativo {
     width: 100% !important;
