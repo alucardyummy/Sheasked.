@@ -342,6 +342,7 @@ body.vibe-rosa::after {
     -moz-osx-font-smoothing: grayscale;
     transform: translateZ(0);
     will-change: transform;
+    transform-style: preserve-3d;
 }
 
 .card-glass {
@@ -354,6 +355,7 @@ body.vibe-rosa::after {
     pointer-events: none;
     z-index: -1;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
+    transform: none !important;
 }
 
 .card h3,
@@ -362,6 +364,7 @@ body.vibe-rosa::after {
     position: relative;
     z-index: 10;
     pointer-events: none;
+    transform: translateZ(20px); 
 }
 
 .card h3 {
