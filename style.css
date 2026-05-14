@@ -319,7 +319,7 @@ body.vibe-rosa::after {
     transition: transform 0.2s ease;
 }
 
-.card, .config-box, .divisor {
+.card, .divisor {
     contain: paint;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -1062,7 +1062,7 @@ img[src*="nhaw.webp"] {
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
-    z-index: 100;
+    z-index: 999;
 }
 
 .gato-nono.visivel {
