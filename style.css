@@ -134,7 +134,7 @@ body.vibe-rosa::after {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #fff;
-    filter: drop-shadow(0 0 10px rgba(62, 198, 184, 0.3));
+    text-shadow: 0 0 10px rgba(62,198,184,.3);
 }
 
 .hero p {
@@ -172,11 +172,18 @@ body.vibe-rosa::after {
 }
 
 @media (max-width: 768px) {
+
     #device-info .config-box {
         flex-direction: column;
         gap: 20px;
         padding: 20px;
     }
+
+    #wrapper-principal,
+    body::before{
+        background-attachment: scroll;
+    }
+
 }
 
 @media (min-width: 1024px) {
@@ -359,7 +366,29 @@ body.vibe-rosa::after {
     height: 60px;
     object-fit: contain;
     margin-bottom: 15px;
-    filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.6));
+    opacity: .95;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    top:10px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(62,198,184,.12),
+        transparent 70%
+      );
+
+    pointer-events:none;
 }
 
 .card .card-icon[src*="mimi.gif"],
@@ -936,7 +965,7 @@ img[src*="nhaw.webp"] {
 
 .woohoo-shake {
     animation: suavePulso 0.8s infinite !important;
-    filter: drop-shadow(0 0 15px rgba(255, 0, 222, 0.5)) !important;
+    filter: drop-shadow(0 0 12px rgba(255, 0, 222, 0.35));
 }
 
 .heart-particle {
@@ -949,8 +978,7 @@ img[src*="nhaw.webp"] {
     z-index: 10000;
     pointer-events: none;
     user-select: none;
-    opacity: 0.8;
-    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.8));
+    opacity: 0.9;
     image-rendering: pixelated;
     animation: subirLivremente 7s linear forwards;
 }
@@ -1076,13 +1104,24 @@ img[src*="nhaw.webp"] {
 .pulse-loader {
     width: 60px;
     height: auto;
+
+    position: relative;
+
     animation: pulsoCarregamento 0.8s ease-in-out infinite alternate;
-    filter: drop-shadow(0 0 15px rgba(62, 198, 184, 0.8));
+
+    filter: drop-shadow(0 0 10px rgba(62, 198, 184, 0.5));
 }
 
 @keyframes pulsoCarregamento {
-    0% { transform: scale(0.9); opacity: 0.7; filter: drop-shadow(0 0 5px rgba(62, 198, 184, 0.4)); }
-    100% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 25px rgba(62, 198, 184, 1)); }
+    0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
 }
 
 .gato-nono {
