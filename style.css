@@ -274,6 +274,8 @@ body.vibe-rosa::after {
     filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.5));
     opacity: 0;
     transition: opacity 0.5s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .grid {
@@ -298,11 +300,6 @@ body.vibe-rosa::after {
     transition: transform 0.2s ease;
 }
 
-.card, .divisor {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
 .card-glass {
     position: absolute;
     inset: 0;
@@ -319,6 +316,10 @@ body.vibe-rosa::after {
     z-index: 10; 
 } 
 
+.card p, .card h3 {
+    mix-blend-mode: normal !important;
+}
+
 .card h3 {
     color: #ffffff !important;
     font-size: 1.2rem;
@@ -327,6 +328,9 @@ body.vibe-rosa::after {
 }
 
 .card p {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block;
     color: rgba(255, 255, 255, 0.8) !important;
     font-size: 0.9rem;
     text-align: center;
@@ -394,7 +398,6 @@ body.vibe-rosa::after {
     transition: opacity 0.5s ease;
     z-index: 2;
     transform: none !important;
-    backface-visibility: hidden;
     perspective: 1000;
 }
 
@@ -414,7 +417,6 @@ body.vibe-rosa::after {
         transparent 100%
     );
     animation: girarBrilhoInfinito 4s linear infinite;
-    will-change: transform;
 }
 
 @keyframes girarBrilhoInfinito {
