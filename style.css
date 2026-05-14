@@ -906,7 +906,10 @@ body.modal-aberto {
     opacity: 1;
 }
 
-img[src*="nhaw.webp"] {
+ img[src*="nhaw.webp"] {
+    display: block;
+    margin: 20px auto 0 auto;
+    max-width: 450px;
     transition: filter 2s ease, transform 0.2s ease !important;
 }
 
