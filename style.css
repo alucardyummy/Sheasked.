@@ -199,7 +199,7 @@ body.vibe-rosa::after {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
-        justify-content: center !important;
+        justify-content: space-between !important;
         gap: 50px !important;
         max-width: 1100px !important;
         width: 90% !important;
@@ -215,6 +215,8 @@ body.vibe-rosa::after {
     #device-info .config-box .pet-interativo {
         width: 450px;
         height: auto;
+        margin: 0 auto;
+        order: 1; 
     }
 
     .grid {
