@@ -390,6 +390,7 @@ setTimeout(() => document.getElementById('wrapper-principal').classList.remove('
 }
   
 const btn = document.getElementById('btn-comecar');
+const loaderTransicao = document.getElementById('loader-transicao');
 const hero = document.getElementById('hero-section');
 const topbar = document.getElementById('minha-topbar');
 const divisor = document.getElementById('meu-divisor');
@@ -477,7 +478,6 @@ btn.addEventListener('click', () => {
     hero.classList.add('fade-out');
     bgMusic.play().catch(() => {});
 
-    const loaderTransicao = document.getElementById('loader-transicao');
     loaderTransicao.style.display = 'flex';
     setTimeout(() => loaderTransicao.style.opacity = "1", 50);
 
