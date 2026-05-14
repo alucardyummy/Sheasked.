@@ -502,6 +502,14 @@ btn.addEventListener('click', () => {
         divisor.style.display = 'block';
         deviceInfo.style.display = 'block';
         cards.style.display = 'grid';
+        
+        document.querySelectorAll('.card').forEach(card => {
+            const img = document.createElement('img');
+            img.src = 'img/glow.webp';
+            img.className = 'glow-spinner';
+            card.appendChild(img);
+        });
+        
         muteBtn.style.display = 'flex';
 
         divisor.offsetHeight;
