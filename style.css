@@ -212,10 +212,9 @@ body.vibe-rosa::after {
     }
 
      #device-info .config-box .pet-interativo {
-        width: 450px;
-        height: auto;
-        margin: 20px auto 0 auto;
-        order: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
      }
     
     .grid {
