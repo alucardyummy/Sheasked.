@@ -300,6 +300,8 @@ body.vibe-rosa::after {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     cursor: pointer;
     background: transparent !important;
     overflow: hidden;
@@ -311,7 +313,12 @@ body.vibe-rosa::after {
 .card-content {
     position: relative;
     z-index: 5;
-    pointer-events: auto;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .card-glass {
@@ -352,14 +359,15 @@ body.vibe-rosa::after {
     transform: translateZ(0);
 }
 
-.card-icon{
+ .card-icon {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    margin-bottom: 15px;
+    margin: 0 auto 15px auto;
+    display: block;
     opacity: .95;
     filter: drop-shadow(0 0 4px rgba(62,198,184,.35));
-}
+ }
 
 .card::before{
     content:"";
