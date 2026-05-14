@@ -301,7 +301,9 @@ body.vibe-rosa::after {
     align-items: center;
     cursor: pointer;
     background: transparent !important;
-    overflow: visible;
+    overflow: hidden;
+    transform: translateZ(0);
+    will-change: transform;
     transition: transform 0.2s ease;
 }
 
@@ -333,12 +335,14 @@ body.vibe-rosa::after {
 }
 
 .card p {
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block;
     color: rgba(255, 255, 255, 0.8) !important;
     font-size: 0.9rem;
     text-align: center;
+    position: relative;
+    z-index: 10;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .card-icon{
@@ -386,7 +390,7 @@ body.vibe-rosa::after {
     transform: scale(0.94);
 }
 
-.card-glow {
+/* .card-glow {
     position: absolute;
     top: 0;
     left: 0;
@@ -404,7 +408,7 @@ body.vibe-rosa::after {
     z-index: 2;
     transform: none !important;
     perspective: 1000;
-}
+} */
 
 .card-glow::before {
     content: "";
