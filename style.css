@@ -311,6 +311,12 @@ body.vibe-rosa::after {
     z-index: 1;
 }
 
+.card * {
+    opacity: 1 !important;
+    visibility: visible;
+    transform: none;
+}
+
 .card h3, .card p, .card-icon {
     position: relative;
     z-index: 10; 
