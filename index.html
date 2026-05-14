@@ -539,15 +539,15 @@ function abrirModal(id, element) {
     if (!modal) return;
 
     if (modalAtual && modalAtual !== id) {
-        fecharModal(modalAtual, false);
+        fecharModalNoUI(modalAtual);
     }
 
     modalAtual = id;
 
     modal.classList.add('ativo');
     document.body.style.overflow = 'hidden';
- 
-   const viewport = document.querySelector('meta[name="viewport"]');
+
+    const viewport = document.querySelector('meta[name="viewport"]');
     if (viewport) {
         viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
     }
@@ -560,7 +560,17 @@ function abrirModal(id, element) {
     }
 }
 
-function fecharModal(id, mexerHistorico = true) {
+function fecharModal(id) {
+ 
+    if (history.state && history.state.modalId === id) {
+        history.back();
+    } else {
+     
+        fecharModalNoUI(id);
+    }
+}
+
+function fecharModalNoUI(id) {
     const modal = document.getElementById(id);
     if (!modal || !modal.classList.contains('ativo')) return;
 
@@ -577,30 +587,14 @@ function fecharModal(id, mexerHistorico = true) {
     if (modalAtual === id) {
         modalAtual = null;
     }
-
-    if (mexerHistorico && history.state?.modalId === id) {
-        history.back();
-    }
 }
-  
+
 window.addEventListener('popstate', (event) => {
-    if (event.state?.modalId) {
-        const modal = document.getElementById(event.state.modalId);
-
-        if (modal && modal.classList.contains('ativo')) {
-            modal.classList.remove('ativo');
-            modal.querySelectorAll('video').forEach(v => v.pause());
-            document.body.style.overflow = 'auto';
-            
-            const viewport = document.querySelector('meta[name="viewport"]');
-            if (viewport) {
-                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-            }
-
-            modalAtual = null;
-        }
+    if (modalAtual) {
+        fecharModalNoUI(modalAtual);
     }
 });
+  
   
 async function copiarLink() {
     const toast = document.getElementById('toast-notif');
