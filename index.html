@@ -532,69 +532,76 @@ document.addEventListener("visibilitychange", () => {
     }
 });
   
+let modalAtual = null;
+
 function abrirModal(id, element) {
     const modal = document.getElementById(id);
+    if (!modal) return;
+
+    if (modalAtual && modalAtual !== id) {
+        fecharModal(modalAtual, false);
+    }
+
+    modalAtual = id;
+
     modal.classList.add('ativo');
     document.body.style.overflow = 'hidden';
-    
-    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
  
-    history.pushState({ modalId: id, acao: 'abrirModal' }, '', '#' + id);
+   const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
+    }
 
-    if (element) { 
-        element.style.transform = 'scale(0.95)'; 
-        setTimeout(() => element.style.transform = '', 100); 
+    history.pushState({ modalId: id }, '', `#${id}`);
+
+    if (element) {
+        element.style.transform = 'scale(0.95)';
+        setTimeout(() => element.style.transform = '', 100);
     }
 }
-  
-function fecharModal(id) {
-    const m = document.getElementById(id);
-    if (!m.classList.contains('ativo')) return;
-    
-    m.classList.remove('ativo');
+
+function fecharModal(id, mexerHistorico = true) {
+    const modal = document.getElementById(id);
+    if (!modal || !modal.classList.contains('ativo')) return;
+
+    modal.classList.remove('ativo');
     document.body.style.overflow = 'auto';
 
-    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
 
-    m.querySelectorAll('video').forEach(v => v.pause());
-    
-    if (history.state && history.state.modalId === id) {
+    modal.querySelectorAll('video').forEach(v => v.pause());
+
+    if (modalAtual === id) {
+        modalAtual = null;
+    }
+
+    if (mexerHistorico && history.state?.modalId === id) {
         history.back();
     }
 }
-
+  
 window.addEventListener('popstate', (event) => {
-    const modaisAbertos = document.querySelectorAll('.modal-overlay.ativo');
-    
-    if (modaisAbertos.length > 0) {
-        modaisAbertos.forEach(m => {
-            m.classList.remove('ativo');
-            m.querySelectorAll('video').forEach(v => v.pause());
-        });
-        document.body.style.overflow = 'auto';
-        
-        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-    } else {
-        if (hero.style.display === 'none') {
-            hero.style.display = 'flex';
-            hero.classList.remove('fade-out');
+    if (event.state?.modalId) {
+        const modal = document.getElementById(event.state.modalId);
+
+        if (modal && modal.classList.contains('ativo')) {
+            modal.classList.remove('ativo');
+            modal.querySelectorAll('video').forEach(v => v.pause());
+            document.body.style.overflow = 'auto';
             
-            topbar.style.display = 'none';
-            topbar.style.opacity = '0';
-            divisor.style.display = 'none';
-            divisor.style.opacity = '0';
-            deviceInfo.style.display = 'none';
-            deviceInfo.style.opacity = '0';
-            cards.style.display = 'none';
-            cards.style.opacity = '0';
-            muteBtn.style.display = 'none';
-            
-            bgMusic.pause();
-            document.body.classList.remove('blur-in');
+            const viewport = document.querySelector('meta[name="viewport"]');
+            if (viewport) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+            }
+
+            modalAtual = null;
         }
     }
 });
-
+  
 async function copiarLink() {
     const toast = document.getElementById('toast-notif');
     await navigator.clipboard.writeText(window.location.href);
