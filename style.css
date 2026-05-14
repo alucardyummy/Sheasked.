@@ -24,9 +24,10 @@ html {
 
 body {
     font-family: 'Space Grotesk', sans-serif !important;
-    background-color: transparent;
+    background-color: #0a0a0a;
     color: #fff;
     cursor: none;
+    overflow-x: hidden;
 }
 
 body::before {
@@ -1024,8 +1025,20 @@ img[src*="nhaw.webp"] {
 }
 
 .tremidinha-ativa {
-  animation: shake-tela 0.3s;
-  animation-iteration-count: 1;
+    animation: shake-tela 0.3s;
+    animation-iteration-count: 1;
+}
+
+.tremidinha-ativa::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('img/fundinho.webp') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
 }
 
 #loader-transicao {
