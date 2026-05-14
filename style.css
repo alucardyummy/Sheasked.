@@ -389,7 +389,81 @@ body.vibe-rosa::after {
 .card:active {
     transform: scale(0.94);
 }
- 
+
+.card-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 35px;
+    pointer-events: none;
+    padding: 2px;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: opacity;
+}
+
+.card-glow::before {
+    content: "";
+    position: absolute;
+    inset: -75%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 20%,
+        #ffffff 25%,
+        transparent 30%,
+        transparent 100%
+    );
+    animation: girarBrilhoInfinito 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes girarBrilhoInfinito {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.grid .card .card-glow {
+    opacity: 1;
+}
+
+.grid .card:nth-child(1) .card-glow::before {
+    animation-duration: 6s;
+}
+
+.grid .card:nth-child(2) .card-glow::before {
+    animation-duration: 10s;
+    animation-delay: -2s;
+}
+
+.grid .card:nth-child(3) .card-glow::before {
+    animation-duration: 4s;
+    animation-delay: -4s;
+}
+
+.grid .card:nth-child(4) .card-glow::before {
+    animation-duration: 15s;
+    animation-delay: -1s;
+}
+
+.grid .card:nth-child(5) .card-glow::before {
+    animation-duration: 8s;
+    animation-delay: -6s;
+}
+
+.grid .card:nth-child(6) .card-glow::before {
+    animation-delay: -3s;
+}
+
 .modal-overlay {
     position: fixed;
     inset: 0;
