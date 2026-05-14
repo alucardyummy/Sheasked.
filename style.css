@@ -304,7 +304,7 @@ body.vibe-rosa::after {
     justify-content: center;
     cursor: pointer;
     background: transparent !important;
-    overflow: hidden;
+    overflow: visible; 
     transform: translateZ(0);
     will-change: transform;
     transition: transform 0.2s ease;
@@ -324,6 +324,7 @@ body.vibe-rosa::after {
 .card-glass {
     position: absolute;
     inset: 0;
+    overflow: hidden;
     border-radius: 35px;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
