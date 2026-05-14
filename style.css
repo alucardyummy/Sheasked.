@@ -490,32 +490,28 @@ body.vibe-rosa::after {
 .modal-overlay {
     position: fixed;
     inset: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     overflow-y: auto;
     overflow-x: hidden;
-
     -webkit-overflow-scrolling: touch;
-
     z-index: 2000;
-
     opacity: 0;
     visibility: hidden;
-
     pointer-events: none;
-
     transition:
-        opacity 0.35s ease,
+    opacity 0.35s ease,
         visibility 0.35s ease;
-
-    background:
+        background:
         rgba(0,0,0,0.72)
         url('img/blurzinho.webp')
         center center / cover
         no-repeat;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: opacity;
 }
 
 .modal-overlay.ativo {
@@ -539,6 +535,8 @@ body.vibe-rosa::after {
     -webkit-overflow-scrolling: touch;
     -webkit-font-smoothing: antialiased;
     margin: 20px 0;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .modal-content h2 {
