@@ -532,7 +532,7 @@ document.addEventListener("visibilitychange", () => {
 
 function abrirModal(id, element) {
     const modal = document.getElementById(id);
-    modal.style.display = 'flex';
+    modal.classList.add('ativo');
     document.body.style.overflow = 'hidden';
      
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
@@ -547,7 +547,7 @@ function abrirModal(id, element) {
   
 function fecharModal(id) {
     const m = document.getElementById(id);
-    m.style.display = 'none';
+    m.classList.remove('ativo');
     document.body.style.overflow = 'auto';
 
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
@@ -559,7 +559,7 @@ window.addEventListener('popstate', (event) => {
     const modais = document.querySelectorAll('.modal-overlay');
     modais.forEach(m => {
         if (m.style.display === 'flex') {
-            m.style.display = 'none';
+            m.classList.remove('ativo');
             document.body.style.overflow = 'auto';
             m.querySelectorAll('video').forEach(v => v.pause());
         }
