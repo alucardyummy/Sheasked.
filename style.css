@@ -411,41 +411,52 @@ body.vibe-rosa::after {
     overflow: hidden;
     pointer-events: none;
     z-index: 2;
-    padding: 2px;
     opacity: 0;
     transition: opacity .5s ease;
-    box-sizing: border-box;
 }
 
 .card-glow::before {
     content: "";
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    border: 2px solid transparent;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     background:
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            transparent 35%,
-            rgba(255,255,255,.95) 50%,
-            transparent 65%,
-            transparent 100%
-        ) border-box;
-    -webkit-mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    animation: girarBrilhoInfinito 4s linear infinite;
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.95) 0%,
+            rgba(255,255,255,.4) 30%,
+            transparent 70%
+        );
+    filter: blur(6px);
+    animation: snakeBorder 6s linear infinite;
 }
 
-@keyframes girarBrilhoInfinito {
-    from {
-        transform: rotate(0deg);
+@keyframes snakeBorder {
+
+    0% {
+        top: -30px;
+        left: -30px;
     }
 
-    to {
-        transform: rotate(360deg);
+    25% {
+        top: -30px;
+        left: calc(100% - 50px);
+    }
+
+    50% {
+        top: calc(100% - 50px);
+        left: calc(100% - 50px);
+    }
+
+    75% {
+        top: calc(100% - 50px);
+        left: -30px;
+    }
+
+    100% {
+        top: -30px;
+        left: -30px;
     }
 }
 
