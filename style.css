@@ -396,7 +396,6 @@ body.vibe-rosa::after {
     border-radius: 35px;
     pointer-events: none;
     padding: 2px;
-    background: transparent;
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 2;
@@ -404,23 +403,25 @@ body.vibe-rosa::after {
     -webkit-transform: translateZ(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    will-change: opacity;
+    overflow: hidden;
 }
 
 .card-glow::before {
     content: "";
     position: absolute;
-    inset: -75%;
+    inset: -50%;
     background: conic-gradient(
         from 0deg,
         transparent 0%,
-        transparent 20%,
-        #ffffff 25%,
-        transparent 30%,
+        transparent 25%,
+        rgba(255,255,255,0.9) 28%,
+        transparent 32%,
         transparent 100%
     );
     animation: girarBrilhoInfinito 6s linear infinite;
-    opacity: 0.8;
+    opacity: 0.6;
+
+    filter: blur(1px);
 }
 
 @keyframes girarBrilhoInfinito {
