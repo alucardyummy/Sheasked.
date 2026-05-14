@@ -407,50 +407,34 @@ body.vibe-rosa::after {
 
 .card-glow {
     position: absolute;
-    inset: 0;
-    border-radius: 35px;
-    overflow: visible;
+    inset: -2px;
     pointer-events: none;
     z-index: 2;
-    opacity: 0;
-    transition: opacity .5s ease;
 }
 
-.card-glow::before {
-    content: "";
-    position: absolute;
-    width: 140px;
-    height: 18px;
-    border-radius: 999px;
-    background:
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(255,255,255,.08) 20%,
-            rgba(255,255,255,.95) 50%,
-            rgba(255,255,255,.08) 80%,
-            transparent 100%
-        );
-    filter: blur(3px);
-    top: 50%;
-    left: 50%;
-    transform-origin: center;
-    animation: snakeOrbit 6s linear infinite;
+.card-glow svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
 }
 
-@keyframes snakeOrbit {
+.card-glow rect {
+    fill: none;
+    stroke: white;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-dasharray: 18 82;
+    animation: snake 6s linear infinite;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,.8));
+}
+
+@keyframes snake {
     from {
-        transform:
-            translate(-50%, -50%)
-            rotate(0deg)
-            translateX(180px);
+        stroke-dashoffset: 0;
     }
-    
+
     to {
-        transform:
-            translate(-50%, -50%)
-            rotate(360deg)
-            translateX(180px);
+        stroke-dashoffset: -100;
     }
 }
 
