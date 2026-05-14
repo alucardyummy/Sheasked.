@@ -10,7 +10,8 @@
     <link rel="icon" type="image/png" href="img/BRsims-fav.webp">
 </head>
     <body class="blur-in">
-    <div id="loader-overlay"></div>
+    <div id="wrapper-principal">
+     <div id="loader-overlay"></div>
     <div id="custom-cursor"></div>
 
     <div id="loader-transicao" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
@@ -327,8 +328,8 @@ if (nhawGif) {
         }
      
         if ([1, 3, 4].includes(gifClicks)) {
-            document.body.classList.add('tremidinha-ativa');
-            setTimeout(() => document.body.classList.remove('tremidinha-ativa'), 300);
+            document.getElementById('wrapper-principal').classList.add('tremidinha-ativa');
+setTimeout(() => document.getElementById('wrapper-principal').classList.remove('tremidinha-ativa'), 300);
         }
 
         if (gifClicks === 5) {
