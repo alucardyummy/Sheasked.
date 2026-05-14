@@ -420,32 +420,23 @@ body.vibe-rosa::after {
 .card-glow::before {
     content: "";
     position: absolute;
-    width: 180%;
-    height: 180%;
-    top: -40%;
-    left: -40%;
-    border-radius: 50%;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px solid transparent;
     background:
         linear-gradient(
             90deg,
-            transparent 46%,
+            transparent 0%,
+            transparent 35%,
             rgba(255,255,255,.95) 50%,
-            transparent 54%
-        );
-
-    filter: blur(8px);
-    animation: girarBrilhoInfinito 5s linear infinite;
-    will-change: transform;
-    z-index: 1;
-}
-
-.card-glow::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border-radius: 33px;
-    background: rgba(0,0,0,.01);
-    z-index: 2;
+            transparent 65%,
+            transparent 100%
+        ) border-box;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    animation: girarBrilhoInfinito 4s linear infinite;
 }
 
 @keyframes girarBrilhoInfinito {
