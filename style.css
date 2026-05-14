@@ -409,12 +409,12 @@ body.vibe-rosa::after {
     inset: 0;
     border-radius: 35px;
     pointer-events: none;
-    z-index: 2;
-    opacity: 1 !important;
     padding: 2px;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+    z-index: 2;
+    opacity: 1 !important;
 }
 
 .card-glow::before {
@@ -427,15 +427,19 @@ body.vibe-rosa::after {
     background-image: url('img/glow.webp');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 40%;
-    animation: girarBrilhoInfinito var(--duration, 4s) linear infinite;
+    background-size: 50%;
+    animation: girarBrilhoInfinito 4s linear infinite !important;
+    display: block;
     will-change: transform;
-    z-index: 2;
 }
 
 @keyframes girarBrilhoInfinito {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .grid .card .card-glow {
