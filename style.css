@@ -206,7 +206,7 @@ body.vibe-rosa::after {
         margin: 0 auto 50px auto !important;
         padding: 50px !important;
     }
-
+    
     #device-info .config-box img {
         width: 450px !important;
         height: auto !important;
@@ -218,7 +218,7 @@ body.vibe-rosa::after {
         margin: 0 auto;
         order: 1; 
     }
-
+    
     .grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -728,54 +728,6 @@ video {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
-}
-
-@media (min-width: 1024px) {
-    body::before {
-        background-attachment: fixed;
-    }
-
-    .divisor {
-        width: 100%;
-        max-width: 1200px;
-        height: 180px;
-        margin: 60px auto;
-        background-size: contain;
-    }
-
-    #device-info .config-box {
-        flex-direction: row;
-        gap: 50px;
-        max-width: 1100px;
-        padding: 50px;
-    }
-
-    #device-info .config-box .pet-interativo {
-        width: 450px;
-        height: auto;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1300px;
-        margin: 0 auto;
-        gap: 30px;
-        padding: 40px;
-    }
-
-    .card {
-        min-height: 250px;
-    }
-
-    .topbar {
-        padding-top: 40px;
-        padding-bottom: 10px;
-    }
-
-    .logo img {
-        height: 100px;
-    }
 }
 
 #loader-overlay {
