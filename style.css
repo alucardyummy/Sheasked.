@@ -299,7 +299,6 @@ body.vibe-rosa::after {
 }
 
 .card, .divisor {
-    contain: paint;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
