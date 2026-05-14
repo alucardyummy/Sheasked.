@@ -38,12 +38,14 @@
 
     <section id="device-info">
         <div class="config-box">
-            <img src="img/nono.gif" id="hint-cat" class="gato-nono proibido">
-            <h3>Informações do meu celular</h3>
-            <p><b>Modelo:</b> Redmi Note 13 Pro 5G</p>
-            <p><b>Processador:</b> MediaTek Dimensity 7200 Ultra</p>
-            <p><b>RAM:</b> 12,0+6,0 GB</p>
-            <img src="nhaw.webp" id="pet-clicavel" class="pet-interativo">
+    <img src="img/nono.gif" id="hint-cat" class="gato-nono proibido">
+    <div class="info-texto">
+        <h3>Informações do meu celular</h3>
+        <p><b>Modelo:</b> Redmi Note 13 Pro 5G</p>
+        <p><b>Processador:</b> MediaTek Dimensity 7200 Ultra</p>
+        <p><b>RAM:</b> 12,0+6,0 GB</p>
+    </div>
+    <img src="nhaw.webp" id="pet-clicavel" class="pet-interativo">
         </div>
     </section>
 
@@ -530,6 +532,10 @@ document.addEventListener("visibilitychange", () => {
     }
 });
 
+window.addEventListener('beforeunload', () => {
+    history.replaceState(null, '', window.location.href);
+});
+  
 function abrirModal(id, element) {
     const modal = document.getElementById(id);
     modal.classList.add('ativo');
@@ -537,7 +543,7 @@ function abrirModal(id, element) {
      
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
 
-    history.pushState({ modalId: id }, ""); 
+    history.replaceState({ modalId: id }, '', window.location.href);
 
     if (element) { 
         element.style.transform = 'scale(0.95)'; 
@@ -558,10 +564,12 @@ function fecharModal(id) {
 window.addEventListener('popstate', (event) => {
     const modais = document.querySelectorAll('.modal-overlay');
     modais.forEach(m => {
-        if (m.style.display === 'flex') {
+        if (m.classList.contains('ativo')) {
             m.classList.remove('ativo');
             document.body.style.overflow = 'auto';
             m.querySelectorAll('video').forEach(v => v.pause());
+            
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
         }
     });
 });
