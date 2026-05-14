@@ -194,13 +194,12 @@ body.vibe-rosa::after {
         margin: 60px auto;
         background-size: contain;
     }
-
+    
     #device-info .config-box {
         display: flex !important;
-        flex-direction: row !important;
+        flex-direction: column !important;
         align-items: center !important;
-        justify-content: space-between !important;
-        gap: 50px !important;
+        gap: 10px !important;
         max-width: 1100px !important;
         width: 90% !important;
         margin: 0 auto 50px auto !important;
@@ -212,12 +211,12 @@ body.vibe-rosa::after {
         height: auto !important;
     }
 
-    #device-info .config-box .pet-interativo {
+     #device-info .config-box .pet-interativo {
         width: 450px;
         height: auto;
-        margin: 0 auto;
-        order: 1; 
-    }
+        margin: 20px auto 0 auto;
+        order: 0;
+     }
     
     .grid {
         display: grid;
