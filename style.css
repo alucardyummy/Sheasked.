@@ -294,6 +294,7 @@ body.vibe-rosa::after {
 
  .card {
     position: relative;
+    isolation: isolate;
     z-index: 1;
     padding: 26px;
     border-radius: 35px;
@@ -408,7 +409,7 @@ body.vibe-rosa::after {
     position: absolute;
     inset: 0;
     border-radius: 35px;
-    overflow: hidden;
+    overflow: visible;
     pointer-events: none;
     z-index: 2;
     opacity: 0;
@@ -418,64 +419,38 @@ body.vibe-rosa::after {
 .card-glow::before {
     content: "";
     position: absolute;
-    width: 180px;
-    height: 40px;
+    width: 140px;
+    height: 18px;
     border-radius: 999px;
     background:
         linear-gradient(
             90deg,
             transparent 0%,
-            rgba(255,255,255,.15) 20%,
+            rgba(255,255,255,.08) 20%,
             rgba(255,255,255,.95) 50%,
-            rgba(255,255,255,.15) 80%,
+            rgba(255,255,255,.08) 80%,
             transparent 100%
         );
-    filter: blur(4px);
-    animation: snakeBorder 6s linear infinite;
+    filter: blur(3px);
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    animation: snakeOrbit 6s linear infinite;
 }
 
-@keyframes snakeBorder {
-
-    0% {
-        top: -18px;
-        left: -90px;
-        transform: rotate(0deg);
+@keyframes snakeOrbit {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg)
+            translateX(180px);
     }
-
-    25% {
-        top: -18px;
-        left: calc(100% - 90px);
-        transform: rotate(0deg);
-    }
-
-    26% {
-        transform: rotate(90deg);
-    }
-
-    50% {
-        top: calc(100% - 18px);
-        left: calc(100% - 18px);
-        transform: rotate(90deg);
-    }
-
-    51% {
-        transform: rotate(180deg);
-    }
-
-    75% {
-        top: calc(100% - 18px);
-        left: -90px;
-        transform: rotate(180deg);
-    }
-
-    76% {
-        transform: rotate(270deg);
-    }
-
-    100% {
-        top: -18px;
-        left: -90px;
-        transform: rotate(270deg);
+    
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg)
+            translateX(180px);
     }
 }
 
