@@ -418,15 +418,17 @@ body.vibe-rosa::after {
     overflow: visible;
 }
 
-.card-glow rect {
+ .card-glow rect {
     fill: none;
-    stroke: white;
-    stroke-width: 1.5;
+    stroke: rgba(255,255,255,.95);
+    stroke-width: .9;
     stroke-linecap: round;
-    stroke-dasharray: 18 82;
+    stroke-dasharray: 12 88;
     animation: snake 6s linear infinite;
-    filter: drop-shadow(0 0 6px rgba(255,255,255,.8));
-}
+    filter:
+        drop-shadow(0 0 2px rgba(255,255,255,.9))
+        drop-shadow(0 0 6px rgba(255,255,255,.35));
+ }
 
 @keyframes snake {
     from {
@@ -442,31 +444,31 @@ body.vibe-rosa::after {
     opacity: 1;
 }
 
-.grid .card:nth-child(1) .card-glow::before {
+ .grid .card:nth-child(1) .card-glow rect {
     animation-duration: 6s;
 }
 
-.grid .card:nth-child(2) .card-glow::before {
+.grid .card:nth-child(2) .card-glow rect {
     animation-duration: 10s;
     animation-delay: -2s;
 }
 
-.grid .card:nth-child(3) .card-glow::before {
+.grid .card:nth-child(3) .card-glow rect {
     animation-duration: 4s;
     animation-delay: -4s;
 }
 
-.grid .card:nth-child(4) .card-glow::before {
+.grid .card:nth-child(4) .card-glow rect {
     animation-duration: 15s;
     animation-delay: -1s;
 }
 
-.grid .card:nth-child(5) .card-glow::before {
+.grid .card:nth-child(5) .card-glow rect {
     animation-duration: 8s;
     animation-delay: -6s;
 }
 
-.grid .card:nth-child(6) .card-glow::before {
+.grid .card:nth-child(6) .card-glow rect {
     animation-delay: -3s;
 }
 
