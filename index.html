@@ -531,19 +531,15 @@ document.addEventListener("visibilitychange", () => {
         }
     }
 });
-
-window.addEventListener('beforeunload', () => {
-    history.replaceState(null, '', window.location.href);
-});
   
 function abrirModal(id, element) {
     const modal = document.getElementById(id);
     modal.classList.add('ativo');
     document.body.style.overflow = 'hidden';
-     
+    
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
-
-    history.replaceState({ modalId: id }, '', window.location.href);
+ 
+    history.pushState({ modalId: id, acao: 'abrirModal' }, '', '#' + id);
 
     if (element) { 
         element.style.transform = 'scale(0.95)'; 
@@ -553,25 +549,50 @@ function abrirModal(id, element) {
   
 function fecharModal(id) {
     const m = document.getElementById(id);
+    if (!m.classList.contains('ativo')) return;
+    
     m.classList.remove('ativo');
     document.body.style.overflow = 'auto';
 
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
 
     m.querySelectorAll('video').forEach(v => v.pause());
+    
+    if (history.state && history.state.modalId === id) {
+        history.back();
+    }
 }
 
 window.addEventListener('popstate', (event) => {
-    const modais = document.querySelectorAll('.modal-overlay');
-    modais.forEach(m => {
-        if (m.classList.contains('ativo')) {
+    const modaisAbertos = document.querySelectorAll('.modal-overlay.ativo');
+    
+    if (modaisAbertos.length > 0) {
+        modaisAbertos.forEach(m => {
             m.classList.remove('ativo');
-            document.body.style.overflow = 'auto';
             m.querySelectorAll('video').forEach(v => v.pause());
+        });
+        document.body.style.overflow = 'auto';
+        
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    } else {
+        if (hero.style.display === 'none') {
+            hero.style.display = 'flex';
+            hero.classList.remove('fade-out');
             
-            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+            topbar.style.display = 'none';
+            topbar.style.opacity = '0';
+            divisor.style.display = 'none';
+            divisor.style.opacity = '0';
+            deviceInfo.style.display = 'none';
+            deviceInfo.style.opacity = '0';
+            cards.style.display = 'none';
+            cards.style.opacity = '0';
+            muteBtn.style.display = 'none';
+            
+            bgMusic.pause();
+            document.body.classList.remove('blur-in');
         }
-    });
+    }
 });
 
 async function copiarLink() {
