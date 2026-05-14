@@ -418,8 +418,8 @@ body.vibe-rosa::after {
 .card-glow::before {
     content: "";
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background:
         radial-gradient(
@@ -435,28 +435,28 @@ body.vibe-rosa::after {
 @keyframes snakeBorder {
 
     0% {
-        top: -30px;
-        left: -30px;
+        top: -60px;
+        left: -60px;
     }
 
     25% {
-        top: -30px;
-        left: calc(100% - 50px);
+        top: -60px;
+        left: calc(100% - 60px);
     }
 
     50% {
-        top: calc(100% - 50px);
-        left: calc(100% - 50px);
+        top: calc(100% - 60px);
+        left: calc(100% - 60px);
     }
 
     75% {
-        top: calc(100% - 50px);
-        left: -30px;
+        top: calc(100% - 60px);
+        left: -60px;
     }
 
     100% {
-        top: -30px;
-        left: -30px;
+        top: -60px;
+        left: -60px;
     }
 }
 
