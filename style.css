@@ -26,6 +26,7 @@ html {
 body {
     font-family: 'Space Grotesk', sans-serif !important;
     background-color: #0a0a0a;
+    isolation: isolate;
     color: #fff;
     cursor: none;
     overflow-x: hidden;
@@ -35,16 +36,14 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background:
-        url('img/fundinho.webp')
-        no-repeat
-        center center;
+    background: url('img/fundinho.webp') no-repeat center center;
     background-size: cover;
     z-index: -10;
-    transform: scale(1.02);
+    transform: translateZ(0) scale(1.02);
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    filter: brightness(1);
 }
 
 body::after {
@@ -1035,18 +1034,6 @@ body.modal-aberto {
 .tremidinha-ativa {
     animation: shake-tela 0.3s;
     animation-iteration-count: 1;
-}
-
-.tremidinha-ativa::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: url('img/fundinho.webp') no-repeat center center;
-    background-size: cover;
-    z-index: -1;
 }
 
 #loader-transicao {
