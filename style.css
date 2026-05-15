@@ -423,16 +423,23 @@ body.vibe-rosa::after {
 
 .card-glow {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%; 
+    aspect-ratio: 1 / 1; 
+    transform: translate(-50%, -50%);
     inset: 0;
-    border-radius: 35px;
+    border-radius: 50%;
     padding: 2px;
     background: conic-gradient(
         from var(--angle),
-        transparent 70%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.05) 65%, 
+        rgba(255, 255, 255, 0.4) 85%,
         #ffffff 100%
     );
     
-    -webkit-mask: 
+      -webkit-mask: 
         linear-gradient(#fff 0 0) content-box, 
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
