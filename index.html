@@ -562,6 +562,11 @@ function abrirModal(id, element) {
     modalAtual = id;
 
     modal.classList.add('ativo');
+
+    modal.querySelectorAll('.video-wrapper').forEach(v => {
+    v.style.opacity = '1';
+});
+ 
     document.body.style.overflow = 'hidden';
 
     const viewport = document.querySelector('meta[name="viewport"]');
@@ -591,6 +596,10 @@ function fecharModalNoUI(id) {
     if (!modal || !modal.classList.contains('ativo')) return;
 
     modal.classList.add('fechando');
+
+    modal.querySelectorAll('.video-wrapper').forEach(v => {
+        v.style.opacity = '0';
+    });
 
     requestAnimationFrame(() => {
         modal.classList.remove('ativo');
