@@ -458,7 +458,8 @@ body.vibe-rosa::after {
         transparent 100%
     );
     
-    animation: girar 4s linear infinite;
+    animation: girar 6s linear infinite; 
+    opacity: 0.9;
     will-change: --angle;
 }
 
