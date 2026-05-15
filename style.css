@@ -423,13 +423,13 @@ body.vibe-rosa::after {
 
 .card-glow {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%; 
+    inset: -50%; 
+    width: 200%;
     aspect-ratio: 1 / 1; 
-    transform: translate(-50%, -50%);
+    
     border-radius: 50%;
     padding: 2px;
+    
     background: conic-gradient(
         from var(--angle),
         transparent 50%,
@@ -443,6 +443,7 @@ body.vibe-rosa::after {
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+
     pointer-events: none;
     z-index: 1;
     animation: girar 4s linear infinite;
@@ -450,7 +451,6 @@ body.vibe-rosa::after {
     transition: opacity 0.5s ease;
     will-change: --angle;
 }
-
 
 @keyframes girar {
   from { --angle: 0deg; }
