@@ -1141,6 +1141,8 @@ body.modal-aberto {
     overflow: hidden;
     display: inline-block;
     width: 100%;
+    transition: opacity 0.16s ease;
+}
 }
 
 .step-video::-webkit-media-controls-play-button,
