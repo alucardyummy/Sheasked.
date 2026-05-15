@@ -736,6 +736,13 @@ previewContainer.className = 'video-preview-container';
 previewContainer.appendChild(previewCanvas);
 wrapper.appendChild(previewContainer);
 
+    const faixaVelocidade = document.createElement('div');
+    faixaVelocidade.className = 'video-faixinha-speed';
+    const textoFaixa = document.createElement('span');
+    textoFaixa.innerText = 'Pressione aqui para avançar o vídeo 2x ⏩';
+    faixaVelocidade.appendChild(textoFaixa);
+    wrapper.appendChild(faixaVelocidade);
+ 
     const videoGhost = document.createElement('video');
 videoGhost.src = video.querySelector('source').src;
 videoGhost.muted = true;
@@ -868,6 +875,7 @@ barra.style.pointerEvents = 'auto';
     clearTimeout(timerEsconder);
     btnCustom.classList.remove('visivel');
     barra.classList.remove('visivel');
+    faixaVelocidade.classList.remove('visivel');
  }
  
 atualizarBotao();
@@ -914,9 +922,10 @@ btnCustom.addEventListener('click', (e) => {
     atualizarBotao();
     mostrarControles();
 });
-btnCustom.style.pointerEvents = 'auto';
 
-    video.addEventListener('touchstart', (e) => {
+ btnCustom.style.pointerEvents = 'auto';
+
+        video.addEventListener('touchstart', (e) => {
         const rect = video.getBoundingClientRect();
         const y = e.touches[0].clientY - rect.top;
         const x = e.touches[0].clientX - rect.left;
@@ -924,6 +933,9 @@ btnCustom.style.pointerEvents = 'auto';
         const width = rect.width;
 
         if (y > height * 0.7 && x > width * 0.6) {
+            
+            esconderControlesAgora(); 
+
             pressionando = true;
             timerPressionar = setTimeout(() => {
                 if (pressionando) {
