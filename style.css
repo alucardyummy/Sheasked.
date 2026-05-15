@@ -428,7 +428,6 @@ body.vibe-rosa::after {
     width: 150%; 
     aspect-ratio: 1 / 1; 
     transform: translate(-50%, -50%);
-    inset: 0;
     border-radius: 50%;
     padding: 2px;
     background: conic-gradient(
@@ -439,7 +438,7 @@ body.vibe-rosa::after {
         #ffffff 100%
     );
     
-      -webkit-mask: 
+    -webkit-mask: 
         linear-gradient(#fff 0 0) content-box, 
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -451,6 +450,7 @@ body.vibe-rosa::after {
     transition: opacity 0.5s ease;
     will-change: --angle;
 }
+
 
 @keyframes girar {
   from { --angle: 0deg; }
