@@ -591,20 +591,25 @@ function fecharModalNoUI(id) {
     if (!modal || !modal.classList.contains('ativo')) return;
 
     modal.classList.remove('ativo');
-    document.body.style.overflow = 'auto';
 
-    const viewport = document.querySelector('meta[name="viewport"]');
-    if (viewport) {
-        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-    }
+    modal.addEventListener('transitionend', function aoTerminar() {
+        document.body.style.overflow = 'auto';
 
-    modal.querySelectorAll('video').forEach(v => v.pause());
+        const viewport = document.querySelector('meta[name="viewport"]');
+        if (viewport) {
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+        }
 
-    if (modalAtual === id) {
-        modalAtual = null;
-    }
+        modal.querySelectorAll('video').forEach(v => v.pause());
+
+        if (modalAtual === id) {
+            modalAtual = null;
+        }
+
+        modal.removeEventListener('transitionend', aoTerminar);
+    }, { once: true });
 }
-
+  
 window.addEventListener('popstate', (event) => {
     if (modalAtual) {
         fecharModalNoUI(modalAtual);
@@ -739,7 +744,7 @@ wrapper.appendChild(previewContainer);
     const faixaVelocidade = document.createElement('div');
     faixaVelocidade.className = 'video-faixinha-speed';
     const textoFaixa = document.createElement('span');
-    textoFaixa.innerText = 'Pressione aqui para avançar o vídeo 2x ⏩';
+    textoFaixa.innerText = 'Pressione aqui para avançar o vídeo  2x';
     faixaVelocidade.appendChild(textoFaixa);
     wrapper.appendChild(faixaVelocidade);
  
