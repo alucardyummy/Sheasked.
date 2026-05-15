@@ -546,6 +546,14 @@ body.vibe-rosa::after {
     margin: 20px 0;
     transform: translateZ(0);
     backface-visibility: hidden;
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+}
+
+.modal-overlay.fechando .modal-content {
+    opacity: 0;
+    transform: scale(0.98);
 }
 
 .modal-content h2 {
