@@ -569,7 +569,7 @@ function abrirModal(id, element) {
  
     document.body.style.overflow = 'hidden';
 
-    const viewport = document.querySelector('meta[name="viewport"]');
+    const viewport = document.body.classList.add("modal-aberto");
     if (viewport) {
         viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
     }
@@ -612,7 +612,7 @@ function fecharModalNoUI(id) {
 
             document.body.style.overflow = 'auto';
 
-            const viewport = document.querySelector('meta[name="viewport"]');
+            const viewport = document.body.classList.remove("modal-aberto");
             if (viewport) {
                 viewport.setAttribute(
                     'content',
