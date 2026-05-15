@@ -592,22 +592,27 @@ function fecharModalNoUI(id) {
 
     modal.classList.remove('ativo');
 
-    modal.addEventListener('transitionend', function aoTerminar() {
-        document.body.style.overflow = 'auto';
+    const limparAposFechar = (e) => {
+        if (e.propertyName === 'opacity') {
+            
+            document.body.style.overflow = 'auto';
 
-        const viewport = document.querySelector('meta[name="viewport"]');
-        if (viewport) {
-            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+            const viewport = document.querySelector('meta[name="viewport"]');
+            if (viewport) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+            }
+
+            modal.querySelectorAll('video').forEach(v => v.pause());
+
+            if (modalAtual === id) {
+                modalAtual = null;
+            }
+
+           modal.removeEventListener('transitionend', limparAposFechar);
         }
-
-        modal.querySelectorAll('video').forEach(v => v.pause());
-
-        if (modalAtual === id) {
-            modalAtual = null;
-        }
-
-        modal.removeEventListener('transitionend', aoTerminar);
-    }, { once: true });
+    };
+ 
+           modal.addEventListener('transitionend', limparAposFechar);
 }
   
 window.addEventListener('popstate', (event) => {
