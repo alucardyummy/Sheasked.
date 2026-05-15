@@ -337,9 +337,9 @@ body.vibe-rosa::after {
     border-radius: 35px;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     pointer-events: none;
-    z-index: 3;
+    z-index: 1;
 }
 
 .card h3, .card p, .card-icon {
@@ -423,12 +423,31 @@ body.vibe-rosa::after {
 
 .card-glow {
     position: absolute;
-    inset: -50%; 
-    width: 200%;
-    aspect-ratio: 1 / 1; 
-    
-    border-radius: 50%;
+    inset: 0;
+    border-radius: 35px;
     padding: 2px;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+    
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.card-glow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
     
     background: conic-gradient(
         from var(--angle),
@@ -438,17 +457,7 @@ body.vibe-rosa::after {
         #ffffff 100%
     );
     
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-
-    pointer-events: none;
-    z-index: 1;
     animation: girar 4s linear infinite;
-    opacity: 0;
-    transition: opacity 0.5s ease;
     will-change: --angle;
 }
 
@@ -461,12 +470,12 @@ body.vibe-rosa::after {
     opacity: 1;
 }
 
-.grid .card:nth-child(1) .card-glow { animation-duration: 6s; }
-.grid .card:nth-child(2) .card-glow { animation-duration: 10s; animation-delay: -2s; }
-.grid .card:nth-child(3) .card-glow { animation-duration: 4s; animation-delay: -4s; }
-.grid .card:nth-child(4) .card-glow { animation-duration: 15s; animation-delay: -1s; }
-.grid .card:nth-child(5) .card-glow { animation-duration: 8s; animation-delay: -6s; }
-.grid .card:nth-child(6) .card-glow { animation-delay: -3s; }
+.grid .card:nth-child(1) .card-glow::before { animation-duration: 6s; }
+.grid .card:nth-child(2) .card-glow::before { animation-duration: 10s; animation-delay: -2s; }
+.grid .card:nth-child(3) .card-glow::before { animation-duration: 4s; animation-delay: -4s; }
+.grid .card:nth-child(4) .card-glow::before { animation-duration: 15s; animation-delay: -1s; }
+.grid .card:nth-child(5) .card-glow::before { animation-duration: 8s; animation-delay: -6s; }
+.grid .card:nth-child(6) .card-glow::before { animation-delay: -3s; }
 
 .modal-overlay {
     position: fixed;
