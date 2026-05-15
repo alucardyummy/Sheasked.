@@ -321,7 +321,7 @@ body.vibe-rosa::after {
 
 .card-content {
     position: relative;
-    z-index: 200;
+    z-index: 10;
     pointer-events: none;
     display: flex;
     flex-direction: column;
@@ -415,84 +415,51 @@ body.vibe-rosa::after {
     transform: scale(0.94);
 }
 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .card-glow {
     position: absolute;
     inset: 0;
     border-radius: 35px;
-    pointer-events: none;
-    padding: 1px;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    padding: 2px;
+    background: conic-gradient(
+        from var(--angle),
+        transparent 70%,
+        #ffffff 100%
+    );
+    
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+    animation: girar 4s linear infinite;
     opacity: 0;
     transition: opacity 0.5s ease;
-    z-index: 2;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0); 
+    will-change: --angle;
 }
 
-.card-glow::before {
-    content: "";
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    top: -25%;
-    left: -25%;
-    background: conic-gradient(
-        from 0deg,
-        transparent 0%,
-        transparent 20%,
-        #ffffff 25%,
-        transparent 30%,
-        transparent 100%
-    );
-
-  animation: girarBrilhoInfinito 4s linear infinite;
-    
-    will-change: transform; 
-}
-
-@keyframes girarBrilhoInfinito {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+@keyframes girar {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
 }
 
 .grid .card .card-glow {
     opacity: 1;
 }
 
-.grid .card:nth-child(1) .card-glow::before {
-    animation-duration: 6s;
-}
-
-.grid .card:nth-child(2) .card-glow::before {
-    animation-duration: 10s;
-    animation-delay: -2s;
-}
-
-.grid .card:nth-child(3) .card-glow::before {
-    animation-duration: 4s;
-    animation-delay: -4s;
-}
-
-.grid .card:nth-child(4) .card-glow::before {
-    animation-duration: 15s;
-    animation-delay: -1s;
-}
-
-.grid .card:nth-child(5) .card-glow::before {
-    animation-duration: 8s;
-    animation-delay: -6s;
-}
-
-.grid .card:nth-child(6) .card-glow::before {
-    animation-delay: -3s;
-}
+.grid .card:nth-child(1) .card-glow { animation-duration: 6s; }
+.grid .card:nth-child(2) .card-glow { animation-duration: 10s; animation-delay: -2s; }
+.grid .card:nth-child(3) .card-glow { animation-duration: 4s; animation-delay: -4s; }
+.grid .card:nth-child(4) .card-glow { animation-duration: 15s; animation-delay: -1s; }
+.grid .card:nth-child(5) .card-glow { animation-duration: 8s; animation-delay: -6s; }
+.grid .card:nth-child(6) .card-glow { animation-delay: -3s; }
 
 .modal-overlay {
     position: fixed;
