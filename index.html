@@ -590,16 +590,25 @@ function fecharModalNoUI(id) {
     const modal = document.getElementById(id);
     if (!modal || !modal.classList.contains('ativo')) return;
 
-    modal.classList.remove('ativo');
+    modal.classList.add('fechando');
+
+    requestAnimationFrame(() => {
+        modal.classList.remove('ativo');
+    });
 
     const limparAposFechar = (e) => {
         if (e.propertyName === 'opacity') {
-            
+
+            modal.classList.remove('fechando');
+
             document.body.style.overflow = 'auto';
 
             const viewport = document.querySelector('meta[name="viewport"]');
             if (viewport) {
-                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+                viewport.setAttribute(
+                    'content',
+                    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+                );
             }
 
             modal.querySelectorAll('video').forEach(v => v.pause());
@@ -608,11 +617,11 @@ function fecharModalNoUI(id) {
                 modalAtual = null;
             }
 
-           modal.removeEventListener('transitionend', limparAposFechar);
+            modal.removeEventListener('transitionend', limparAposFechar);
         }
     };
- 
-           modal.addEventListener('transitionend', limparAposFechar);
+
+    modal.addEventListener('transitionend', limparAposFechar);
 }
   
 window.addEventListener('popstate', (event) => {
