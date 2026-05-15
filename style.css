@@ -315,7 +315,7 @@ body.vibe-rosa::after {
     justify-content: center;
     cursor: pointer;
     background: transparent !important;
-    overflow: visible;
+    overflow: hidden;
     transition: transform 0.2s ease;
  }
 
