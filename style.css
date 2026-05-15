@@ -449,12 +449,13 @@ body.vibe-rosa::after {
     aspect-ratio: 1 / 1;
     transform: translate(-50%, -50%);
     
-    background: conic-gradient(
+        background: conic-gradient(
         from var(--angle),
-        transparent 50%,
-        rgba(255, 255, 255, 0.05) 65%, 
-        rgba(255, 255, 255, 0.4) 85%,
-        #ffffff 100%
+        transparent 45%,
+        rgba(255, 255, 255, 0.05) 60%,
+        rgba(255, 255, 255, 0.8) 85%,
+        #ffffff 93%,
+        transparent 100%
     );
     
     animation: girar 4s linear infinite;
