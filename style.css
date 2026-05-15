@@ -878,9 +878,12 @@ video {
 
 body.modal-aberto {
     overflow: hidden;
-    touch-action: none;
+    touch-action: pan-x pan-y;
 }
 
+body:not(.modal-aberto) {
+    touch-action: manipulation;
+}
 .toast {
     position: fixed;
     bottom: 30px;
