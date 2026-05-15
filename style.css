@@ -308,6 +308,7 @@ body.vibe-rosa::after {
     position: relative;
     isolation: isolate;
     z-index: 1;
+    transform-style: preserve-3d;
     padding: 26px;
     border-radius: 35px;
     display: flex;
@@ -318,7 +319,7 @@ body.vibe-rosa::after {
     background: transparent !important;
     overflow: visible;
     transition: transform 0.2s ease;
-}
+ }
 
 .card-content {
     position: relative;
