@@ -861,15 +861,19 @@ barra.style.pointerEvents = 'auto';
     }
   }
 
-    function mostrarControles() {
+        function mostrarControles() {
         btnCustom.classList.add('visivel');
         barra.classList.add('visivel');
+        faixaVelocidade.classList.add('visivel');
+        
         clearTimeout(timerEsconder);
         timerEsconder = setTimeout(() => {
             btnCustom.classList.remove('visivel');
             barra.classList.remove('visivel');
+            faixaVelocidade.classList.remove('visivel');
         }, 2000);
-    }
+        }
+ 
 
  function esconderControlesAgora() {
     clearTimeout(timerEsconder);
