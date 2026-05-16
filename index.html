@@ -448,22 +448,18 @@
     let modalAtual = null;
 
     function pausarAnimacoesHeavy() {
+  document.body.style.setProperty('--anim-play-state', 'paused');
+  document.body.classList.add('modal-ativo');
 
-      document.body.style.setProperty('--anim-play-state', 'paused');
-      });
+  document.querySelectorAll('.video-preview-container').forEach(v => {
+    v.style.display = 'none';
+  });
+}
 
-      document.body.classList.add('modal-ativo');
-
-      document.querySelectorAll('.video-preview-container').forEach(v => {
-        v.style.display = 'none';
-      });
-    }
-
-    function retornarAnimacoesHeavy() {
-      document.body.style.setProperty('--anim-play-state', 'running');
-      });
-      document.body.classList.remove('modal-ativo');
-    }
+function retornarAnimacoesHeavy() {
+  document.body.style.setProperty('--anim-play-state', 'running');
+  document.body.classList.remove('modal-ativo');
+}
 
     function abrirModal(id, element) {
       const modal = document.getElementById(id);
