@@ -671,19 +671,15 @@ video {
   visibility: hidden;
   transform: translateY(20px) scale(0.8);
   transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.5s;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-  
-  border: none; 
-  overflow: visible; 
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(62, 198, 184, 0.1);
 }
 
 .back-to-top::before {
   content: "";
   position: absolute;
-  inset: -1px; 
+  inset: -2px; 
   border-radius: 50%;
-  padding: 2px; 
-  
+  padding: 2px;
   background: conic-gradient(
       from var(--angle),
       transparent 65%,
@@ -692,17 +688,18 @@ video {
       #ffffff 95%,
       transparent 100%
   );
-  
   -webkit-mask: 
       linear-gradient(#fff 0 0) content-box, 
       linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  
   pointer-events: none;
   animation: girar 2s linear infinite; 
   will-change: --angle;
 }
+
+.back-to-top.show   { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+.back-to-top:active { transform: scale(0.9); box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
 
 .share-link {
   display: inline-block;
