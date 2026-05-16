@@ -549,20 +549,23 @@ function retornarAnimacoesHeavy() {
       setTimeout(() => toast.classList.remove('show'), 2500);
       if (navigator.share) try { await navigator.share({ title: 'Guia Sims 4 Android', url: window.location.href }); } catch (err) {}
     }
-    
-let isScrolling = false;
-let scrollTimeout;
 
-window.addEventListener('scroll', () => {
-  isScrolling = true;
-  clearTimeout(scrollTimeout);
-  scrollTimeout = setTimeout(() => {
-    isScrolling = false;
-  }, 150);
-}, { passive: true });
+let touchStartX = 0, touchStartY = 0, touchMoveu = false;
 
 window.addEventListener('pointerdown', (e) => {
-  if (isScrolling) return;
+  touchStartX = e.clientX;
+  touchStartY = e.clientY;
+  touchMoveu = false;
+});
+
+window.addEventListener('pointermove', (e) => {
+  const dx = Math.abs(e.clientX - touchStartX);
+  const dy = Math.abs(e.clientY - touchStartY);
+  if (dx > 8 || dy > 8) touchMoveu = true;
+});
+
+window.addEventListener('pointerup', (e) => {
+  if (touchMoveu) return;
 
   const target = e.target;
   const elementoInterativo = target.closest('.card') ||
