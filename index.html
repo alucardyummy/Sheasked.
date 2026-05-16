@@ -859,7 +859,19 @@ document.querySelectorAll('.modal-content').forEach(modal => {
 
             document.body.style.setProperty('--anim-play-state', 'paused');
 
-            document.querySelectorAll('.back-to-top, #mute-control, .poeira-cosmica, .heart-particle, .pop-bubble-original, .pop-bubble-fumaca').forEach(el => {
+            const btt = document.getElementById('backToTop');
+            if (btt) {
+                btt._visAntiga = btt.style.visibility;
+                btt.style.visibility = 'hidden';
+            }
+
+            const mute = document.getElementById('mute-control');
+            if (mute) {
+                mute._displayAntigo = mute.style.display;
+                mute.style.display = 'none';
+            }
+
+            document.querySelectorAll('.poeira-cosmica, .heart-particle, .pop-bubble-original, .pop-bubble-fumaca').forEach(el => {
                 el._displayAntigo = el.style.display;
                 el.style.display = 'none';
             });
@@ -880,8 +892,18 @@ document.querySelectorAll('.modal-content').forEach(modal => {
                 }
 
                 document.body.style.setProperty('--anim-play-state', 'running');
+             
+                const btt = document.getElementById('backToTop');
+                if (btt && btt._visAntiga !== undefined) {
+                    btt.style.visibility = btt._visAntiga;
+                }
 
-                document.querySelectorAll('.back-to-top, #mute-control, .poeira-cosmica, .heart-particle, .pop-bubble-original, .pop-bubble-fumaca').forEach(el => {
+                const mute = document.getElementById('mute-control');
+                if (mute && mute._displayAntigo !== undefined) {
+                    mute.style.display = mute._displayAntigo;
+                }
+
+                document.querySelectorAll('.poeira-cosmica, .heart-particle, .pop-bubble-original, .pop-bubble-fumaca').forEach(el => {
                     if (el._displayAntigo !== undefined) {
                         el.style.display = el._displayAntigo;
                     }
