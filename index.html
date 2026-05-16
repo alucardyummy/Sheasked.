@@ -306,7 +306,8 @@
             loader.remove();
             bgMusic.pause();
             woohoo.currentTime = 0;
-            woohoo.volume = 1.0;
+            woohoo.volume = 0.60;
+            woohoo.play().catch(() => {});
 
             for (let i = 0; i < 3; i++) {
               const fake = document.createElement('div');
