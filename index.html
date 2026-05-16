@@ -1,657 +1,573 @@
  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="preload" as="image" href="img/SIMS4ANDROIDBR.webp">
-    <link rel="preload" as="image" href="nhaw.webp">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sims4AndroidBR</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="img/BRsims-fav.webp">
+  <link rel="preload" as="image" href="img/SIMS4ANDROIDBR.webp">
+  <link rel="preload" as="image" href="nhaw.webp">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sims4AndroidBR</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/BRsims-fav.webp">
 </head>
-    <body class="blur-in">
-    <div id="wrapper-principal">
-     <div id="loader-overlay"></div>
-    <div id="custom-cursor"></div>
+<body class="blur-in">
+<div id="wrapper-principal">
+  <div id="loader-overlay"></div>
+  <div id="custom-cursor"></div>
 
-    <div id="loader-transicao" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
-        <img src="img/BRsims-fav.webp" class="pulse-loader proibido">
-        <p style="color: #3ec6b8; font-family: 'LemonMilk', sans-serif; margin-top: 15px; letter-spacing: 2px;">Carregando...</p>
-    </div>
- 
-    <header class="topbar" id="minha-topbar" style="display: none; opacity: 0;">
-        <a href="index.html" class="logo">
-            <img src="img/SIMS4ANDROIDBR.webp" alt="Logo" class="proibido">
-        </a>
-    </header>
+  <div id="loader-transicao" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
+    <img src="img/BRsims-fav.webp" class="pulse-loader proibido">
+    <p style="color: #3ec6b8; font-family: 'LemonMilk', sans-serif; margin-top: 15px; letter-spacing: 2px;">Carregando...</p>
+  </div>
 
-    <main>
+  <header class="topbar" id="minha-topbar" style="display: none; opacity: 0;">
+    <a href="index.html" class="logo">
+      <img src="img/SIMS4ANDROIDBR.webp" alt="Logo" class="proibido">
+    </a>
+  </header>
+
+  <main>
     <section class="hero" id="hero-section">
-        <div class="hero-text">
-            <h1>Guia Completo</h1>
-            <p>Rode The Sims 4 no android + mods! Passo a passo :3</p>
-            <button class="primary" id="btn-comecar">Começar</button>
-        </div>
+      <div class="hero-text">
+        <h1>Guia Completo</h1>
+        <p>Rode The Sims 4 no android + mods! Passo a passo :3</p>
+        <button class="primary" id="btn-comecar">Começar</button>
+      </div>
     </section>
 
     <div class="divisor" id="meu-divisor"></div>
 
     <section id="device-info">
-        <div class="config-box">
-    <img src="img/nono.gif" id="hint-cat" class="gato-nono proibido">
-    <div class="info-texto">
-        <h3>Informações do meu celular</h3>
-        <p><b>Modelo:</b> Redmi Note 13 Pro 5G</p>
-        <p><b>Processador:</b> MediaTek Dimensity 7200 Ultra</p>
-        <p><b>RAM:</b> 12,0+6,0 GB</p>
-    </div>
-    <img src="nhaw.webp" id="pet-clicavel" class="pet-interativo">
+      <div class="config-box">
+        <img src="img/nono.gif" id="hint-cat" class="gato-nono proibido">
+        <div class="info-texto">
+          <h3>Informações do meu celular</h3>
+          <p><b>Modelo:</b> Redmi Note 13 Pro 5G</p>
+          <p><b>Processador:</b> MediaTek Dimensity 7200 Ultra</p>
+          <p><b>RAM:</b> 12,0+6,0 GB</p>
         </div>
+        <img src="nhaw.webp" id="pet-clicavel" class="pet-interativo">
+      </div>
     </section>
 
     <section class="grid" id="guia-cards">
-        <div class="card" onclick="abrirModal('modal-download', this)">
-            <div class="card-glow"></div>
-         <div class="card-glass"></div>
-            
-            <div class="card-content">
-                <img src="img/download-icon.webp" class="card-icon proibido">
-                <h3>Download</h3>
-                <p>Baixar jogo + apps necessários</p>
-            </div>
+      <div class="card" onclick="abrirModal('modal-download', this)">
+        <div class="card-glow"></div>
+        <div class="card-glass"></div>
+        <div class="card-content">
+          <img src="img/download-icon.webp" class="card-icon proibido">
+          <h3>Download</h3>
+          <p>Baixar jogo + apps necessários</p>
         </div>
+      </div>
 
-        <div class="card" onclick="abrirModal('modal-instalacao', this)">
-            <div class="card-glow"></div>
-          <div class="card-glass"></div>
-            
-            <div class="card-content">
-                <img src="img/instalacao-icon.webp" class="card-icon proibido">
-                <h3>Instalação</h3>
-                <p>Configurar GameHub corretamente</p>
-            </div>
+      <div class="card" onclick="abrirModal('modal-instalacao', this)">
+        <div class="card-glow"></div>
+        <div class="card-glass"></div>
+        <div class="card-content">
+          <img src="img/instalacao-icon.webp" class="card-icon proibido">
+          <h3>Instalação</h3>
+          <p>Configurar GameHub corretamente</p>
         </div>
+      </div>
 
-        <div class="card" onclick="abrirModal('modal-configuracao', this)">
-            <div class="card-glow"></div>
-         <div class="card-glass"></div>
-            
-            <div class="card-content">
-                <img src="img/problemas-icon.webp" class="card-icon proibido">
-                <h3>Configuração</h3>
-                <p>Ajustes de Wine e GPU para mais FPS</p>
-            </div>
+      <div class="card" onclick="abrirModal('modal-configuracao', this)">
+        <div class="card-glow"></div>
+        <div class="card-glass"></div>
+        <div class="card-content">
+          <img src="img/problemas-icon.webp" class="card-icon proibido">
+          <h3>Configuração</h3>
+          <p>Ajustes de Wine e GPU para mais FPS</p>
         </div>
+      </div>
 
-        <div class="card" onclick="abrirModal('modal-mods', this)">
-           <div class="card-glow"></div>
-         <div class="card-glass"></div>
-            
-            <div class="card-content">
-                <img src="img/mods-icon.webp" class="card-icon proibido">
-                <h3>Mods</h3>
-                <p>Como instalar WickedWhims e CC</p>
-            </div>
+      <div class="card" onclick="abrirModal('modal-mods', this)">
+        <div class="card-glow"></div>
+        <div class="card-glass"></div>
+        <div class="card-content">
+          <img src="img/mods-icon.webp" class="card-icon proibido">
+          <h3>Mods</h3>
+          <p>Como instalar WickedWhims e CC</p>
         </div>
+      </div>
 
-        <div class="card" onclick="abrirModal('modal-traducoes', this)">
-           <div class="card-glow"></div>
-         <div class="card-glass"></div>
-            
-            <div class="card-content">
-                <img src="img/mimi.gif" class="card-icon proibido">
-                <h3>Tradução TS4</h3>
-                <p>Como deixar o jogo em Português</p>
-            </div>
+      <div class="card" onclick="abrirModal('modal-traducoes', this)">
+        <div class="card-glow"></div>
+        <div class="card-glass"></div>
+        <div class="card-content">
+          <img src="img/mimi.gif" class="card-icon proibido">
+          <h3>Tradução TS4</h3>
+          <p>Como deixar o jogo em Português</p>
         </div>
+      </div>
 
-        <div class="card" id="ultimo-card" onclick="abrirModal('modal-contêiner', this)">
-           <div class="card-glow"></div>
-         <div class="card-glass"></div>
-            
-            <div class="card-content">
-                <img src="img/conteiner-wow.webp" class="card-icon proibido">
-                <h3>Contêiner & Arquivos</h3>
-                <p>Interface do Windows e arquivos</p>
-            </div>
+      <div class="card" id="ultimo-card" onclick="abrirModal('modal-contêiner', this)">
+        <div class="card-glow"></div>
+        <div class="card-glass"></div>
+        <div class="card-content">
+          <img src="img/conteiner-wow.webp" class="card-icon proibido">
+          <h3>Contêiner & Arquivos</h3>
+          <p>Interface do Windows e arquivos</p>
         </div>
+      </div>
     </section>
-    </main>
+  </main>
 
-<div class="modal-overlay" id="modal-download">
+  <!-- MODAL: Download -->
+  <div class="modal-overlay" id="modal-download">
     <div class="modal-content efeito-entrada">
-        <button class="btn-fechar" onclick="fecharModal('modal-download')">×</button>
-        <h2>Download & Apps</h2>
-        
-        <p class="modal-dica">
-            <b>Opcional</b> Usar o DNS Privado <b>dns.adguard.com</b> no seu celular pode reduzir anúncios em páginas externas!
-        </p>
-        
-        <h3>Onde baixar o jogo:</h3>
-        <p>Acesse o site <b>Knysims</b>, use a lupa para pesquisar por "Deluxe" e escolha a versão desejada. No modo de download, escolha "Mediafire".</p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/KnySims+1DM.mp4" type="video/mp4">
-        </video>
-        
-        <a href="https://knysims.com.br/" target="_blank" class="btn-download">Acessar Knysims</a>
-        <p class="modal-obs"><i>Ao ser redirecionado para o Loadifly, clique em "Fechar Propaganda". Quando o celular perguntar "Selecionar atividade", escolha o 1DM.</i></p>
-        
-        <div class="modal-divisor"></div>
-        
-        <h3>Apps necessários:</h3>
-        <p>Instale o 1DM para gerenciar o download do jogo base sem erros.</p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/1DM-demonstrativo.mp4" type="video/mp4">
-        </video>
-        
-        <a href="https://play.google.com/store/apps/details?id=idm.internet.download.manager" target="_blank" class="btn-download">Baixar 1DM</a>
-        <p>O <b>Cx Explorador</b> é ótimo para organizar seus mods na memória do Android antes de movê-los. (Esse aplicativo é opcional, você não precisa dele caso se sinta mais confortável usando o ZArchiver)</p>
-        
-        <a href="https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer" target="_blank" class="btn-download">Baixar Cx Explorador</a>
+      <button class="btn-fechar" onclick="fecharModal('modal-download')">×</button>
+      <h2>Download & Apps</h2>
+      <p class="modal-dica"><b>Opcional</b> Usar o DNS Privado <b>dns.adguard.com</b> no seu celular pode reduzir anúncios em páginas externas!</p>
+      <h3>Onde baixar o jogo:</h3>
+      <p>Acesse o site <b>Knysims</b>, use a lupa para pesquisar por "Deluxe" e escolha a versão desejada. No modo de download, escolha "Mediafire".</p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/KnySims+1DM.mp4" type="video/mp4">
+      </video>
+      <a href="https://knysims.com.br/" target="_blank" class="btn-download">Acessar Knysims</a>
+      <p class="modal-obs"><i>Ao ser redirecionado para o Loadifly, clique em "Fechar Propaganda". Quando o celular perguntar "Selecionar atividade", escolha o 1DM.</i></p>
+      <div class="modal-divisor"></div>
+      <h3>Apps necessários:</h3>
+      <p>Instale o 1DM para gerenciar o download do jogo base sem erros.</p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/1DM-demonstrativo.mp4" type="video/mp4">
+      </video>
+      <a href="https://play.google.com/store/apps/details?id=idm.internet.download.manager" target="_blank" class="btn-download">Baixar 1DM</a>
+      <p>O <b>Cx Explorador</b> é ótimo para organizar seus mods na memória do Android antes de movê-los. (Esse aplicativo é opcional, você não precisa dele caso se sinta mais confortável usando o ZArchiver)</p>
+      <a href="https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer" target="_blank" class="btn-download">Baixar Cx Explorador</a>
     </div>
-</div>
+  </div>
 
-<div class="modal-overlay" id="modal-instalacao">
+  <!-- MODAL: Instalação -->
+  <div class="modal-overlay" id="modal-instalacao">
     <div class="modal-content efeito-entrada">
-        <button class="btn-fechar" onclick="fecharModal('modal-instalacao')">×</button>
-        <h2>Instalação</h2>
-        
-        <p>1. Use o <b>ZArchiver</b> para extrair o .zip na pasta Downloads.</p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/ExtracaoTutorial-demonstrativo.mp4" type="video/mp4">
-        </video>
-        
-        <a href="https://play.google.com/store/apps/details?id=ru.zdevs.zarchiver" target="_blank" class="btn-download">Baixar ZArchiver</a>
-        
-        <p>2. Instale o emulador <b>GameHub</b>:</p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/gamehub-tela-de-instalacao.mp4" type="video/mp4">
-        </video>
-        
-        <a href="https://gamehub.xiaoji.com/" target="_blank" class="btn-download">Baixar GameHub Oficial</a>
-        
-        <p>3. Em <b>"Meu"</b> > <b>"Import Games"</b> > <b>"Jogo PC"</b>, selecione o .exe no caminho:</p>
-        
-        <code class="modal-codigo">D:/The Sims 4 Base Deluxe / The Sims 4 / Game / Bin / TS4_DX9_x64.exe</code>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/GAMEHUB-demonstrativo.mp4" type="video/mp4">
-        </video>
-        
-        <p class="modal-alerta">
-            <b>PASSO VITAL:</b> Abra o jogo uma vez até o menu principal para gerar a pasta Documents.
-        </p>
+      <button class="btn-fechar" onclick="fecharModal('modal-instalacao')">×</button>
+      <h2>Instalação</h2>
+      <p>1. Use o <b>ZArchiver</b> para extrair o .zip na pasta Downloads.</p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/ExtracaoTutorial-demonstrativo.mp4" type="video/mp4">
+      </video>
+      <a href="https://play.google.com/store/apps/details?id=ru.zdevs.zarchiver" target="_blank" class="btn-download">Baixar ZArchiver</a>
+      <p>2. Instale o emulador <b>GameHub</b>:</p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/gamehub-tela-de-instalacao.mp4" type="video/mp4">
+      </video>
+      <a href="https://gamehub.xiaoji.com/" target="_blank" class="btn-download">Baixar GameHub Oficial</a>
+      <p>3. Em <b>"Meu"</b> > <b>"Import Games"</b> > <b>"Jogo PC"</b>, selecione o .exe no caminho:</p>
+      <code class="modal-codigo">D:/The Sims 4 Base Deluxe / The Sims 4 / Game / Bin / TS4_DX9_x64.exe</code>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/GAMEHUB-demonstrativo.mp4" type="video/mp4">
+      </video>
+      <p class="modal-alerta"><b>PASSO VITAL:</b> Abra o jogo uma vez até o menu principal para gerar a pasta Documents.</p>
     </div>
-</div>
+  </div>
 
-<div class="modal-overlay" id="modal-configuracao">
+  <!-- MODAL: Configuração -->
+  <div class="modal-overlay" id="modal-configuracao">
     <div class="modal-content efeito-entrada">
-        <button class="btn-fechar" onclick="fecharModal('modal-configuracao')">×</button>
-        <h2>Ajustes de FPS</h2>
-        
-        <div class="config-box">
-            <p><b>Resolução:</b> <span>960x544</span></p>
-            <p><b>Wine:</b> <span>wine9.5-x64-2</span></p>
-            <p><b>DXVK:</b> <span>dxvk-1.7.2</span></p>
-            <p><b>CPU:</b> <span>box64-0.39</span></p>
-        </div>
-        
-        <p class="modal-legenda">Configurações no <b>Contêiner</b></p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/ConfigsInternasGamehub-demonstrativo.mp4" type="video/mp4">
-        </video>
-        
-        <p class="modal-legenda">Menu de deslizar:</p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/configs-interface-gamehub.mp4" type="video/mp4">
-        </video>
+      <button class="btn-fechar" onclick="fecharModal('modal-configuracao')">×</button>
+      <h2>Ajustes de FPS</h2>
+      <div class="config-box">
+        <p><b>Resolução:</b> <span>960x544</span></p>
+        <p><b>Wine:</b> <span>wine9.5-x64-2</span></p>
+        <p><b>DXVK:</b> <span>dxvk-1.7.2</span></p>
+        <p><b>CPU:</b> <span>box64-0.39</span></p>
+      </div>
+      <p class="modal-legenda">Configurações no <b>Contêiner</b></p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/ConfigsInternasGamehub-demonstrativo.mp4" type="video/mp4">
+      </video>
+      <p class="modal-legenda">Menu de deslizar:</p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/configs-interface-gamehub.mp4" type="video/mp4">
+      </video>
     </div>
-</div>
+  </div>
 
-<div class="modal-overlay" id="modal-mods">
+  <!-- MODAL: Mods -->
+  <div class="modal-overlay" id="modal-mods">
     <div class="modal-content efeito-entrada">
-        <button class="btn-fechar" onclick="fecharModal('modal-mods')">×</button>
-        <h2>Mods & WickedWhims</h2>
-        
-        <p class="modal-subtitulo">Ativação Interna:</p>
-        <p>Vá em <b>Opções de Jogo > Outros</b> e ative:</p>
-        
-        <ul class="modal-lista">
-            <li>Habilitar Conteúdo Personalizado e Modificações</li>
-            <li>Modificações de Script Permitidas</li>
-        </ul>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/optionsTS4-ativar.mp4" type="video/mp4">
-        </video>
-        
-        <code class="modal-codigo">Isso faz com que, ao entrar no jogo, os mods sejam reconhecidos.</code>
-        
-        <p class="modal-subtitulo">Onde encontrar Roupas/Cabelos etc (CC):</p>
-        <p class="modal-texto">Para mods de roupas/cabelos/detalhes de skin, pesquise no Pinterest ou no Patreon. Recomendo o Pinterest pra ter uma gama melhor dos conteúdos desejados, normalmente os links linkados em imagens/videos no Pinterest, levam ao Tumblr/Patreon e lá irá ter os arquivos para download. O processo para o ts4 reconhecer os mods é; extrair o arquivo caso venha zipado (.zip) através do ZArchiver e pegar os arquivos .packages e levar até a pasta Mods em <i>Documents/Eletronic Arts/The Sims 4/Mods,</i> assim como no tutorial abaixo.</p>
-        
-        <p class="modal-subtitulo">Como Colocar Mods:</p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/ColocarMods-demonstrativo.mp4" type="video/mp4">
-        </video>
-        
-        <div class="modal-divisor"></div>
-        
-        <p class="modal-subtitulo">Como colocar o WickedWhims no TS4 (18+):</p>
-        
-        <p class="modal-texto">
-            Caminho para onde mandar os arquivos <span>TURBODRIVER_WickedWhims_Scripts.ts4script</span> e <span>TURBODRIVER_WickedWhims_Tuning.package</span>:
-        </p>
-        
-        <code class="modal-codigo">C:/Users/Container/Documents/Electronic Arts/The Sims 4/Mods</code>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/ComoColocarWickedWhims-demonstrativo.mp4" type="video/mp4">
-        </video>
-        
-        <a href="https://wicked.cc/mods/admin/wickedwhims/#download" target="_blank" class="btn-download btn-wicked">Baixar WickedWhims</a>
-        
-        <p class="modal-legenda">Tradução Base do WickedWhims:</p>
-        
-        <a href="https://wicked.cc/translations/mutsvki/traducao-pt-br-wickedwhims-v180a-e-v182/" target="_blank" class="btn-download btn-wicked">Baixar Tradução Wicked</a>
-        
-        <p class="modal-obs">
-            <b>Importante:</b><br>
-            Alguns mods do WickedWhims precisam de tradução própria além da "padrão" da Mutsvki. Por isso, se ao entrar no TS4 algum mod que você baixar estiver mostrando textos em inglês, você pode corrigir isso buscando a tradução no Google. Normalmente, a tradução vem em formato .zip. Assim como no tutorial acima, é só extrair o arquivo com o ZArchiver e, dentro do conteúdo do TS4, copiar o arquivo .package da tradução e colar na pasta Mods em <i>Documents/Electronic Arts/The Sims 4/Mods</i>.
-        </p>
-        
-        <p class="modal-erro">
-            <b>Erro/Bug?</b> Delete o arquivo <b>localthumbcache.package</b> na pasta principal do jogo e reinicie o jogo.
-        </p>
-        
-        <p class="modal-legenda">Demonstração de como limpar o cache do TS4 caso você precise:</p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/Erros-BugsCache.mp4" type="video/mp4">
-        </video>
+      <button class="btn-fechar" onclick="fecharModal('modal-mods')">×</button>
+      <h2>Mods & WickedWhims</h2>
+      <p class="modal-subtitulo">Ativação Interna:</p>
+      <p>Vá em <b>Opções de Jogo > Outros</b> e ative:</p>
+      <ul class="modal-lista">
+        <li>Habilitar Conteúdo Personalizado e Modificações</li>
+        <li>Modificações de Script Permitidas</li>
+      </ul>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/optionsTS4-ativar.mp4" type="video/mp4">
+      </video>
+      <code class="modal-codigo">Isso faz com que, ao entrar no jogo, os mods sejam reconhecidos.</code>
+      <p class="modal-subtitulo">Onde encontrar Roupas/Cabelos etc (CC):</p>
+      <p class="modal-texto">Para mods de roupas/cabelos/detalhes de skin, pesquise no Pinterest ou no Patreon. Recomendo o Pinterest pra ter uma gama melhor dos conteúdos desejados, normalmente os links linkados em imagens/videos no Pinterest, levam ao Tumblr/Patreon e lá irá ter os arquivos para download. O processo para o ts4 reconhecer os mods é; extrair o arquivo caso venha zipado (.zip) através do ZArchiver e pegar os arquivos .packages e levar até a pasta Mods em <i>Documents/Eletronic Arts/The Sims 4/Mods,</i> assim como no tutorial abaixo.</p>
+      <p class="modal-subtitulo">Como Colocar Mods:</p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/ColocarMods-demonstrativo.mp4" type="video/mp4">
+      </video>
+      <div class="modal-divisor"></div>
+      <p class="modal-subtitulo">Como colocar o WickedWhims no TS4 (18+):</p>
+      <p class="modal-texto">Caminho para onde mandar os arquivos <span>TURBODRIVER_WickedWhims_Scripts.ts4script</span> e <span>TURBODRIVER_WickedWhims_Tuning.package</span>:</p>
+      <code class="modal-codigo">C:/Users/Container/Documents/Electronic Arts/The Sims 4/Mods</code>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/ComoColocarWickedWhims-demonstrativo.mp4" type="video/mp4">
+      </video>
+      <a href="https://wicked.cc/mods/admin/wickedwhims/#download" target="_blank" class="btn-download btn-wicked">Baixar WickedWhims</a>
+      <p class="modal-legenda">Tradução Base do WickedWhims:</p>
+      <a href="https://wicked.cc/translations/mutsvki/traducao-pt-br-wickedwhims-v180a-e-v182/" target="_blank" class="btn-download btn-wicked">Baixar Tradução Wicked</a>
+      <p class="modal-obs"><b>Importante:</b><br>Alguns mods do WickedWhims precisam de tradução própria além da "padrão" da Mutsvki. Por isso, se ao entrar no TS4 algum mod que você baixar estiver mostrando textos em inglês, você pode corrigir isso buscando a tradução no Google. Normalmente, a tradução vem em formato .zip. Assim como no tutorial acima, é só extrair o arquivo com o ZArchiver e, dentro do conteúdo do TS4, copiar o arquivo .package da tradução e colar na pasta Mods em <i>Documents/Electronic Arts/The Sims 4/Mods</i>.</p>
+      <p class="modal-erro"><b>Erro/Bug?</b> Delete o arquivo <b>localthumbcache.package</b> na pasta principal do jogo e reinicie o jogo.</p>
+      <p class="modal-legenda">Demonstração de como limpar o cache do TS4 caso você precise:</p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/Erros-BugsCache.mp4" type="video/mp4">
+      </video>
     </div>
-</div>
+  </div>
 
-<div class="modal-overlay" id="modal-traducoes">
+  <!-- MODAL: Tradução -->
+  <div class="modal-overlay" id="modal-traducoes">
     <div class="modal-content efeito-entrada">
-        <button class="btn-fechar" onclick="fecharModal('modal-traducoes')">×</button>
-        <h2>PT-BR • Tradução</h2>
-        
-        <p><b>Jogo Base:</b> Mova o language-changer para o Drive D: (onde está o <i>TS4_DX9_x64.exe):</i></p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/TraducaoPomposa.mp4" type="video/mp4">
-        </video>
-        
-        <a href="https://www.mediafire.com/file/m7pd9cqpn199m2s/language-changer.exe/file" target="_blank" class="btn-download">Baixar Language Changer</a>
+      <button class="btn-fechar" onclick="fecharModal('modal-traducoes')">×</button>
+      <h2>PT-BR • Tradução</h2>
+      <p><b>Jogo Base:</b> Mova o language-changer para o Drive D: (onde está o <i>TS4_DX9_x64.exe):</i></p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/TraducaoPomposa.mp4" type="video/mp4">
+      </video>
+      <a href="https://www.mediafire.com/file/m7pd9cqpn199m2s/language-changer.exe/file" target="_blank" class="btn-download">Baixar Language Changer</a>
     </div>
-</div>
+  </div>
 
-<div class="modal-overlay" id="modal-contêiner">
+  <!-- MODAL: Contêiner -->
+  <div class="modal-overlay" id="modal-contêiner">
     <div class="modal-content efeito-entrada">
-        <button class="btn-fechar" onclick="fecharModal('modal-contêiner')">×</button>
-        <h2>🖥️ Abrir o Contêiner</h2>
-        
-        <div class="config-box">
-            <p>1. Clique nos <b>três pontinhos (...)</b> do jogo.</p>
-            <p>2. Selecione <b>"Config. jogos PC"</b>.</p>
-            <p>3. Clique em <b>"Abrir desktop do contêiner"</b>.</p>
-        </div>
-        
-        <img src="img/passo-a-passo-contêiner.webp" class="modal-img proibido" draggable="false">
-        
-        <p class="modal-legenda">Como selecionar vários arquivos e copiar (isso facilita o envio de .packages para a pasta Mods depois):</p>
-        
-        <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
-            <source src="video/SELECIONAR-ARQUIVOS-demonstrativo.mp4" type="video/mp4">
-        </video>
+      <button class="btn-fechar" onclick="fecharModal('modal-contêiner')">×</button>
+      <h2>🖥️ Abrir o Contêiner</h2>
+      <div class="config-box">
+        <p>1. Clique nos <b>três pontinhos (...)</b> do jogo.</p>
+        <p>2. Selecione <b>"Config. jogos PC"</b>.</p>
+        <p>3. Clique em <b>"Abrir desktop do contêiner"</b>.</p>
+      </div>
+      <img src="img/passo-a-passo-contêiner.webp" class="modal-img proibido" draggable="false">
+      <p class="modal-legenda">Como selecionar vários arquivos e copiar (isso facilita o envio de .packages para a pasta Mods depois):</p>
+      <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
+        <source src="video/SELECIONAR-ARQUIVOS-demonstrativo.mp4" type="video/mp4">
+      </video>
     </div>
-</div>
+  </div>
 
-   <footer class="footer-acido">
+  <footer class="footer-acido">
     <button type="button" class="share-link" onclick="copiarLink(this)">🔗 Compartilhar Guia</button>
     <p>Feito com ♡ (e muita gambiarra) para quem não tem um PC da NASA.</p>
     <p class="sub-footer">Sims4AndroidBR — 2026. Se travar, é culpa do seu celular.</p>
-</footer>
+  </footer>
 
-<button id="backToTop" class="back-to-top">↑</button>
+  <button id="backToTop" class="back-to-top">↑</button>
 
- <script>
-  const bgMusic = new Audio('audio/Mii Editor - Mii Maker (Wii U) Music.mp3');
-const woohoo = new Audio('audio/woohoo.mp3');
-bgMusic.loop = true;
-bgMusic.volume = 0.05;
+  <script>
+    const bgMusic = new Audio('audio/Mii Editor - Mii Maker (Wii U) Music.mp3');
+    const woohoo = new Audio('audio/woohoo.mp3');
+    bgMusic.loop = true;
+    bgMusic.volume = 0.05;
 
-let gifClicks = 0;
-const nhawGif = document.getElementById('pet-clicavel');
-const hintCat = document.getElementById('hint-cat');
+    let gifClicks = 0;
+    const nhawGif = document.getElementById('pet-clicavel');
+    const hintCat = document.getElementById('hint-cat');
 
-let easterEggAtivo = false;
-let jaAconteceu = false;
-let intervalCora;
+    let easterEggAtivo = false;
+    let jaAconteceu = false;
+    let intervalCora;
 
-if (nhawGif) {
-    nhawGif.addEventListener('click', () => {
+    if (nhawGif) {
+      nhawGif.addEventListener('click', () => {
         if (jaAconteceu) return;
-
         gifClicks++;
-        
-        if (gifClicks === 2 && hintCat) {
-            hintCat.style.opacity = "1";
-        }
-     
+
+        if (gifClicks === 2 && hintCat) hintCat.style.opacity = "1";
+
         if ([1, 3, 4].includes(gifClicks)) {
-            document.getElementById('wrapper-principal').classList.add('tremidinha-ativa');
-setTimeout(() => document.getElementById('wrapper-principal').classList.remove('tremidinha-ativa'), 300);
+          document.getElementById('wrapper-principal').classList.add('tremidinha-ativa');
+          setTimeout(() => document.getElementById('wrapper-principal').classList.remove('tremidinha-ativa'), 300);
         }
 
         if (gifClicks === 5) {
-    jaAconteceu = true;
-    easterEggAtivo = true;
-    gifClicks = 0;
-    if (hintCat) hintCat.style.opacity = "0";
-    
-    const loader = document.createElement('div');
-    loader.classList.add('vibe-rosa');
-    loader.style.display = 'none'; 
-    document.body.appendChild(loader);
-    
-    setTimeout(() => {
-        loader.remove();
-        bgMusic.pause();
-        woohoo.currentTime = 0;
-        woohoo.volume = 1.0;
-        
-        for (let i = 0; i < 3; i++) {
-            const fake = document.createElement('div');
-            fake.classList.add('heart-particle');
-            fake.style.opacity = '0';
-            fake.style.width = '1px';
-            fake.style.height = '1px';
-            fake.style.left = '-100px';
-            document.body.appendChild(fake);
-            setTimeout(() => fake.remove(), 100);
-        }
-        
-        setTimeout(() => {
-            document.body.classList.add('vibe-rosa');
-            woohoo.play().catch(() => {});
-            intervalCora = setInterval(() => {
-                if(easterEggAtivo) criarUmCoracao();
+          jaAconteceu = true;
+          easterEggAtivo = true;
+          gifClicks = 0;
+          if (hintCat) hintCat.style.opacity = "0";
+
+          const loader = document.createElement('div');
+          loader.classList.add('vibe-rosa');
+          loader.style.display = 'none';
+          document.body.appendChild(loader);
+
+          setTimeout(() => {
+            loader.remove();
+            bgMusic.pause();
+            woohoo.currentTime = 0;
+            woohoo.volume = 1.0;
+
+            for (let i = 0; i < 3; i++) {
+              const fake = document.createElement('div');
+              fake.classList.add('heart-particle');
+              fake.style.opacity = '0';
+              fake.style.width = '1px';
+              fake.style.height = '1px';
+              fake.style.left = '-100px';
+              document.body.appendChild(fake);
+              setTimeout(() => fake.remove(), 100);
+            }
+
+            setTimeout(() => {
+              document.body.classList.add('vibe-rosa');
+              woohoo.play().catch(() => {});
+              intervalCora = setInterval(() => {
+                if (easterEggAtivo) criarUmCoracao();
+              }, 200);
             }, 200);
-        }, 200);
-        
-    }, 100);
-    
-    setTimeout(() => {
-        clearInterval(intervalCora);
-        easterEggAtivo = false;
-        document.body.classList.remove('vibe-rosa');
-        
-        let fadeout = setInterval(() => {
-            if (woohoo.volume > 0.05) {
+          }, 100);
+
+          setTimeout(() => {
+            clearInterval(intervalCora);
+            easterEggAtivo = false;
+            document.body.classList.remove('vibe-rosa');
+            let fadeout = setInterval(() => {
+              if (woohoo.volume > 0.05) {
                 woohoo.volume -= 0.05;
-            } else { 
-                woohoo.pause(); 
-                bgMusic.play().catch(() => {}); 
-                clearInterval(fadeout); 
+              } else {
+                woohoo.pause();
+                bgMusic.play().catch(() => {});
+                clearInterval(fadeout);
               }
-           }, 300);
-        }, 23000);
+            }, 300);
+          }, 23000);
+        }
+      });
     }
- });
-}
-  
-const btn = document.getElementById('btn-comecar');
-const loaderTransicao = document.getElementById('loader-transicao');
-const hero = document.getElementById('hero-section');
-const topbar = document.getElementById('minha-topbar');
-const divisor = document.getElementById('meu-divisor');
-const deviceInfo = document.getElementById('device-info');
-const cards = document.getElementById('guia-cards');
-const cursor = document.getElementById('custom-cursor');
-const bttElement = document.getElementById("backToTop");
-const targetCard = document.getElementById("ultimo-card");
 
-function criarUmCoracao() {
-    const coracao = document.createElement('div');
-    coracao.classList.add('heart-particle');
+    const btn = document.getElementById('btn-comecar');
+    const loaderTransicao = document.getElementById('loader-transicao');
+    const hero = document.getElementById('hero-section');
+    const topbar = document.getElementById('minha-topbar');
+    const divisor = document.getElementById('meu-divisor');
+    const deviceInfo = document.getElementById('device-info');
+    const cards = document.getElementById('guia-cards');
+    const cursor = document.getElementById('custom-cursor');
+    const bttElement = document.getElementById("backToTop");
+    const targetCard = document.getElementById("ultimo-card");
 
-    const size = Math.random() * 50 + 45;
-    coracao.style.width = `${size}px`;
-    coracao.style.height = `${size}px`;
-
-    coracao.style.left = Math.random() * 100 + 'vw';
-    coracao.style.setProperty('--random-x', (Math.random() - 0.5) * 200 + 'px');
-
-    document.body.appendChild(coracao);
-
-    const tempoVida = Math.random() * 3000 + 3000;
-
-    setTimeout(() => {
+    function criarUmCoracao() {
+      const coracao = document.createElement('div');
+      coracao.classList.add('heart-particle');
+      const size = Math.random() * 50 + 45;
+      coracao.style.width = `${size}px`;
+      coracao.style.height = `${size}px`;
+      coracao.style.left = Math.random() * 100 + 'vw';
+      coracao.style.setProperty('--random-x', (Math.random() - 0.5) * 200 + 'px');
+      document.body.appendChild(coracao);
+      const tempoVida = Math.random() * 3000 + 3000;
+      setTimeout(() => {
         const rect = coracao.getBoundingClientRect();
         const x = rect.left + size / 2;
         const y = rect.top + size / 2;
         const sorteio = Math.random();
+        if (sorteio < 0.25) { origemExplosaoPop(x, y); coracao.remove(); }
+        else if (sorteio < 0.50) { criarExplosaoFumaca(x, y); coracao.remove(); }
+        else if (sorteio < 0.75) { coracao.classList.add('vibe-poeira'); setTimeout(() => coracao.remove(), 1000); }
+        else { coracao.classList.add('coracao-vira-fumaca'); setTimeout(() => coracao.remove(), 1500); }
+      }, tempoVida);
+    }
 
-        if (sorteio < 0.25) {
-            origemExplosaoPop(x, y);
-            coracao.remove();
-        } else if (sorteio < 0.50) {
-            criarExplosaoFumaca(x, y);
-            coracao.remove();
-        } else if (sorteio < 0.75) {
-            coracao.classList.add('vibe-poeira');
-            setTimeout(() => coracao.remove(), 1000);
-        } else {
-            coracao.classList.add('coracao-vira-fumaca');
-            setTimeout(() => coracao.remove(), 1500);
-        }
-    }, tempoVida);
-}
-
-function origemExplosaoPop(x, y) {
-    const quantidade = 8;
-    for (let i = 0; i < quantidade; i++) {
+    function origemExplosaoPop(x, y) {
+      for (let i = 0; i < 8; i++) {
         const p = document.createElement('div');
         p.className = 'pop-bubble-original';
-        p.style.left = x + 'px';
-        p.style.top = y + 'px';
+        p.style.left = x + 'px'; p.style.top = y + 'px';
         p.style.setProperty('--dx', (Math.random() - 0.5) * 150 + 'px');
         p.style.setProperty('--dy', (Math.random() - 0.5) * 150 + 'px');
         document.body.appendChild(p);
         setTimeout(() => p.remove(), 600);
+      }
     }
-}
 
-function criarExplosaoFumaca(x, y) {
-    const quantidade = 15;
-    for (let i = 0; i < quantidade; i++) {
+    function criarExplosaoFumaca(x, y) {
+      for (let i = 0; i < 15; i++) {
         const p = document.createElement('div');
         p.className = 'pop-bubble-fumaca';
         const angle = Math.random() * Math.PI * 2;
         const velocity = Math.random() * 80 + 20;
-        const dx = Math.cos(angle) * velocity;
-        const dy = Math.sin(angle) * velocity;
-        p.style.left = x + 'px';
-        p.style.top = y + 'px';
-        p.style.setProperty('--dx', dx + 'px');
-        p.style.setProperty('--dy', dy + 'px');
+        p.style.left = x + 'px'; p.style.top = y + 'px';
+        p.style.setProperty('--dx', Math.cos(angle) * velocity + 'px');
+        p.style.setProperty('--dy', Math.sin(angle) * velocity + 'px');
         document.body.appendChild(p);
         setTimeout(() => p.remove(), 800);
+      }
     }
-}
 
-const muteBtn = document.createElement('button');
-muteBtn.id = 'mute-control';
-muteBtn.style.cssText = 'position:fixed; bottom:20px; right:20px; background:rgba(0,0,0,0.6); border:1px solid #3ec6b8; border-radius:50%; width:40px; height:40px; z-index:2000; display:none; justify-content:center; align-items:center; background-image: url("mandiueni.webp"); background-size: 80%; background-repeat: no-repeat; background-position: center; transition: 0.3s;';
-document.body.appendChild(muteBtn);
+    const muteBtn = document.createElement('button');
+    muteBtn.id = 'mute-control';
+    muteBtn.style.cssText = 'position:fixed; bottom:20px; right:20px; background:rgba(0,0,0,0.6); border:1px solid #3ec6b8; border-radius:50%; width:40px; height:40px; z-index:2000; display:none; justify-content:center; align-items:center; background-image: url("mandiueni.webp"); background-size: 80%; background-repeat: no-repeat; background-position: center; transition: 0.3s;';
+    document.body.appendChild(muteBtn);
 
-btn.addEventListener('click', () => {
-    hero.classList.add('fade-out');
-    bgMusic.play().catch(() => {});
-
-    loaderTransicao.style.display = 'flex';
-    setTimeout(() => loaderTransicao.style.opacity = "1", 50);
-
-    setTimeout(() => {
+    btn.addEventListener('click', () => {
+      hero.classList.add('fade-out');
+      bgMusic.play().catch(() => {});
+      loaderTransicao.style.display = 'flex';
+      setTimeout(() => loaderTransicao.style.opacity = "1", 50);
+      setTimeout(() => {
         hero.style.display = 'none';
-
         topbar.style.display = 'flex';
         divisor.style.display = 'block';
         deviceInfo.style.display = 'block';
-        cards.style.display = 'grid';        
+        cards.style.display = 'grid';
         muteBtn.style.display = 'flex';
         divisor.offsetHeight;
-
         setTimeout(() => {
-            topbar.style.opacity = "1";
-            divisor.style.opacity = "1";
-            deviceInfo.style.opacity = "1";
-            cards.style.opacity = "1";
-            document.body.classList.add('blur-in');
-
-            setTimeout(() => {
-                loaderTransicao.style.opacity = "0";
-
-                setTimeout(() => {
-                    loaderTransicao.style.display = 'none';
-                }, 600);
-            }, 500);
-
+          topbar.style.opacity = "1";
+          divisor.style.opacity = "1";
+          deviceInfo.style.opacity = "1";
+          cards.style.opacity = "1";
+          document.body.classList.add('blur-in');
+          setTimeout(() => {
+            loaderTransicao.style.opacity = "0";
+            setTimeout(() => { loaderTransicao.style.display = 'none'; }, 600);
+          }, 500);
         }, 300);
-    }, 500);
-});
+      }, 500);
+    });
 
-muteBtn.addEventListener('click', () => {
-    bgMusic.muted = !bgMusic.muted;
-    muteBtn.style.opacity = bgMusic.muted ? "0.5" : "1";
-});
+    muteBtn.addEventListener('click', () => {
+      bgMusic.muted = !bgMusic.muted;
+      muteBtn.style.opacity = bgMusic.muted ? "0.5" : "1";
+    });
 
-document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
         easterEggAtivo = false;
         if (intervalCora) clearInterval(intervalCora);
         document.body.classList.remove('vibe-rosa');
         bgMusic.pause();
         woohoo.pause();
-    } else if (hero.style.display === 'none' && !bgMusic.muted) {
-        if (woohoo.paused) {
-            bgMusic.play().catch(() => {});
-        }
+      } else if (hero.style.display === 'none' && !bgMusic.muted) {
+        if (woohoo.paused) bgMusic.play().catch(() => {});
+      }
+    });
+
+    let modalAtual = null;
+
+    /* ─────────────────────────────────────────────────────
+       CORREÇÃO DE PERFORMANCE: helpers para pausar/retomar
+       animações pesadas enquanto o modal está aberto
+    ───────────────────────────────────────────────────── */
+    function pausarAnimacoesHeavy() {
+      // Para os card-glows (conic-gradient animado = caro no zoom)
+      document.querySelectorAll('.card-glow').forEach(el => {
+        el.style.animationPlayState = 'paused';
+      });
+      // Desativa will-change no fundo fixo (libera camada de composição)
+      document.body.classList.add('modal-ativo');
+      // Esconde previews de vídeo abertas
+      document.querySelectorAll('.video-preview-container').forEach(v => {
+        v.style.display = 'none';
+      });
     }
-});
-  
-let modalAtual = null;
 
-function abrirModal(id, element) {
-    const modal = document.getElementById(id);
-    if (!modal) return;
-
-    if (modalAtual && modalAtual !== id) {
-        fecharModalNoUI(modalAtual);
+    function retornarAnimacoesHeavy() {
+      document.querySelectorAll('.card-glow').forEach(el => {
+        el.style.animationPlayState = 'running';
+      });
+      document.body.classList.remove('modal-ativo');
     }
+    /* ───────────────────────────────────────────────────── */
 
-    modalAtual = id;
+    function abrirModal(id, element) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
 
-    modal.classList.add('ativo');
+      if (modalAtual && modalAtual !== id) fecharModalNoUI(modalAtual);
+      modalAtual = id;
+      modal.classList.add('ativo');
+      modal.querySelectorAll('.video-wrapper').forEach(v => v.style.opacity = '1');
+      document.body.style.overflow = 'hidden';
 
-    modal.querySelectorAll('.video-wrapper').forEach(v => {
-    v.style.opacity = '1';
-});
- 
-    document.body.style.overflow = 'hidden';
+      // Libera zoom apenas dentro do modal
+      const viewport = document.querySelector('meta[name="viewport"]');
+      if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
 
-    history.pushState({ modalId: id }, '', `#${id}`);
+      // Pausa animações pesadas para zoom fluido
+      pausarAnimacoesHeavy();
 
-    if (element) {
+      history.pushState({ modalId: id }, '', `#${id}`);
+
+      if (element) {
         element.style.transform = 'scale(0.95)';
         setTimeout(() => element.style.transform = '', 100);
+      }
     }
-}
 
-function fecharModal(id) {
-    if (history.state && history.state.modalId === id) {
-        document.activeElement.blur(); 
+    function fecharModal(id) {
+      if (history.state && history.state.modalId === id) {
+        document.activeElement.blur();
         history.back();
-    } else {
+      } else {
         fecharModalNoUI(id);
+      }
     }
-}
 
-function fecharModalNoUI(id) {
-    const modal = document.getElementById(id);
-    if (!modal || !modal.classList.contains('ativo')) return;
+    function fecharModalNoUI(id) {
+      const modal = document.getElementById(id);
+      if (!modal || !modal.classList.contains('ativo')) return;
 
-    modal.classList.add('fechando');
+      modal.classList.add('fechando');
+      modal.querySelectorAll('.video-wrapper').forEach(v => v.style.opacity = '0');
 
-    modal.querySelectorAll('.video-wrapper').forEach(v => {
-        v.style.opacity = '0';
-    });
+      requestAnimationFrame(() => { modal.classList.remove('ativo'); });
 
-    requestAnimationFrame(() => {
-        modal.classList.remove('ativo');
-    });
-
-    const limparAposFechar = (e) => {
+      const limparAposFechar = (e) => {
         if (e.propertyName === 'opacity') {
+          modal.classList.remove('fechando');
+          document.body.style.overflow = 'auto';
 
-            modal.classList.remove('fechando');
+          // Revoga zoom ao fechar o modal
+          const viewport = document.querySelector('meta[name="viewport"]');
+          if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
 
-            document.body.style.overflow = 'auto';
+          modal.querySelectorAll('video').forEach(v => v.pause());
 
-            modal.querySelectorAll('video').forEach(v => v.pause());
+          if (modalAtual === id) modalAtual = null;
 
-            if (modalAtual === id) {
-                modalAtual = null;
-            }
+          // Retoma animações pesadas
+          retornarAnimacoesHeavy();
 
-            modal.removeEventListener('transitionend', limparAposFechar);
+          modal.removeEventListener('transitionend', limparAposFechar);
         }
-    };
+      };
 
-    modal.addEventListener('transitionend', limparAposFechar);
-}
-  
-window.addEventListener('popstate', (event) => {
-    if (modalAtual) {
-        fecharModalNoUI(modalAtual);
+      modal.addEventListener('transitionend', limparAposFechar);
     }
-});
-  
-  
-async function copiarLink() {
-    const toast = document.getElementById('toast-notif');
-    await navigator.clipboard.writeText(window.location.href);
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2500);
-    if (navigator.share) try { await navigator.share({ title: 'Guia Sims 4 Android', url: window.location.href }); } catch (err) {}
-}
 
-window.addEventListener('pointerdown', (e) => {
-    const target = e.target;
-    const elementoInterativo = target.closest('.card') ||
-        target.closest('#pet-clicavel') ||
-        target.closest('#hint-cat') ||
-        target.closest('button') ||
-        target.closest('a') ||
-        target.closest('.btn-fechar') ||
-        target.closest('.btn-download') ||
-        target.closest('.share-link') ||
-        target.closest('#backToTop') ||
-        target.closest('#mute-control') ||
-        target.closest('.modal-content');
+    window.addEventListener('popstate', () => {
+      if (modalAtual) fecharModalNoUI(modalAtual);
+    });
 
-    const sorteioCursor = Math.random();
+    async function copiarLink() {
+      const toast = document.getElementById('toast-notif');
+      await navigator.clipboard.writeText(window.location.href);
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+      if (navigator.share) try { await navigator.share({ title: 'Guia Sims 4 Android', url: window.location.href }); } catch (err) {}
+    }
 
-    if (elementoInterativo) {
+    window.addEventListener('pointerdown', (e) => {
+      const target = e.target;
+      const elementoInterativo = target.closest('.card') ||
+        target.closest('#pet-clicavel') || target.closest('#hint-cat') ||
+        target.closest('button') || target.closest('a') ||
+        target.closest('.btn-fechar') || target.closest('.btn-download') ||
+        target.closest('.share-link') || target.closest('#backToTop') ||
+        target.closest('#mute-control') || target.closest('.modal-content');
+
+      const sorteioCursor = Math.random();
+
+      if (elementoInterativo) {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
         cursor.classList.remove('expandir-cursor');
@@ -659,347 +575,265 @@ window.addEventListener('pointerdown', (e) => {
         cursor.classList.add('expandir-cursor');
         criarPoeiraNoCursor();
         return;
-    }
+      }
 
-    if (sorteioCursor < 0.5) {
+      if (sorteioCursor < 0.5) {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
         cursor.classList.remove('expandir-cursor');
         void cursor.offsetWidth;
         cursor.classList.add('expandir-cursor');
         criarPoeiraNoCursor();
-    } else {
+      } else {
         criarPoeiraLivre(e.clientX, e.clientY);
-    }
-});
+      }
+    });
 
-function criarPoeiraNoCursor() {
-    for (let i = 0; i < 8; i++) {
+    function criarPoeiraNoCursor() {
+      for (let i = 0; i < 8; i++) {
         const p = document.createElement('div');
         p.className = 'poeira-cosmica';
         p.style.position = 'absolute';
-        p.style.left = '25px';
-        p.style.top = '25px';
-
-        const ax = (Math.random() - 0.5) * 45;
-        const ay = (Math.random() - 0.5) * 45;
-
-        p.style.setProperty('--x', ax + 'px');
-        p.style.setProperty('--y', ay + 'px');
+        p.style.left = '25px'; p.style.top = '25px';
+        p.style.setProperty('--x', (Math.random() - 0.5) * 45 + 'px');
+        p.style.setProperty('--y', (Math.random() - 0.5) * 45 + 'px');
         p.style.animation = 'brilharSuave 0.6s forwards';
-
         cursor.appendChild(p);
         setTimeout(() => p.remove(), 600);
+      }
     }
-}
 
-function criarPoeiraLivre(x, y) {
-    for (let i = 0; i < 10; i++) {
+    function criarPoeiraLivre(x, y) {
+      for (let i = 0; i < 10; i++) {
         const p = document.createElement('div');
         p.className = 'poeira-cosmica';
         p.style.position = 'fixed';
-        p.style.left = x + 'px';
-        p.style.top = y + 'px';
-
-        const ax = (Math.random() - 0.5) * 120;
-        const ay = Math.random() * 150;
-
-        p.style.setProperty('--x', ax + 'px');
-        p.style.setProperty('--y', ay + 'px');
+        p.style.left = x + 'px'; p.style.top = y + 'px';
+        p.style.setProperty('--x', (Math.random() - 0.5) * 120 + 'px');
+        p.style.setProperty('--y', Math.random() * 150 + 'px');
         p.style.animation = 'brilharSuave 0.8s ease-out forwards';
-
         document.body.appendChild(p);
         setTimeout(() => p.remove(), 800);
+      }
     }
-}
 
-const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) bttElement.classList.add("show");
         else bttElement.classList.remove("show");
-    });
-}, { threshold: 0.1 });
-if (targetCard) scrollObserver.observe(targetCard);
+      });
+    }, { threshold: 0.1 });
+    if (targetCard) scrollObserver.observe(targetCard);
 
-bttElement.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-document.querySelectorAll('video').forEach(v => v.addEventListener('contextmenu', e => e.preventDefault()));
-  
-document.querySelectorAll('.step-video').forEach(video => {
-    let pressionando = false;
-    let timerPressionar = null;
-    let timerEsconder = null;
+    bttElement.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.querySelectorAll('video').forEach(v => v.addEventListener('contextmenu', e => e.preventDefault()));
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'video-wrapper';
-    video.parentNode.insertBefore(wrapper, video);
-    wrapper.appendChild(video);
+    document.querySelectorAll('.step-video').forEach(video => {
+      let pressionando = false;
+      let timerPressionar = null;
+      let timerEsconder = null;
 
-    const btnCustom = document.createElement('div');
-    btnCustom.className = 'video-btn-custom';
-    wrapper.appendChild(btnCustom);
+      const wrapper = document.createElement('div');
+      wrapper.className = 'video-wrapper';
+      video.parentNode.insertBefore(wrapper, video);
+      wrapper.appendChild(video);
 
-    const barra = document.createElement('div');
-    barra.className = 'video-barra';
-    const barraPreenchida = document.createElement('div');
-    barraPreenchida.className = 'video-barra-preenchida';
-    barra.appendChild(barraPreenchida);
-    wrapper.appendChild(barra);
+      const btnCustom = document.createElement('div');
+      btnCustom.className = 'video-btn-custom';
+      wrapper.appendChild(btnCustom);
 
-    const previewContainer = document.createElement('div');
-previewContainer.className = 'video-preview-container';
-    const previewCanvas = document.createElement('canvas');
-previewContainer.appendChild(previewCanvas);
-wrapper.appendChild(previewContainer);
+      const barra = document.createElement('div');
+      barra.className = 'video-barra';
+      const barraPreenchida = document.createElement('div');
+      barraPreenchida.className = 'video-barra-preenchida';
+      barra.appendChild(barraPreenchida);
+      wrapper.appendChild(barra);
 
-    const faixaVelocidade = document.createElement('div');
-    faixaVelocidade.className = 'video-faixinha-speed';
-    const textoFaixa = document.createElement('span');
-    textoFaixa.innerText = 'Pressione aqui para avançar o vídeo  2x';
-    faixaVelocidade.appendChild(textoFaixa);
-    wrapper.appendChild(faixaVelocidade);
- 
-    const videoGhost = document.createElement('video');
-videoGhost.src = video.querySelector('source').src;
-videoGhost.muted = true;
-videoGhost.preload = 'auto';
-videoGhost.playsInline = true;
-videoGhost.crossOrigin = "anonymous";
-videoGhost.load();
- 
+      const previewContainer = document.createElement('div');
+      previewContainer.className = 'video-preview-container';
+      const previewCanvas = document.createElement('canvas');
+      previewContainer.appendChild(previewCanvas);
+      wrapper.appendChild(previewContainer);
 
-const ctx = previewCanvas.getContext('2d', { alpha: false });
-previewCanvas.width = 160; 
-previewCanvas.height = 90;
+      const faixaVelocidade = document.createElement('div');
+      faixaVelocidade.className = 'video-faixinha-speed';
+      const textoFaixa = document.createElement('span');
+      textoFaixa.innerText = 'Pressione aqui para avançar o vídeo  2x';
+      faixaVelocidade.appendChild(textoFaixa);
+      wrapper.appendChild(faixaVelocidade);
 
-videoGhost.addEventListener('seeked', () => {
-    ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
-});
+      const videoGhost = document.createElement('video');
+      videoGhost.src = video.querySelector('source').src;
+      videoGhost.muted = true;
+      videoGhost.preload = 'auto';
+      videoGhost.playsInline = true;
+      videoGhost.crossOrigin = "anonymous";
+      videoGhost.load();
 
-let arrastandoBarra = false;
- 
-function atualizarTempoPorToque(e) {
-    const rect = barra.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    let proporcao = (clientX - rect.left) / rect.width;
-    proporcao = Math.max(0, Math.min(1, proporcao));
-    
-    const tempoAlvo = proporcao * video.duration;
+      // CORREÇÃO: canvas menor para preview (reduz custo de drawImage no zoom)
+      const ctx = previewCanvas.getContext('2d', { alpha: false });
+      previewCanvas.width = 120;
+      previewCanvas.height = 68;
 
-    if (!isNaN(video.duration)) {
-        previewContainer.style.display = 'block';
-        previewContainer.style.left = (proporcao * 100) + '%';
-        
-        if (!videoGhost.seeking) {
-            videoGhost.currentTime = tempoAlvo;
+      videoGhost.addEventListener('seeked', () => {
+        // Só desenha se o preview estiver visível (evita drawImage desnecessário)
+        if (previewContainer.style.display !== 'none') {
+          ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
         }
-    }
-}
- 
-barra.addEventListener('pointerdown', (e) => {
-    arrastandoBarra = true;
-    clearTimeout(timerEsconder);
-    atualizarTempoPorToque(e);
-    e.preventDefault();
-    e.stopPropagation();
-});
+      });
 
-document.addEventListener('pointermove', (e) => {
-    if (arrastandoBarra) {
-        clearTimeout(timerEsconder);
-        atualizarTempoPorToque(e);
-    }
-});
+      let arrastandoBarra = false;
 
-document.addEventListener('pointerup', (e) => {
-    if (arrastandoBarra) {
-        arrastandoBarra = false;
-        previewContainer.style.display = 'none';
-        mostrarControles();
-
+      function atualizarTempoPorToque(e) {
         const rect = barra.getBoundingClientRect();
-        let proporcao = (e.clientX - rect.left) / rect.width;
-        proporcao = Math.max(0, Math.min(1, proporcao));
-        video.currentTime = proporcao * video.duration;
-    }
-});
- 
-barra.addEventListener('touchstart', (e) => {
-    arrastandoBarra = true;
-    clearTimeout(timerEsconder);
-    atualizarTempoPorToque(e);
-    e.stopPropagation();
-});
-
-document.addEventListener('touchmove', (e) => {
-    if (arrastandoBarra) {
-        clearTimeout(timerEsconder);
-        atualizarTempoPorToque(e);
-    }
-}, { passive: true });
-
-document.addEventListener('touchend', (e) => {
-    if (arrastandoBarra) {
-        arrastandoBarra = false;
-        previewContainer.style.display = 'none';
-        mostrarControles();
-
-        const rect = barra.getBoundingClientRect();
-        const clientX = e.changedTouches ? e.changedTouches[0].clientX : 0;
-        let proporcao = (clientX - rect.left) / rect.width;
-        proporcao = Math.max(0, Math.min(1, proporcao));
-        
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        let proporcao = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+        const tempoAlvo = proporcao * video.duration;
         if (!isNaN(video.duration)) {
-            video.currentTime = proporcao * video.duration;
+          previewContainer.style.display = 'block';
+          previewContainer.style.left = (proporcao * 100) + '%';
+          if (!videoGhost.seeking) videoGhost.currentTime = tempoAlvo;
         }
-    }
-});
+      }
 
-barra.addEventListener('click', (e) => {
-    e.stopPropagation();
-});
+      barra.addEventListener('pointerdown', (e) => {
+        arrastandoBarra = true;
+        clearTimeout(timerEsconder);
+        atualizarTempoPorToque(e);
+        e.preventDefault(); e.stopPropagation();
+      });
 
-barra.style.pointerEvents = 'auto';
- 
-    video.removeAttribute('controls');
-    video.controls = false;
- 
-    video.addEventListener('timeupdate', () => {
-        const progresso = (video.currentTime / video.duration) * 100;
-        barraPreenchida.style.width = progresso + '%';
-    });
+      document.addEventListener('pointermove', (e) => {
+        if (arrastandoBarra) { clearTimeout(timerEsconder); atualizarTempoPorToque(e); }
+      });
 
-    function atualizarBotao() {
-    if (video.paused) {
-        btnCustom.style.backgroundImage = "url('img/pause.webp')";
-    } else {
-        btnCustom.style.backgroundImage = "url('img/despause.webp')";
-    }
-  }
+      document.addEventListener('pointerup', (e) => {
+        if (arrastandoBarra) {
+          arrastandoBarra = false;
+          previewContainer.style.display = 'none';
+          mostrarControles();
+          const rect = barra.getBoundingClientRect();
+          let proporcao = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+          video.currentTime = proporcao * video.duration;
+        }
+      });
 
-        function mostrarControles() {
+      barra.addEventListener('touchstart', (e) => {
+        arrastandoBarra = true;
+        clearTimeout(timerEsconder);
+        atualizarTempoPorToque(e);
+        e.stopPropagation();
+      });
+
+      document.addEventListener('touchmove', (e) => {
+        if (arrastandoBarra) { clearTimeout(timerEsconder); atualizarTempoPorToque(e); }
+      }, { passive: true });
+
+      document.addEventListener('touchend', (e) => {
+        if (arrastandoBarra) {
+          arrastandoBarra = false;
+          previewContainer.style.display = 'none';
+          mostrarControles();
+          const rect = barra.getBoundingClientRect();
+          const clientX = e.changedTouches ? e.changedTouches[0].clientX : 0;
+          let proporcao = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+          if (!isNaN(video.duration)) video.currentTime = proporcao * video.duration;
+        }
+      });
+
+      barra.addEventListener('click', (e) => e.stopPropagation());
+      barra.style.pointerEvents = 'auto';
+
+      video.removeAttribute('controls');
+      video.controls = false;
+
+      video.addEventListener('timeupdate', () => {
+        barraPreenchida.style.width = (video.currentTime / video.duration) * 100 + '%';
+      });
+
+      function atualizarBotao() {
+        btnCustom.style.backgroundImage = video.paused
+          ? "url('img/pause.webp')"
+          : "url('img/despause.webp')";
+      }
+
+      function mostrarControles() {
         btnCustom.classList.add('visivel');
         barra.classList.add('visivel');
         faixaVelocidade.classList.add('visivel');
-        
         clearTimeout(timerEsconder);
         timerEsconder = setTimeout(() => {
-            btnCustom.classList.remove('visivel');
-            barra.classList.remove('visivel');
-            faixaVelocidade.classList.remove('visivel');
+          btnCustom.classList.remove('visivel');
+          barra.classList.remove('visivel');
+          faixaVelocidade.classList.remove('visivel');
         }, 2000);
+      }
+
+      function esconderControlesAgora() {
+        clearTimeout(timerEsconder);
+        btnCustom.classList.remove('visivel');
+        barra.classList.remove('visivel');
+        faixaVelocidade.classList.remove('visivel');
+      }
+
+      atualizarBotao();
+      btnCustom.classList.add('visivel');
+      barra.classList.add('visivel');
+
+      video.addEventListener('play', () => { atualizarBotao(); mostrarControles(); });
+      video.addEventListener('pause', () => { atualizarBotao(); mostrarControles(); });
+
+      video.addEventListener('click', () => {
+        if (!pressionando) {
+          if (btnCustom.classList.contains('visivel')) esconderControlesAgora();
+          else mostrarControles();
         }
- 
+      });
 
- function esconderControlesAgora() {
-    clearTimeout(timerEsconder);
-    btnCustom.classList.remove('visivel');
-    barra.classList.remove('visivel');
-    faixaVelocidade.classList.remove('visivel');
- }
- 
-atualizarBotao();
-btnCustom.classList.add('visivel');
-barra.classList.add('visivel');
+      wrapper.addEventListener('click', (e) => {
+        if (e.target === wrapper || e.target === barra || e.target === barraPreenchida) {
+          if (btnCustom.classList.contains('visivel')) esconderControlesAgora();
+          else mostrarControles();
+        }
+      });
 
-    video.addEventListener('play', () => {
+      btnCustom.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.paused ? video.play() : video.pause();
         atualizarBotao();
         mostrarControles();
-    });
+      });
 
-    video.addEventListener('pause', () => {
-        atualizarBotao();
-        mostrarControles();
-    });
- 
-video.addEventListener('click', (e) => {
-    if (!pressionando) {
-        if (btnCustom.classList.contains('visivel')) {
-            esconderControlesAgora();
-        } else {
-            mostrarControles();
-        }
-    }
-});
+      btnCustom.style.pointerEvents = 'auto';
 
-wrapper.addEventListener('click', (e) => {
-    if (e.target === wrapper || e.target === barra || e.target === barraPreenchida) {
-        if (btnCustom.classList.contains('visivel')) {
-            esconderControlesAgora();
-        } else {
-            mostrarControles();
-        }
-    }
-});
-
-btnCustom.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (video.paused) {
-        video.play();
-    } else {
-        video.pause();
-    }
-    atualizarBotao();
-    mostrarControles();
-});
-
- btnCustom.style.pointerEvents = 'auto';
-
-        video.addEventListener('touchstart', (e) => {
+      video.addEventListener('touchstart', (e) => {
         const rect = video.getBoundingClientRect();
         const y = e.touches[0].clientY - rect.top;
         const x = e.touches[0].clientX - rect.left;
-        const height = rect.height;
-        const width = rect.width;
-
-        if (y > height * 0.7 && x > width * 0.6) {
-            
-            esconderControlesAgora(); 
-
-            pressionando = true;
-            timerPressionar = setTimeout(() => {
-                if (pressionando) {
-                    video.playbackRate = 2.0;
-                }
-            }, 400);
+        if (y > rect.height * 0.7 && x > rect.width * 0.6) {
+          esconderControlesAgora();
+          pressionando = true;
+          timerPressionar = setTimeout(() => {
+            if (pressionando) video.playbackRate = 2.0;
+          }, 400);
         }
-    });
+      });
 
-    video.addEventListener('touchend', () => {
-        if (pressionando) {
-            video.playbackRate = 1.0;
-        }
+      video.addEventListener('touchend', () => {
+        if (pressionando) video.playbackRate = 1.0;
         pressionando = false;
         if (timerPressionar) clearTimeout(timerPressionar);
-    });
+      });
 
-    video.addEventListener('touchmove', () => {
-        if (pressionando) {
-            video.playbackRate = 1.0;
-        }
+      video.addEventListener('touchmove', () => {
+        if (pressionando) video.playbackRate = 1.0;
         pressionando = false;
         if (timerPressionar) clearTimeout(timerPressionar);
+      });
     });
-});
+  </script>
 
-  document.querySelectorAll('.modal-content').forEach(modal => {
-
-    modal.addEventListener('touchstart', (e) => {
-        if (e.touches.length > 1) {
-            modal.classList.add('modo-zoom');
-        }
-    }, { passive: true });
-
-    modal.addEventListener('touchend', () => {
-        modal.classList.remove('modo-zoom');
-    }, { passive: true });
-
-    modal.addEventListener('touchcancel', () => {
-        modal.classList.remove('modo-zoom');
-    }, { passive: true });
-
-});
-</script>
-
-<div id="toast-notif" class="toast">Link copiado! &lt;3</div>
+  <div id="toast-notif" class="toast">Link copiado! &lt;3</div>
+</div>
 </body>
-</html>
+</html> 
