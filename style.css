@@ -695,6 +695,7 @@ video {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+  animation-play-state: var(--anim-play-state, running);
   animation: girar 2s linear infinite; 
   will-change: --angle;
 }
