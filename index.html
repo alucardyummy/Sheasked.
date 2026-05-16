@@ -980,6 +980,24 @@ btnCustom.addEventListener('click', (e) => {
         if (timerPressionar) clearTimeout(timerPressionar);
     });
 });
+
+  document.querySelectorAll('.modal-content').forEach(modal => {
+
+    modal.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 1) {
+            modal.classList.add('modo-zoom');
+        }
+    }, { passive: true });
+
+    modal.addEventListener('touchend', () => {
+        modal.classList.remove('modo-zoom');
+    }, { passive: true });
+
+    modal.addEventListener('touchcancel', () => {
+        modal.classList.remove('modo-zoom');
+    }, { passive: true });
+
+});
 </script>
 
 <div id="toast-notif" class="toast">Link copiado! &lt;3</div>
