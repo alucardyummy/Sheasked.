@@ -259,6 +259,8 @@
   <script>
     const bgMusic = new Audio('audio/Mii Editor - Mii Maker (Wii U) Music.mp3');
     const woohoo = new Audio('audio/woohoo.mp3');
+    const nono = new Audio('audio/nono.mp3');
+   nono.volume = 1.0;
     bgMusic.loop = true;
     bgMusic.volume = 0.05;
 
@@ -277,7 +279,11 @@
         if (jaAconteceu) return;
         gifClicks++;
 
-        if (gifClicks === 2 && hintCat) hintCat.style.opacity = "1";
+        if (gifClicks === 2 && hintCat) {
+  hintCat.style.opacity = "1";
+  nono.currentTime = 0;
+  nono.play().catch(() => {});
+        }
 
         if ([1, 3, 4].includes(gifClicks)) {
           document.getElementById('wrapper-principal').classList.add('tremidinha-ativa');
