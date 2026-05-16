@@ -843,18 +843,22 @@ function criarPoeiraLivre(x, y) {
 
 document.querySelectorAll('.modal-content').forEach(modal => {
     let zoomAtivo = false;
+    let dedosNaTela = 0;
+    let timerZoom = null;
 
     modal.addEventListener('touchstart', (e) => {
+        dedosNaTela = e.touches.length;
+
         if (e.touches.length > 1) {
             zoomAtivo = true;
-            
+
             if (cursor.parentNode) {
                 cursor._displayAntigo = cursor.style.display;
                 cursor.remove();
             }
-            
+
             document.body.style.setProperty('--anim-play-state', 'paused');
-            
+
             document.querySelectorAll('.back-to-top, #mute-control, .poeira-cosmica, .heart-particle, .pop-bubble-original, .pop-bubble-fumaca').forEach(el => {
                 el._displayAntigo = el.style.display;
                 el.style.display = 'none';
@@ -862,23 +866,21 @@ document.querySelectorAll('.modal-content').forEach(modal => {
         }
     }, { passive: true });
 
-        let timerZoom = null;
-
     modal.addEventListener('touchend', (e) => {
         dedosNaTela = e.touches.length;
-        
+
         if (zoomAtivo && dedosNaTela === 0) {
             clearTimeout(timerZoom);
             timerZoom = setTimeout(() => {
                 zoomAtivo = false;
-                
+
                 if (!document.body.contains(cursor)) {
                     document.body.appendChild(cursor);
                     cursor.style.display = cursor._displayAntigo || '';
                 }
-                
+
                 document.body.style.setProperty('--anim-play-state', 'running');
-                
+
                 document.querySelectorAll('.back-to-top, #mute-control, .poeira-cosmica, .heart-particle, .pop-bubble-original, .pop-bubble-fumaca').forEach(el => {
                     if (el._displayAntigo !== undefined) {
                         el.style.display = el._displayAntigo;
@@ -887,6 +889,11 @@ document.querySelectorAll('.modal-content').forEach(modal => {
             }, 600);
         }
     }, { passive: true });
+
+    modal.addEventListener('touchmove', (e) => {
+        dedosNaTela = e.touches.length;
+    }, { passive: true });
+});
   </script>
 
   <div id="toast-notif" class="toast">Link copiado! &lt;3</div>
