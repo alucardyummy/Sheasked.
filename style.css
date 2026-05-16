@@ -695,8 +695,11 @@ video {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   animation-play-state: var(--anim-play-state, running);
-  animation: girar 2s linear infinite; 
   will-change: --angle;
 }
 
