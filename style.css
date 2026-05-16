@@ -483,6 +483,7 @@ body.vibe-rosa::after {
     position: fixed;
     inset: 0;
     display: flex;
+    touch-action: pinch-zoom;
     justify-content: center;
     align-items: center;
     overflow-y: auto;
@@ -516,6 +517,7 @@ body.vibe-rosa::after {
     position: relative;
     background: #000;
     width: 90%;
+    touch-action: pinch-zoom pan-y;
     max-width: 500px;
     max-height: 85vh;
     border: 1px solid rgba(62, 198, 184, 0.4);
@@ -878,12 +880,12 @@ video {
 
 body.modal-aberto {
     overflow: hidden;
-    touch-action: pan-x pan-y;
 }
 
 body:not(.modal-aberto) {
     touch-action: manipulation;
 }
+
 .toast {
     position: fixed;
     bottom: 30px;
