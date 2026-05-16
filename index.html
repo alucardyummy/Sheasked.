@@ -380,15 +380,19 @@
 
     } else if (sorteio < 0.75) {
       const computedTop = rect.top + window.scrollY;
+      const computedLeft = rect.left + window.scrollX;
+
       coracao.style.animation = 'none';
       coracao.style.position = 'absolute';
       coracao.style.top = computedTop + 'px';
-      coracao.style.left = (rect.left + window.scrollX) + 'px';
+      coracao.style.left = computedLeft + 'px';
+      coracao.style.transform = 'translate(0, 0) scale(1)';
       coracao.style.opacity = '0.9';
-      requestAnimationFrame(() => {
-        coracao.classList.add('vibe-poeira');
-        setTimeout(() => coracao.remove(), 1000);
-      });
+
+      coracao.offsetHeight; 
+
+      coracao.classList.add('vibe-poeira');
+      setTimeout(() => coracao.remove(), 1000);
 
     } else {
       coracao.style.animation = 'none';
@@ -396,6 +400,7 @@
       coracao.style.top = (rect.top + window.scrollY) + 'px';
       coracao.style.left = (rect.left + window.scrollX) + 'px';
       coracao.style.opacity = '0.9';
+
       requestAnimationFrame(() => {
         coracao.classList.add('coracao-vira-fumaca');
         setTimeout(() => coracao.remove(), 1500);
