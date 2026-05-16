@@ -306,7 +306,7 @@
             loader.remove();
             bgMusic.pause();
             woohoo.currentTime = 0;
-            woohoo.volume = 0.40;
+            woohoo.volume = 0.4;
             woohoo.play().catch(() => {});
 
             for (let i = 0; i < 3; i++) {
@@ -322,6 +322,7 @@
 
             setTimeout(() => {
               document.body.classList.add('vibe-rosa');
+              woohoo.volume = 0.4;
               woohoo.play().catch(() => {});
               intervalCora = setInterval(() => {
                 if (easterEggAtivo) criarUmCoracao();
