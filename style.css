@@ -659,6 +659,7 @@ video {
   width: 55px; height: 55px;
   background: rgba(10, 10, 10, 0.6); 
   border-radius: 50%;
+  border: none;
   color: #3ec6b8;
   font-size: 24px;
   font-weight: bold;
