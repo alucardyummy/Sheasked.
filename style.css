@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
 
-@font-face {
-  font-family: 'LemonMilk';
-  src: url('fonts/LEMONMILK-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
@@ -144,7 +137,8 @@ body.vibe-rosa::after {
 }
 
 .hero h1 {
-  font-family: 'LemonMilk', sans-serif;
+  font-family: "Futura", "Century Gothic", "Avenir Next", "Trebuchet MS", Arial, sans-serif;
+  font-weight: 800;
   font-size: 2.1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -696,6 +690,8 @@ video {
   mask-composite: exclude;
   pointer-events: none;
   animation: girar 2s linear infinite; 
+  .back-to-top::before {
+  animation-play-state: var(--anim-play-state, running);
   will-change: --angle;
 }
 
