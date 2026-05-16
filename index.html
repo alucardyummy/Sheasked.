@@ -449,8 +449,7 @@
 
     function pausarAnimacoesHeavy() {
 
-      document.querySelectorAll('.card-glow').forEach(el => {
-        el.style.animationPlayState = 'paused';
+      document.body.style.setProperty('--anim-play-state', 'paused');
       });
 
       document.body.classList.add('modal-ativo');
@@ -461,8 +460,7 @@
     }
 
     function retornarAnimacoesHeavy() {
-      document.querySelectorAll('.card-glow').forEach(el => {
-        el.style.animationPlayState = 'running';
+      document.body.style.setProperty('--anim-play-state', 'running');
       });
       document.body.classList.remove('modal-ativo');
     }
