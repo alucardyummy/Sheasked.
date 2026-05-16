@@ -47,8 +47,8 @@ body::before {
 }
 
 body.modal-ativo::before {
-  will-change: auto;
-  transform: none;
+  opacity: 0;
+  transition: opacity 0.1s;
 }
 
 body::after {
@@ -398,6 +398,8 @@ body.vibe-rosa::after {
     transparent 100%
   );
   animation: girar 6s linear infinite;
+  animation: girar 6s linear infinite;
+  animation-play-state: var(--anim-play-state, running);
   opacity: 0.9;
   will-change: --angle;
 }
@@ -471,6 +473,8 @@ body.vibe-rosa::after {
   transform: translateZ(0);
   backface-visibility: hidden;
   transition: opacity 0.18s ease, transform 0.18s ease;
+  contain: paint;
+  -webkit-contain: paint;
 }
 
 .modal-overlay.fechando .modal-content {
