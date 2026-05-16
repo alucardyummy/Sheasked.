@@ -40,7 +40,6 @@ body::before {
     background-size: cover;
     z-index: -10;
     transform: scale(1.02);
-    will-change: transform;
     filter: brightness(1);
 }
 
@@ -523,8 +522,6 @@ pointer-events: none;
     -webkit-overflow-scrolling: touch;
     -webkit-font-smoothing: antialiased;
     margin: 20px 0;
-    transform: translateZ(0);
-    backface-visibility: hidden;
     transition: opacity 0.18s ease;
 }
 
@@ -674,10 +671,13 @@ pointer-events: none;
     color: #fff;
 }
 
-.modal-content.modo-zoom,
-.modal-content.modo-zoom * {
-    animation: none !important;
-    transition: none !important;
+.modal-content.modo-zoom .card-glow,
+.modal-content.modo-zoom .video-preview-container,
+.modal-content.modo-zoom .video-faixinha-speed,
+.modal-content.modo-zoom .poeira-cosmica {
+animation: none !important;
+transition: none !important;
+display: none !important;
 }
 
 .modal-content.modo-zoom .video-preview-container,
@@ -887,10 +887,6 @@ video {
 
 body.modal-aberto {
     overflow: hidden;
-}
-
-body:not(.modal-aberto) {
-    touch-action: manipulation;
 }
 
 .toast {
