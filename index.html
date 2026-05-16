@@ -260,7 +260,7 @@
     const bgMusic = new Audio('audio/Mii Editor - Mii Maker (Wii U) Music.mp3');
     const woohoo = new Audio('audio/woohoo.mp3');
     const nono = new Audio('audio/nono.mp3');
-   nono.volume = 0.28;
+   nono.volume = 0.29;
     bgMusic.loop = true;
     bgMusic.volume = 0.05;
 
@@ -280,9 +280,10 @@
         gifClicks++;
 
         if (gifClicks === 2 && hintCat) {
-  hintCat.style.opacity = "1";
-  nono.currentTime = 0;
-  nono.play().catch(() => {});
+     hintCat.style.opacity = "1";
+     nono.currentTime = 0;
+     nono.volume = 0.29;
+     nono.play().catch(() => {});
         }
 
         if ([1, 3, 4].includes(gifClicks)) {
