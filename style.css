@@ -39,10 +39,8 @@ body::before {
     background: url('img/fundinho.webp') no-repeat center center;
     background-size: cover;
     z-index: -10;
-    transform: translateZ(0) scale(1.02);
+    transform: scale(1.02);
     will-change: transform;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
     filter: brightness(1);
 }
 
@@ -64,8 +62,6 @@ body::after {
     pointer-events: none;
     transform: translateZ(0);
     will-change: opacity;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
 }
 
 body.vibe-rosa::after {
@@ -291,8 +287,6 @@ body.vibe-rosa::after {
     filter: drop-shadow(0 0 8px rgba(62, 198, 184, 0.5));
     opacity: 0;
     transition: opacity 0.5s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
 }
 
 .grid {
@@ -364,9 +358,6 @@ body.vibe-rosa::after {
     text-align: center;
     position: relative;
     z-index: 10;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
 }
 
  .card-icon {
@@ -488,6 +479,7 @@ body.vibe-rosa::after {
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
     z-index: 2000;
     opacity: 0;
@@ -496,15 +488,16 @@ body.vibe-rosa::after {
     transition:
     opacity 0.35s ease,
         visibility 0.35s ease;
-        background:
-        rgba(0,0,0,0.72)
-        url('img/blurzinho.webp')
-        center center / cover
-        no-repeat;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    will-change: opacity;
+    background: rgba(0,0,0,0.82);
+}
+
+.modal-overlay::before {
+content: "";
+position: absolute;
+inset: 0;
+background: url('img/blurzinho.webp') center/cover no-repeat;
+opacity: .15;
+pointer-events: none;
 }
 
 .modal-overlay.ativo {
@@ -526,14 +519,13 @@ body.vibe-rosa::after {
     overflow-y: auto;
     overflow-x: hidden;
     color: #fff;
+    overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
     -webkit-font-smoothing: antialiased;
     margin: 20px 0;
     transform: translateZ(0);
     backface-visibility: hidden;
-    transition:
-        opacity 0.18s ease,
-        transform 0.18s ease;
+    transition: opacity 0.18s ease;
 }
 
 .modal-overlay.fechando .modal-content {
@@ -682,6 +674,23 @@ body.vibe-rosa::after {
     color: #fff;
 }
 
+.modal-content.modo-zoom,
+.modal-content.modo-zoom * {
+    animation: none !important;
+    transition: none !important;
+}
+
+.modal-content.modo-zoom .video-preview-container,
+.modal-content.modo-zoom .video-faixinha-speed,
+.modal-content.modo-zoom .video-btn-custom,
+.modal-content.modo-zoom .poeira-cosmica {
+    display: none !important;
+}
+
+.modal-content.modo-zoom video {
+    pointer-events: none;
+}
+
 .proibido {
     user-select: none;
     -webkit-user-drag: none;
@@ -689,18 +698,16 @@ body.vibe-rosa::after {
 }
 
 .efeito-entrada {
-    animation: entradaSimples 0.4s ease-out forwards;
+animation: fadeModal 0.25s ease-out forwards;
 }
 
-@keyframes entradaSimples {
-    0% {
-        opacity: 0;
-        transform: scale(0.98);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+@keyframes fadeModal {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
 }
 
 .poeira-cosmica {
@@ -1129,7 +1136,6 @@ body:not(.modal-aberto) {
     overflow: hidden;
     display: inline-block;
     width: 100%;
-    transition: opacity 0.17s ease;
 }
 
 .step-video::-webkit-media-controls-play-button,
@@ -1165,7 +1171,9 @@ video::-webkit-media-controls-start-playback-button {
     background: #3ec6b8;
     border-radius: 2px;
     width: 0%;
-    transition: width 0.1s linear;
+    will-change: transform;
+    transform-origin: left center;
+    transition: none;
 }
 
 .video-preview-container {
