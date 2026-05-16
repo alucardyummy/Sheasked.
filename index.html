@@ -112,7 +112,6 @@
     </section>
   </main>
 
-  <!-- MODAL: Download -->
   <div class="modal-overlay" id="modal-download">
     <div class="modal-content efeito-entrada">
       <button class="btn-fechar" onclick="fecharModal('modal-download')">×</button>
@@ -137,7 +136,6 @@
     </div>
   </div>
 
-  <!-- MODAL: Instalação -->
   <div class="modal-overlay" id="modal-instalacao">
     <div class="modal-content efeito-entrada">
       <button class="btn-fechar" onclick="fecharModal('modal-instalacao')">×</button>
@@ -161,7 +159,6 @@
     </div>
   </div>
 
-  <!-- MODAL: Configuração -->
   <div class="modal-overlay" id="modal-configuracao">
     <div class="modal-content efeito-entrada">
       <button class="btn-fechar" onclick="fecharModal('modal-configuracao')">×</button>
@@ -183,7 +180,6 @@
     </div>
   </div>
 
-  <!-- MODAL: Mods -->
   <div class="modal-overlay" id="modal-mods">
     <div class="modal-content efeito-entrada">
       <button class="btn-fechar" onclick="fecharModal('modal-mods')">×</button>
@@ -199,7 +195,7 @@
       </video>
       <code class="modal-codigo">Isso faz com que, ao entrar no jogo, os mods sejam reconhecidos.</code>
       <p class="modal-subtitulo">Onde encontrar Roupas/Cabelos etc (CC):</p>
-      <p class="modal-texto">Para mods de roupas/cabelos/detalhes de skin, pesquise no Pinterest ou no Patreon. Recomendo o Pinterest pra ter uma gama melhor dos conteúdos desejados, normalmente os links linkados em imagens/videos no Pinterest, levam ao Tumblr/Patreon e lá irá ter os arquivos para download. O processo para o ts4 reconhecer os mods é; extrair o arquivo caso venha zipado (.zip) através do ZArchiver e pegar os arquivos .packages e levar até a pasta Mods em <i>Documents/Eletronic Arts/The Sims 4/Mods,</i> assim como no tutorial abaixo.</p>
+      <p class="modal-texto">Para mods de roupas/cabelos/detalhes de skin, pesquise no Pinterest ou no Patreon. Recomendo o Pinterest pra ter uma gama melhor dos conteúdos desejados, normalmente os links linkados em imagens/videos no Pinterest, levam ao Tumblr/Patreon e lá irá ter os arquivos para download. O processo para o ts4 reconhecer os mods é: extrair o arquivo caso venha zipado (.zip) através do ZArchiver e pegar os arquivos .packages e levar até a pasta Mods em <i>Documents/Eletronic Arts/The Sims 4/Mods,</i> assim como no tutorial abaixo.</p>
       <p class="modal-subtitulo">Como Colocar Mods:</p>
       <video class="step-video" controls playsinline disablePictureInPicture controlsList="nodownload">
         <source src="video/ColocarMods-demonstrativo.mp4" type="video/mp4">
@@ -223,7 +219,6 @@
     </div>
   </div>
 
-  <!-- MODAL: Tradução -->
   <div class="modal-overlay" id="modal-traducoes">
     <div class="modal-content efeito-entrada">
       <button class="btn-fechar" onclick="fecharModal('modal-traducoes')">×</button>
@@ -236,7 +231,6 @@
     </div>
   </div>
 
-  <!-- MODAL: Contêiner -->
   <div class="modal-overlay" id="modal-contêiner">
     <div class="modal-content efeito-entrada">
       <button class="btn-fechar" onclick="fecharModal('modal-contêiner')">×</button>
@@ -453,18 +447,14 @@
 
     let modalAtual = null;
 
-    /* ─────────────────────────────────────────────────────
-       CORREÇÃO DE PERFORMANCE: helpers para pausar/retomar
-       animações pesadas enquanto o modal está aberto
-    ───────────────────────────────────────────────────── */
     function pausarAnimacoesHeavy() {
-      // Para os card-glows (conic-gradient animado = caro no zoom)
+
       document.querySelectorAll('.card-glow').forEach(el => {
         el.style.animationPlayState = 'paused';
       });
-      // Desativa will-change no fundo fixo (libera camada de composição)
+
       document.body.classList.add('modal-ativo');
-      // Esconde previews de vídeo abertas
+
       document.querySelectorAll('.video-preview-container').forEach(v => {
         v.style.display = 'none';
       });
@@ -476,7 +466,6 @@
       });
       document.body.classList.remove('modal-ativo');
     }
-    /* ───────────────────────────────────────────────────── */
 
     function abrirModal(id, element) {
       const modal = document.getElementById(id);
@@ -488,11 +477,9 @@
       modal.querySelectorAll('.video-wrapper').forEach(v => v.style.opacity = '1');
       document.body.style.overflow = 'hidden';
 
-      // Libera zoom apenas dentro do modal
       const viewport = document.querySelector('meta[name="viewport"]');
       if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
 
-      // Pausa animações pesadas para zoom fluido
       pausarAnimacoesHeavy();
 
       history.pushState({ modalId: id }, '', `#${id}`);
@@ -526,7 +513,6 @@
           modal.classList.remove('fechando');
           document.body.style.overflow = 'auto';
 
-          // Revoga zoom ao fechar o modal
           const viewport = document.querySelector('meta[name="viewport"]');
           if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
 
@@ -534,7 +520,6 @@
 
           if (modalAtual === id) modalAtual = null;
 
-          // Retoma animações pesadas
           retornarAnimacoesHeavy();
 
           modal.removeEventListener('transitionend', limparAposFechar);
@@ -670,13 +655,12 @@
       videoGhost.crossOrigin = "anonymous";
       videoGhost.load();
 
-      // CORREÇÃO: canvas menor para preview (reduz custo de drawImage no zoom)
       const ctx = previewCanvas.getContext('2d', { alpha: false });
       previewCanvas.width = 120;
       previewCanvas.height = 68;
 
       videoGhost.addEventListener('seeked', () => {
-        // Só desenha se o preview estiver visível (evita drawImage desnecessário)
+
         if (previewContainer.style.display !== 'none') {
           ctx.drawImage(videoGhost, 0, 0, previewCanvas.width, previewCanvas.height);
         }
