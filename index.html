@@ -840,6 +840,47 @@ function criarPoeiraLivre(x, y) {
         if (timerPressionar) clearTimeout(timerPressionar);
       });
     });
+
+document.querySelectorAll('.modal-content').forEach(modal => {
+    let zoomAtivo = false;
+
+    modal.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 1) {
+            zoomAtivo = true;
+            
+            if (cursor.parentNode) {
+                cursor._displayAntigo = cursor.style.display;
+                cursor.remove();
+            }
+            
+            document.body.style.setProperty('--anim-play-state', 'paused');
+            
+            document.querySelectorAll('.back-to-top, #mute-control, .poeira-cosmica, .heart-particle, .pop-bubble-original, .pop-bubble-fumaca').forEach(el => {
+                el._displayAntigo = el.style.display;
+                el.style.display = 'none';
+            });
+        }
+    }, { passive: true });
+
+    modal.addEventListener('touchend', (e) => {
+        if (zoomAtivo && e.touches.length < 2) {
+            zoomAtivo = false;
+            
+            if (!document.body.contains(cursor)) {
+                document.body.appendChild(cursor);
+                cursor.style.display = cursor._displayAntigo || '';
+            }
+            
+            document.body.style.setProperty('--anim-play-state', 'running');
+            
+            document.querySelectorAll('.back-to-top, #mute-control, .poeira-cosmica, .heart-particle, .pop-bubble-original, .pop-bubble-fumaca').forEach(el => {
+                if (el._displayAntigo !== undefined) {
+                    el.style.display = el._displayAntigo;
+                }
+            });
+        }
+    }, { passive: true });
+});
   </script>
 
   <div id="toast-notif" class="toast">Link copiado! &lt;3</div>
