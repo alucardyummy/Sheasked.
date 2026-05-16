@@ -270,6 +270,8 @@
     let jaAconteceu = false;
     let intervalCora;
 
+    let viewportOriginal = '';
+   
     if (nhawGif) {
       nhawGif.addEventListener('click', () => {
         if (jaAconteceu) return;
@@ -472,7 +474,10 @@ function retornarAnimacoesHeavy() {
       document.body.style.overflow = 'hidden';
 
       const viewport = document.querySelector('meta[name="viewport"]');
-      if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
+      if (viewport) {
+    viewportOriginal = viewport.getAttribute('content');
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes');
+  }
 
       pausarAnimacoesHeavy();
 
@@ -508,11 +513,12 @@ function retornarAnimacoesHeavy() {
           document.body.style.overflow = 'auto';
 
           const viewport = document.querySelector('meta[name="viewport"]');
-          if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-
+        if (viewport && viewportOriginal) {
+      viewport.setAttribute('content', viewportOriginal);
+    }
           modal.querySelectorAll('video').forEach(v => v.pause());
 
-          if (modalAtual === id) modalAtual = null;
+        if (modalAtual === id) modalAtual = null;
 
           retornarAnimacoesHeavy();
 
