@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
 
 @font-face {
   font-family: 'LemonMilk';
@@ -696,8 +696,6 @@ video {
   mask-composite: exclude;
   pointer-events: none;
   animation: girar 2s linear infinite; 
-  .back-to-top::before {
-  animation-play-state: var(--anim-play-state, running);
   will-change: --angle;
 }
 
@@ -1003,4 +1001,4 @@ video::-webkit-media-controls-start-playback-button { display: none !important; 
   font-weight: 500;
   text-shadow: 0 1px 2px rgba(0,0,0,0.8);
   user-select: none;
-}
+} 
