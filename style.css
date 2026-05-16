@@ -683,13 +683,10 @@ video {
   padding: 2px;
   background: conic-gradient(
     from var(--angle),
-    transparent 0%,
-    rgba(255, 255, 255, 0.15) 5%,
-    rgba(255, 255, 255, 0.95) 12%,
-    #ffffff 18%,
-    #ffffff 65%,
-    rgba(255, 255, 255, 0.95) 75%,
-    rgba(255, 255, 255, 0.15) 88%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.05) 65%, 
+    rgba(255, 255, 255, 0.3) 80%, 
+    rgba(255, 255, 255, 0.4) 90%,
     transparent 100%
 );
   -webkit-mask: 
